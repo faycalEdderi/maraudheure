@@ -4,7 +4,9 @@ from .models import *
 from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm
 
-class CreateBenevoleForm(UserCreationForm):
+
+
+class CreateBenevoleForm(forms.ModelForm):
     email = forms.EmailField(
         label='Email :',
         required=True,

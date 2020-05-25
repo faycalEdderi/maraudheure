@@ -3,6 +3,8 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
+from django.contrib.auth.hashers import check_password
 
 from users.models import *
 from users.form import *
@@ -45,13 +47,32 @@ def create_benevole(request):
         if form.is_valid():
 
             email = request.POST['email']
-           
+          
             nom = request.POST['last_name']
             prenom = request.POST['first_name']
             mdp1 = request.POST['password1']
             mdp2 = request.POST['password2']
+            
+           
 
-            print("request : ", request.POST)
+    
+            new_benevole = Benevole(
+                username = nom + '_' + prenom,  
+                email = email, 
+                first_name = prenom,
+                last_name = nom,
+
+            )
+         
+            if mdp1 == mdp2:
+
+                new_benevole.set_password(mdp1)
+        
+                new_benevole.save()
+                print("user created")
+            else:
+                messages.error(request, "Les mots de passes ne sont pas identiques")
+                return redirect('create_benevole')
             '''
             send_mail(
                 'Votre compte a été créé',
@@ -72,8 +93,6 @@ def create_benevole(request):
 
         args = {
             'form': form,
-
-
         }
 
         return render(request, 'create_benevole.html', args)
