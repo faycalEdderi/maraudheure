@@ -20,5 +20,7 @@ from users import views as users_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', users_views.home, name='home'),
-    path('connexion', users_views.connexion, name='connexion')
+    path('connexion', users_views.connexion, name='connexion'), 
+    path('inscription', users_views.create_benevole, name='create_benevole')
+
 ]
