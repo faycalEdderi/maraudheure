@@ -53,9 +53,6 @@ def create_benevole(request):
             mdp1 = request.POST['password1']
             mdp2 = request.POST['password2']
             
-           
-
-    
             new_benevole = Benevole(
                 username = nom + '_' + prenom,  
                 email = email, 
@@ -96,6 +93,81 @@ def create_benevole(request):
         }
 
         return render(request, 'create_benevole.html', args)
+
+
+def create_association(request):
+
+    if request.method == 'POST':
+        form = CreateAssociationForm(request.POST)
+
+
+        print("Request : ", request.POST)
+        if form.is_valid():
+
+            email = request.POST['email']
+          
+            nom = request.POST['last_name']
+            prenom = request.POST['first_name']
+            mdp1 = request.POST['password1']
+            mdp2 = request.POST['password2']
+
+            num_rna = request.POST['num_rna']
+            nom_association = request.POST['nom_association']
+            siege = request.POST['siege_social']
+            date = request.POST['date_creation']
+            telephone = request.POST['phone_number']
+            
+            new_association = Association(
+                username = nom + '_' + prenom,  
+                email = email, 
+                first_name = prenom,
+                last_name = nom,
+
+                num_rna = num_rna,
+                nom_association = nom_association,
+                siege_social = siege,
+                date_creation = date,
+                phone_number = telephone
+
+
+            )
+         
+            if mdp1 == mdp2:
+
+                new_association.set_password(mdp1)
+        
+                new_association.save()
+                print("association created")
+            else:
+                messages.error(request, "Les mots de passes ne sont pas identiques")
+                return redirect('create_association')
+            '''
+            send_mail(
+                'Votre compte a été créé',
+                'Votre mdp : ' + mdp,
+                'Admin@expleogroup.com',
+                [email],
+                fail_silently=False,
+            )
+            '''
+            return redirect('connexion')
+        else:
+            messages.error(request, "Error")
+            return redirect('create_association')
+
+    else:
+        form = CreateAssociationForm()
+
+
+        args = {
+            'form': form,
+        }
+
+        return render(request, 'create_association.html', args)
+
+
+
+
 
 
 
