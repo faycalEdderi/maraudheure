@@ -50,15 +50,24 @@ def create_benevole(request):
           
             nom = request.POST['last_name']
             prenom = request.POST['first_name']
+            telephone = request.POST['phone_number']
+            ville = request.POST['ville']
+            adresse = request.POST['adresse']
             mdp1 = request.POST['password1']
             mdp2 = request.POST['password2']
+
+            select_role = Role.objects.get(role_name = "benevole" )
+            get_role = Role.objects.get(id = select_role.id )
             
             new_benevole = Benevole(
                 username = nom + '_' + prenom,  
                 email = email, 
                 first_name = prenom,
                 last_name = nom,
-
+                phone_number = telephone,
+                ville = ville,
+                adresse = adresse,
+                role=get_role
             )
          
             if mdp1 == mdp2:
@@ -69,7 +78,7 @@ def create_benevole(request):
                 print("user created")
             else:
                 messages.error(request, "Les mots de passes ne sont pas identiques")
-                return redirect('create_benevole')
+                return redirect('inscription_benevole')
             '''
             send_mail(
                 'Votre compte a été créé',
@@ -86,8 +95,6 @@ def create_benevole(request):
 
     else:
         form = CreateBenevoleForm()
-
-
         args = {
             'form': form,
         }
@@ -99,7 +106,6 @@ def create_association(request):
 
     if request.method == 'POST':
         form = CreateAssociationForm(request.POST)
-
 
         print("Request : ", request.POST)
         if form.is_valid():
@@ -116,20 +122,23 @@ def create_association(request):
             siege = request.POST['siege_social']
             date = request.POST['date_creation']
             telephone = request.POST['phone_number']
+
+            select_role = Role.objects.get(role_name = "association" )
+            get_role = Role.objects.get(id = select_role.id )
+
+            
             
             new_association = Association(
                 username = nom + '_' + prenom,  
                 email = email, 
                 first_name = prenom,
                 last_name = nom,
-
+                role=get_role,
                 num_rna = num_rna,
                 nom_association = nom_association,
                 siege_social = siege,
                 date_creation = date,
                 phone_number = telephone
-
-
             )
          
             if mdp1 == mdp2:

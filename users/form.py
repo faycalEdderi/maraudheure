@@ -46,28 +46,31 @@ class CreateBenevoleForm(forms.ModelForm):
         required=False,  
            
     )
+    ville = forms.CharField(
+        label="Ville",
+        required=False,  
+           
+    )
+    adresse = forms.CharField(
+        label="Adresse",
+        required=False,  
+           
+    )
 
     class Meta:
         model = Benevole
         fields = (
+            'email',
             'username',
             'first_name',
             'last_name',
-            'email',
             'password1',
             'password2',
-            'phone_number'
+            'phone_number',
+            'ville',
+            'adresse'
         )
 
-    def save(self, commit=True):
-        user = super(CreateBenevoleForm, self).save(commit=False)
-        user.first_name = self.cleaned_data['first_name']
-        user.last_name = self.cleaned_data['last_name']
-        user.email = self.cleaned_data['email']
-
-        if commit:
-            user.save()
-        return user
 
 class CreateAssociationForm(forms.ModelForm):
     email = forms.EmailField(
@@ -129,8 +132,6 @@ class CreateAssociationForm(forms.ModelForm):
         required=True,  
            
     )
-    
-
     class Meta:
         model = Association
         fields = (
@@ -145,5 +146,6 @@ class CreateAssociationForm(forms.ModelForm):
             'nom_association',
             'siege_social',
             'date_creation',
+            
             )
 
