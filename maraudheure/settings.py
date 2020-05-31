@@ -122,6 +122,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+LOGOUT_REDIRECT_URL = "home"
+LOGIN_URL = "home"
 
 #Rediriger vers la class EmailBackend (qui permet de se connecter avc sont adersse mail)
 AUTHENTICATION_BACKENDS = (

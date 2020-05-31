@@ -1,1 +1,9 @@
 <h1>HOME</h1>
+{% if user.is_authenticated %}
+<p>Bienvenue {{user.benevole.first_name}} {{user.benevole.last_name}}</p>
+<a class="nav-link" href="{% url 'logout' %}">
+    <p>Déconnexion</p>
+</a>
+
+{% endif %}
+
