@@ -12,9 +12,7 @@ from users.form import *
 def home(request):
     return render(request,'home.html')
 
-# Fonction d'affichage du profil
-def benevole_profil(request):
-    return render(request, "benevole_profil.html")
+
 
 def connexion(request):
 

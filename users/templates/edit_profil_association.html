@@ -1,0 +1,87 @@
+<form method="POST" >
+{% csrf_token %}
+
+  
+    <p>
+    {{form_edit_association.first_name.label}}
+    {{form_edit_association.first_name}}
+    {{form_edit_association.first_name.error}}
+    </p>
+
+    <p>{{ form_edit_association.username.as_hidden  }}</p>
+
+    <p>
+    {{form_edit_association.last_name.label}}
+    {{form_edit_association.last_name}}
+    {{form_edit_association.last_name.error}}
+    </p>
+
+    <p>
+    {{form_edit_association.email.label}}
+    {{form_edit_association.email}}
+    {{form_edit_association.email.error}}
+    </p>
+
+    <p>
+    {{form_edit_association.phone_number.label}}
+    {{form_edit_association.phone_number}}
+    </p>
+
+    <p>
+    {{form_edit_association.ville.label}}
+    {{form_edit_association.ville}}
+    </p>
+
+    <p>
+    {{form_edit_association.adresse.label}}
+    {{form_edit_association.adresse}}
+    </p>
+
+    
+
+    <p>
+    {{form_edit_association.num_rna.label}}
+    {{form_edit_association.num_rna.error}}
+    {{form_edit_association.num_rna}}
+    </p>
+
+<p>
+    {{form_edit_association.nom_association.label}}
+    {{form_edit_association.nom_association.error}}
+    {{form_edit_association.nom_association}}
+    </p>
+
+<p>
+    {{form_edit_association.siege_social.label}}
+    {{form_edit_association.siege_social.error}}
+    {{form_edit_association.siege_social}}
+    </p>
+
+
+<p>
+    {{form_edit_association.date_creation.label}}
+    {{form_edit_association.date_creation.error}}
+    {{form_edit_association.date_creation}}
+    </p>
+
+
+    
+
+     
+
+
+    
+    
+
+
+    
+
+
+    
+
+
+
+
+
+    <button type="submit">Valider</button>
+</form>
