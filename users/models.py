@@ -16,6 +16,7 @@ class Benevole(User):
 
     role = models.ForeignKey(Role, null=True, on_delete=models.CASCADE)
 
+
     phone_number = models.CharField(
         max_length= 10,
         blank=True, 

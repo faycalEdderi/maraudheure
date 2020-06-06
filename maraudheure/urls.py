@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django.urls import path
 from users import views as users_views
+from maraude import views as maraude_views
+
 
 from django.contrib.auth.views import (
     LogoutView, 
@@ -23,6 +25,9 @@ urlpatterns = [
     path('profil/modification/association', users_views.edit_association, name='edit_association'),
     path('inscription/benevole', users_views.create_benevole, name='create_benevole'),
     path('inscription/association', users_views.create_association, name='inscription_association'),
+
+    # URL app maraude
+    path('creation/maraude', maraude_views.create_maraude, name='create_maraude'),
   
 
 ]

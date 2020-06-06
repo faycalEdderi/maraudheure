@@ -1,6 +1,7 @@
 <h1>HOME</h1>
 {% if user.is_authenticated %}
 <p>Bienvenue {{user.benevole.first_name}} {{user.benevole.last_name}}</p>
+<p>Bienvenue {{user.association.role}} </p>
 <a class="nav-link" href="{% url 'logout' %}">
     <p>Déconnexion</p>
 </a>
