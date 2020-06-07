@@ -1,3 +1,21 @@
+{% extends 'theme.html' %}
+{% load static %}
+{% block content %}
+<div class="content-creation-wrapper-left">
+    <div class="content-creation-title-left">
+        <h1 class="title-left">
+            Donnez-vous du pouvoir, <br/> devenez bénévole
+        </h1>
+    </div>
+    <div class="content-creation-image">
+        <img
+        src="{% static 'images/personnage_logo.png' %}" 
+        alt="Header Image"
+        class="header-image"
+        />
+    </div>
+</div>
+<div class="content-wrapper-right">
 {% for message in messages %}
     <div class="alert alert-success">
         <a class="close" href="#" data-dismiss="alert">×</a>
@@ -13,74 +31,48 @@
         {% endfor %}
     {% endfor %}
 {% endif %}
-
-<form method="POST">    
-    {% csrf_token %}
+    <form method="POST" class="content-creation-form">
+     {% csrf_token %}
     
-    <p>
-    {{form.first_name.label}}
-    {{form.first_name}}
-    {{form.first_name.error}}
-    </p>
-
-    <p>{{ form_user.username.as_hidden  }}</p>
-
-    <p>
-    {{form.last_name.label}}
-    {{form.last_name}}
-    {{form.last_name.error}}
-    </p>
-
-    <p>
-    {{form.email.label}}
-    {{form.email}}
-    {{form.email.error}}
-    </p>
-
-    <p>
-    {{form.phone_number.label}}
-    {{form.phone_number}}
-    </p>
-
-    <p>
-    {{form.ville.label}}
-    {{form.ville}}
-    </p>
-
-    <p>
-    {{form.adresse.label}}
-    {{form.adresse}}
-    </p>
-
-    <p>
-    {{form.password1.label}}
-    {{form.password1}}
-    {{form.password1.error}}
-    </p>
-
-    <p>
-    {{form.password2.label}}
-    {{form.password2.error}}
-    {{form.password2}}
-    </p>
+        <h1 class="content-creation-title-right">
+            Créer un compte
+        </h1>
+        
+        <div class="content-creation-fullname">
+            <div class="content-creation-input">
+                {{form.last_name.label}}
+                {{form.last_name}}
+                {{form.last_name.error}}
+            </div>
+            <div class="content-creation-input">
+                {{form.first_name.label}}
+                {{form.first_name}}
+                {{form.first_name.error}}
+            </div>
+        </div>
+        <div class="content-creation-input">
+            {{form.email.label}}
+            {{form.email}}
+            {{form.email.error}}
+        </div>
+        <div class="content-creation-input">
+            {{form.password1.label}}
+            {{form.password1}}
+            {{form.password1.error}}
+        </div>
+        <div class="content-creation-input">
+            {{form.password2.label}}
+            {{form.password2.error}}
+            {{form.password2}}
+        </div>
+        <div class="content-creation-forget">
+            <a href="#" class="content-creation-password">Mot de passe oublié ?</a>
+        </div>
+        <input type="submit" value="Valider" class="form-btn"/>
+    </form>
+</div>
+       
+            <!-- End of Content -->
+{% endblock content %}
 
 
-    
-
-     
-
-
-    
-    
-
-
-    
-
-
-    
-
-    
-    
-    <button type="submit">Valider</button>
-
-</form> 

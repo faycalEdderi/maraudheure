@@ -52,9 +52,6 @@ def create_benevole(request):
           
             nom = request.POST['last_name']
             prenom = request.POST['first_name']
-            telephone = request.POST['phone_number']
-            ville = request.POST['ville']
-            adresse = request.POST['adresse']
             mdp1 = request.POST['password1']
             mdp2 = request.POST['password2']
 
@@ -66,9 +63,6 @@ def create_benevole(request):
                 email = email, 
                 first_name = prenom,
                 last_name = nom,
-                phone_number = telephone,
-                ville = ville,
-                adresse = adresse,
                 role=get_role
             )
          

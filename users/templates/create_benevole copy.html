@@ -1,0 +1,86 @@
+{% for message in messages %}
+    <div class="alert alert-success">
+        <a class="close" href="#" data-dismiss="alert">×</a>
+
+        <p class="text-center" >{{ message }}</p> 
+
+    </div>
+{% endfor %}
+{% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <p> {{ error }} </p>
+        {% endfor %}
+    {% endfor %}
+{% endif %}
+
+<form method="POST">    
+    {% csrf_token %}
+    
+    <p>
+    {{form.first_name.label}}
+    {{form.first_name}}
+    {{form.first_name.error}}
+    </p>
+
+    <p>{{ form_user.username.as_hidden  }}</p>
+
+    <p>
+    {{form.last_name.label}}
+    {{form.last_name}}
+    {{form.last_name.error}}
+    </p>
+
+    <p>
+    {{form.email.label}}
+    {{form.email}}
+    {{form.email.error}}
+    </p>
+
+    <p>
+    {{form.phone_number.label}}
+    {{form.phone_number}}
+    </p>
+
+    <p>
+    {{form.ville.label}}
+    {{form.ville}}
+    </p>
+
+    <p>
+    {{form.adresse.label}}
+    {{form.adresse}}
+    </p>
+
+    <p>
+    {{form.password1.label}}
+    {{form.password1}}
+    {{form.password1.error}}
+    </p>
+
+    <p>
+    {{form.password2.label}}
+    {{form.password2.error}}
+    {{form.password2}}
+    </p>
+
+
+    
+
+     
+
+
+    
+    
+
+
+    
+
+
+    
+
+    
+    
+    <button type="submit">Valider</button>
+
+</form> 
