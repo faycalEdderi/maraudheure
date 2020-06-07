@@ -28,6 +28,9 @@ urlpatterns = [
 
     # URL app maraude
     path('creation/maraude', maraude_views.create_maraude, name='create_maraude'),
+    path('afficher/maraudes', maraude_views.maraude_list, name='maraude_list'),
+    path('afficher/maraude/<int:pk>/', maraude_views.maraude_detail, name='maraude_detail'),
+    path('inscription/maraude/<int:pk>/', maraude_views.inscription_maraude, name='inscription_maraude'),
   
 
 ]

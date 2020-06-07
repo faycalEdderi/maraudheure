@@ -7,6 +7,7 @@ from maraude.models import *
 from maraude.form import *
 
 
+
 def create_maraude(request):
 
     if request.method == 'POST':

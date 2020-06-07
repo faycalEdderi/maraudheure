@@ -13,9 +13,9 @@ class Maraude(models.Model):
     association =  models.ForeignKey(Association,default = "",on_delete=models.CASCADE,blank=True,
                                   null=True)
     
-    benevole = models.ForeignKey(Benevole,default = "",on_delete=models.CASCADE,blank=True,
-                                  null=True)
-    
+    benevole = models.ManyToManyField(Benevole,blank=True,null=True)
+   
 
     def __str__(self):
         return str(self.date ) + " " + str(self.association)
+

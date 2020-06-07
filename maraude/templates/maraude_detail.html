@@ -1,0 +1,22 @@
+<h1>Detail de la Maraudes</h1>
+<table class="table">
+    <thead class=" expleoColorT">
+        <th>Association</th>
+        <th>Date de maraude</th>
+        <th>Description</th>
+
+    </thead>
+    <tbody>
+    
+        <tr>
+            <td><a href="#">{{maraude.association}}</a></td>
+            <td>{{maraude.date}}</td>
+            <td>{{maraude.description}}</td>
+        
+        </tr>
+   
+    </tbody>
+</table>
+<form action="{% url 'inscription_maraude' maraude.id %}">
+    <button>Inscription</button>
+</form>
