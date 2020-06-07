@@ -1,3 +1,6 @@
+{% extends 'theme.html' %}
+{% load static %}
+{% block content %}
 <form method="POST" >
 {% csrf_token %}
 
@@ -63,7 +66,7 @@
     {{form_edit_association.date_creation.error}}
     {{form_edit_association.date_creation}}
     </p>
-
+{% endblock content %}
 
     
 

@@ -2,12 +2,25 @@
 
     <nav class="navbar center">
         <div class="navbar-logo">
-            <img src="{% static 'images/logo.png' %}" src="images/logo.png" alt="Navbar_Image" class="navbar-image"/>
+            <a href="{% url 'home'%}" class="navbar-link center"><img src="{% static 'images/logo.png' %}" src="images/logo.png" alt="Navbar_Image" class="navbar-image"/></a>
         </div>
         <div class="navbar-list">
             <a href="#" class="navbar-link center">Trouver une association</a>
-            <a href="#" class="navbar-link center">Création de compte</a>
-            <a href="#" class="navbar-link center">Connexion</a>
+            <a href="{% url 'create_benevole'%}" class="navbar-link center">Création de compte</a>
+            {% if user.is_authenticated  %}
+            <a href="{% url 'logout'%}" class="navbar-link center">Déconnexion</a>
+            {% else %}
+            <a href="{% url 'connexion'%}" class="navbar-link center">Connexion</a>
+            {% endif %}
+            {% if user.is_authenticated  %}
+                {% if user.benevole.role|stringformat:"s" == 'benevole' %}
+                <a href="{% url 'benevole_profil'%}" class="navbar-link center">Profil</a>
+                {% endif %}
+                {% if user.association.role|stringformat:"s" == 'association' %}
+                 <a href="{% url 'association_profil'%}" class="navbar-link center">Profil</a>
+                {% endif %}
+            {% endif %}
+           
         </div>
     </nav>
 

@@ -1,3 +1,6 @@
+{% extends 'theme.html' %}
+{% load static %}
+{% block content %}
 <h1>Association : {{user.association.nom_association}}</h1>
 <p>Dirigeant : {{user.association.last_name}} {{user.association.first_name}}</p>
 <p>Email : {{user.association.email}}</p>
@@ -7,7 +10,7 @@
 <p>Date de création :{{user.association.date_creation}}</p>
 
 
-
+{% endblock content %}
 
 
 

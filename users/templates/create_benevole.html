@@ -40,28 +40,30 @@
         
         <div class="content-creation-fullname">
             <div class="content-creation-input">
-                {{form.last_name.label}}
+                <label class="nom">{{form.last_name.label}}</label>
                 {{form.last_name}}
                 {{form.last_name.error}}
             </div>
             <div class="content-creation-input">
-                {{form.first_name.label}}
+                <label class="prenom">{{form.first_name.label}}</label>
                 {{form.first_name}}
                 {{form.first_name.error}}
             </div>
         </div>
         <div class="content-creation-input">
-            {{form.email.label}}
+        <label class="mailpass">{{form.email.label}}</label>
             {{form.email}}
             {{form.email.error}}
         </div>
         <div class="content-creation-input">
-            {{form.password1.label}}
+        <label class="mailpass">{{form.password1.label}}</label>
+            
             {{form.password1}}
             {{form.password1.error}}
         </div>
         <div class="content-creation-input">
-            {{form.password2.label}}
+        <label class="confirm"> {{form.password2.label}}</label>
+           
             {{form.password2.error}}
             {{form.password2}}
         </div>

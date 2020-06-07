@@ -1,4 +1,6 @@
-
+{% extends 'theme.html' %}
+{% load static %}
+{% block content %}
 <p>{{user.benevole.first_name}}</p>
 
 <p>{{user.benevole.last_name}}</p>
@@ -7,7 +9,7 @@
 <p>{{user.benevole.ville}}</p>
 <p>{{user.benevole.adresse}}</p>
 
-
+{% endblock content %}
 
 
 
