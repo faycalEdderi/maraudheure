@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+    <title> Maraud'heure </title>
+    <!-- CSS Files -->
+    <link href="{% static 'css/material-dashboard.css' %}"  rel="stylesheet">
+    <link href="{% static 'css/google_font.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/inscription_benevole.css' %}">
+    <link rel="stylesheet" href="{% static 'css/recover_password.css' %}">
+    <link rel="stylesheet" href="{% static 'css/connexion.css' %}">
+    </head>
+
+    <body>
+        <div class="container">
+            <!-- Navbar -->
+            <div class="navbar-wrapper">
+                {% include 'menu.html' %}
+                <!-- End Navbar -->
+            </div>
+             <!-- Content -->
+            <div class="content-creation-wrapper">
+            {% block content %}{% endblock content %}
+            <!-- End of Content -->
+            </div>
+        </div>
+        <div class="footer-wrapper">
+            {% include 'footer.html' %}
+        </div>
+        <!-- End of Footer -->
+    </body>
+</html>
+
+
+               
+            
+
+
+
+
+
