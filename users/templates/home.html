@@ -3,12 +3,16 @@
 {% block content %}
 <h1>HOME</h1>
 {% if user.is_authenticated %}
-<p>Bienvenue {{user.benevole.first_name}} {{user.benevole.last_name}}</p>
+    {% if user.benevole.role|stringformat:"s" == 'benevole' %}
+        <p>Bienvenue {{user.benevole.first_name}} {{user.benevole.last_name}}</p>
 
-<a class="nav-link" href="{% url 'logout' %}">
-    <p>Déconnexion</p>
-</a>
 
+    {% endif %}
+    {% if user.association.role|stringformat:"s" == 'association' %}
+    <p>Bienvenue {{user.association.nom_association}} </p>
+
+
+    {% endif %}
 {% endif %}
 
 {% endblock content %}

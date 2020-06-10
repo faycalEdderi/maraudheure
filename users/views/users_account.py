@@ -13,6 +13,8 @@ from users.form import *
 def benevole_profil(request):
     return render(request, "benevole_profil.html")
 
+
+# Fonction d'affichage du profil association
 def association_profil(request):
     return render(request, "association_profil.html")
 

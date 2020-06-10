@@ -6,10 +6,10 @@
         </div>
         <div class="navbar-list">
             <a href="#" class="navbar-link center">Trouver une association</a>
-            <a href="{% url 'create_benevole'%}" class="navbar-link center">Création de compte</a>
             {% if user.is_authenticated  %}
             <a href="{% url 'logout'%}" class="navbar-link center">Déconnexion</a>
             {% else %}
+            <a href="{% url 'create_benevole'%}" class="navbar-link center">Création de compte</a>
             <a href="{% url 'connexion'%}" class="navbar-link center">Connexion</a>
             {% endif %}
             {% if user.is_authenticated  %}

@@ -1,0 +1,20 @@
+{% for message in messages %}
+    <div class="alert alert-success">
+        <a class="close" href="#" data-dismiss="alert">×</a>
+
+        <p class="text-center" >{{ message }}</p> 
+
+    </div>
+{% endfor %}
+{% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <p> {{ error }} </p>
+        {% endfor %}
+    {% endfor %}
+{% endif %}
+<h1>Mes maraudes</h1>
+
+{% for maraudes in my_maraudes %}
+    <p> Le <a href="{% url 'my_inscrits' maraudes.id %}">{{ maraudes.date }} </a> : {{ maraudes.description }} </p>
+{% endfor %}

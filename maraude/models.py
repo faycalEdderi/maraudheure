@@ -11,9 +11,9 @@ class Maraude(models.Model):
         null=True
     )
     association =  models.ForeignKey(Association,default = "",on_delete=models.CASCADE,blank=True,
-                                  null=True)
+                                  null=True, related_name='my_maraude')
     
-    benevole = models.ManyToManyField(Benevole,blank=True,null=True)
+    benevole = models.ManyToManyField(Benevole,blank=True)
    
 
     def __str__(self):
