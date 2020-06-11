@@ -5,20 +5,27 @@
             <a href="{% url 'home'%}" class="navbar-link center"><img src="{% static 'images/logo.png' %}" src="images/logo.png" alt="Navbar_Image" class="navbar-image"/></a>
         </div>
         <div class="navbar-list">
-            <a href="#" class="navbar-link center">Trouver une association</a>
+            
+            {% if user.is_authenticated  %}
+                {% if user.benevole.role|stringformat:"s" == 'benevole' %}
+                    <a href="#" class="navbar-link center">Trouver une maraude</a>
+                    <a href="{% url 'benevole_profil'%}" class="navbar-link center">Profil</a>
+                {% endif %}
+                {% if user.association.role|stringformat:"s" == 'association' %}
+                    <a href="{% url 'create_maraude' %}" class="navbar-link center">Créer une maraude</a>
+                    <a href="{% url 'my_maraudes' user.id %}" class="navbar-link center">Mes maraudes</a>
+                    <a href="{% url 'association_profil'%}" class="navbar-link center">Profil</a>
+                
+                {% endif %}
+                {% else %}
+                    <a href="#" class="navbar-link center">Trouver une maraude</a>
+            {% endif %}
+
             {% if user.is_authenticated  %}
             <a href="{% url 'logout'%}" class="navbar-link center">Déconnexion</a>
             {% else %}
             <a href="{% url 'create_benevole'%}" class="navbar-link center">Création de compte</a>
             <a href="{% url 'connexion'%}" class="navbar-link center">Connexion</a>
-            {% endif %}
-            {% if user.is_authenticated  %}
-                {% if user.benevole.role|stringformat:"s" == 'benevole' %}
-                <a href="{% url 'benevole_profil'%}" class="navbar-link center">Profil</a>
-                {% endif %}
-                {% if user.association.role|stringformat:"s" == 'association' %}
-                 <a href="{% url 'association_profil'%}" class="navbar-link center">Profil</a>
-                {% endif %}
             {% endif %}
            
         </div>
