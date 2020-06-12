@@ -19,13 +19,18 @@ def create_maraude(request):
             date = request.POST['date']
             description =  request.POST['description']
 
+            get_arrond = request.POST['arrondissement']
+
+            arrondissement = Arrondissement.objects.get(id=get_arrond)
+
             user = request.user
             association = Association.objects.get(id=user.id)
             
             Maraude.objects.create(
                 date = date,
                 description = description,
-                association = association
+                association = association,
+                arrondissement = arrondissement
             )
             return redirect('home')
         else:

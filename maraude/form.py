@@ -16,10 +16,16 @@ class CreateMaraudeForm(forms.ModelForm):
         error_messages={'required': 'Veuillez entrer une description'},
 
     )
+    arrondissement = forms.ModelChoiceField(
+        label="Arrondissement : ",
+        required=True,
+        queryset= Arrondissement.objects.all()
+    )
 
     class Meta:
-        model = Benevole
+        model = Association
         fields = (
             'date',
             'description',
+            'arrondissement'
         )
