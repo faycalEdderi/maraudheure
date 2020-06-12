@@ -1,6 +1,7 @@
 {% extends 'theme.html' %}
 {% load static %}
 {% block content %}
+
 {% for message in messages %}
     <div class="alert alert-success">
         <a class="close" href="#" data-dismiss="alert">×</a>
@@ -16,33 +17,10 @@
         {% endfor %}
     {% endfor %}
 {% endif %}
-{% if user.association.role|stringformat:"s" == "association" %}
-<form method="POST">    
-    {% csrf_token %}
-    
-    <p>
-    {{form.date.label}}
-    {{form.date}}
-    {{form.date.error}}
-    </p>
+<h1>Mes maraudes</h1>
 
-     <p>
-    {{form.arrondissement.label}}
-    {{form.arrondissement}}
-    </p>
-
-    <p>
-    {{form.description.label}}
-    {{form.description}}
-    {{form.description.error}}
-    </p>
-
-   
-    
-    <button type="submit">Valider</button>
-
-</form> 
-
-{% endif %}
+{% for maraudes in my_maraudes %}
+    <p> Le <a href="{% url 'my_inscrits' maraudes.id %}">{{ maraudes.date }} </a> : {{ maraudes.description }} </p>
+{% endfor %}
 
 {% endblock content %}

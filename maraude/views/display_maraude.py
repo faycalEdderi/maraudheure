@@ -28,7 +28,7 @@ def maraude_detail(request, pk=None):
     return render(request, 'maraude_detail.html', context)
 
 
-# afficher mes maraudes
+# afficher les inscrit d'une maraude pour une association
 def my_inscriptions(request, pk=None):
     try:
         connected_user = request.user
@@ -42,6 +42,8 @@ def my_inscriptions(request, pk=None):
             return render(request, 'mes_inscrits.html', context)
     except:
         return redirect('connexion')
+
+# pour un association : affiche tous ses maraudes
 def my_maraudes(request, pk=None):
 
     connected_user = request.user
@@ -49,15 +51,30 @@ def my_maraudes(request, pk=None):
     
     association = Association.objects.get(id=connected_user.id)
 
-   
-    
     if association and connected_user:
         my_maraudes = association.my_maraude.all()
 
         context = {
             "my_maraudes": my_maraudes,
         }
-    return render(request, 'mes_maraudes.html', context)
+    return render(request, 'association_mes_maraudes.html', context)
+
+
+# pour benevole : affiches les maraude ou je suis inscrit
+def benevole_maraudes(request, pk=None):
+
+    connected_user = request.user
+    print("ID :",connected_user.id)
+    
+    benevole = Benevole.objects.get(id=connected_user.id)
+
+    if benevole and connected_user:
+        my_maraudes = benevole.maraude_benevole.all()
+
+        context = {
+            "my_maraudes": my_maraudes,
+        }
+    return render(request, 'benevole_maraudes.html', context)
 
 
     

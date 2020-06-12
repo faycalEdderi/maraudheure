@@ -1,6 +1,10 @@
+{% extends 'theme.html' %}
+{% load static %}
+{% block content %}
+
 <h1>Liste des Maraudes</h1>
 <table class="table">
-    <thead class=" expleoColorT">
+    <thead>
         <th>Association</th>
         <th>Date de maraude</th>
         <th>Description</th>
@@ -16,3 +20,5 @@
     {% endfor %}
     </tbody>
 </table>
+
+{% endblock content %}

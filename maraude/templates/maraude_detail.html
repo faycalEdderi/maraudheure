@@ -1,3 +1,6 @@
+{% extends 'theme.html' %}
+{% load static %}
+{% block content %}
 <h1>Detail de la Maraudes</h1>
 <table class="table">
     <thead class=" expleoColorT">
@@ -20,3 +23,5 @@
 <form action="{% url 'inscription_maraude' maraude.id %}">
     <button>Inscription</button>
 </form>
+
+{% endblock content %}

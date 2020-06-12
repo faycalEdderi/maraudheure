@@ -48,7 +48,7 @@ class Maraude(models.Model):
                                   null=True)
     
     
-    benevole = models.ManyToManyField(Benevole,blank=True)
+    benevole = models.ManyToManyField(Benevole,blank=True, related_name='maraude_benevole')
    
 
     def __str__(self):

@@ -1,3 +1,7 @@
+{% extends 'theme.html' %}
+{% load static %}
+{% block content %}
+
 {% for message in messages %}
     <div class="alert alert-success">
         <a class="close" href="#" data-dismiss="alert">×</a>
@@ -14,7 +18,10 @@
     {% endfor %}
 {% endif %}
 <h1>Mes maraudes</h1>
+<p>{{user.benevole.first_name|capfirst }} {{user.benevole.last_name|capfirst }} vos maraudes</p>
 
 {% for maraudes in my_maraudes %}
-    <p> Le <a href="{% url 'my_inscrits' maraudes.id %}">{{ maraudes.date }} </a> : {{ maraudes.description }} </p>
+    <p> Le {{ maraudes.date }}  : {{ maraudes.description }} au {{ maraudes.arrondissement }} de Paris <a href="{% url 'maraude_detail' maraudes.id %}">Détails </a> </p>
 {% endfor %}
+
+{% endblock content %}

@@ -9,6 +9,7 @@
             {% if user.is_authenticated  %}
                 {% if user.benevole.role|stringformat:"s" == 'benevole' %}
                    <a href="{% url 'maraude_list'%}" class="navbar-link center">Trouver une maraude</a>
+                   <a href="{% url 'benevole_maraudes' user.id %}" class="navbar-link center">Mes maraudes</a>
                     <a href="{% url 'benevole_profil'%}" class="navbar-link center">Profil</a>
                 {% endif %}
                 {% if user.association.role|stringformat:"s" == 'association' %}

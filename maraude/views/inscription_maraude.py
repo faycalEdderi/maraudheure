@@ -6,6 +6,8 @@ from users.models import *
 from maraude.models import *
 from maraude.form import *
 
+
+# fonction d'inscription a une maraude pour un bénévole
 def inscription_maraude(request, pk=None):
     user = request.user
     benevole = Benevole.objects.get(id=user.id)
@@ -14,8 +16,6 @@ def inscription_maraude(request, pk=None):
     maraude.benevole.add(benevole)
     maraude.save()
   
-   
-
     return redirect('home')
     
 
