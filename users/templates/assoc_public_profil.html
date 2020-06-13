@@ -1,0 +1,26 @@
+{% extends 'theme.html' %}
+{% load static %}
+{% block content %}
+{% load static %}
+
+
+        <tr>
+        <p><h1>Profil public :</h1></p>
+            <p><td>Nom de l'association : {{association.nom_association}}</td></p> <br>
+            <p><td>Siege sociale : {{association.siege_social}}</td></p><br>
+            <p><td>Date de création : {{association.date_creation}}</td></p><br>
+            <p><td>Numero de telephone : {{association.phone_number}}</td></p><br>
+            <p><td>Fondateur :{{association.first_name}} {{association.last_name}}</td></p><br>
+            
+           
+        </tr>
+
+{% endblock content %}
+
+
+
+
+            
+
+
+

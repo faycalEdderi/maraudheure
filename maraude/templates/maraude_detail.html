@@ -12,7 +12,7 @@
     <tbody>
     
         <tr>
-            <td><a href="#">{{maraude.association}}</a></td>
+            <td><a href="{% url 'assoc_public_profil' maraude.association.id %}">{{maraude.association}}</a></td>
             <td>{{maraude.date}}</td>
             <td>{{maraude.description}}</td>
         

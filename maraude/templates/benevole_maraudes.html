@@ -21,7 +21,10 @@
 <p>{{user.benevole.first_name|capfirst }} {{user.benevole.last_name|capfirst }} vos maraudes</p>
 
 {% for maraudes in my_maraudes %}
-    <p> Le {{ maraudes.date }}  : {{ maraudes.description }} au {{ maraudes.arrondissement }} de Paris <a href="{% url 'maraude_detail' maraudes.id %}">Détails </a> </p>
+    <p> Le {{ maraudes.date }}  : {{ maraudes.description }}, 
+    association  {{ maraudes.association }}  
+    au {{ maraudes.arrondissement }} de Paris 
+    <a href="{% url 'maraude_detail' maraudes.id %}">Détails </a> </p>
 {% endfor %}
 
 {% endblock content %}
