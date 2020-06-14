@@ -3,10 +3,16 @@
 {% block content %}
 
 <h1>Liste des Maraudes</h1>
+<form method="get">
+    {{myFilter.form}}
+
+    <button class="btn btn-primary" type="submit">Rechercher</button>
+</form>
 <table class="table">
     <thead>
         <th>Association</th>
         <th>Date de maraude</th>
+        <th>Arrondissement</th>
         <th>Description</th>
 
     </thead>
@@ -15,6 +21,7 @@
         <tr>
             <td><a href="{% url 'maraude_detail' maraude.id %}">{{maraude.association}}</a></td>
             <td>{{maraude.date}}</td>
+            <td>{{maraude.arrondissement}}</td>
             <td>{{maraude.description}}</td>
         </tr>
     {% endfor %}

@@ -5,14 +5,19 @@ from django.shortcuts import render, redirect
 from users.models import *
 from maraude.models import *
 from maraude.form import *
+from .filters import *
 
 
 # afficher toutes les maraudes 
 def maraude_list(request):
     maraudes = Maraude.objects.all()
 
+    myFilter =MaraudeFilter(request.GET, queryset=maraudes)
+    maraudes = myFilter.qs
+
     context = {
         'maraudes': maraudes,
+        'myFilter': myFilter
     }
     return render(request, "maraude_list.html", context)
     
