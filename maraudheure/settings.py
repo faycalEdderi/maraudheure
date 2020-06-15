@@ -141,6 +141,10 @@ AUTHENTICATION_BACKENDS = (
     'users.email_login.EmailBackend', 
 )
 
+# Format de date
+
+
+
 
 
 

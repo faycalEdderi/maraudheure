@@ -18,7 +18,7 @@ def create_maraude(request):
 
             date = request.POST['date']
             description =  request.POST['description']
-
+            
             get_arrond = request.POST['arrondissement']
 
             arrondissement = Arrondissement.objects.get(id=get_arrond)
@@ -35,6 +35,7 @@ def create_maraude(request):
             return redirect('home')
         else:
             messages.error(request, "Error")
+            print(form.errors)
             return redirect('create_maraude')
 
     else:

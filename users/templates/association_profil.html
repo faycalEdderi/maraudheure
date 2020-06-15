@@ -1,13 +1,70 @@
 {% extends 'theme.html' %}
 {% load static %}
 {% block content %}
-<h1>Association : {{user.association.nom_association}}</h1>
-<p>Dirigeant : {{user.association.last_name}} {{user.association.first_name}}</p>
-<p>Email : {{user.association.email}}</p>
-<p>Telephone : {{user.association.phone_number}}</p>
-<p>Num RNA :{{user.association.num_rna}}</p>
-<p>Siege : {{user.association.siege_social}}</p>
-<p>Date de création :{{user.association.date_creation}}</p>
+<!-- Content -->
+<section class="content-profil-wrapper">
+    <div class="content-profil">
+        <p class="title">
+            Mon compte
+        </p>
+    </div>
+    <div class="profil-wrapper">
+        <div class="profil-bg">
+        <div class="profil">
+            <div class="image">
+                <img 
+                src="{% static 'images/avatar.png'%}" 
+                alt="Customer image"
+                class="profil-image"
+                />
+            </div>
+
+            <div class="profil-text">
+                <div class="fullname">
+                    <h1 class="profil-fullname">
+                        {{user.association.nom_association}}
+                    </h1>
+                </div>
+            <h1 class ="profil-info"> Information générale </h1>
+            <p class="profil-paragraph rna">
+                Numéro RNA : {{user.association.num_rna}}
+            </p>
+            <p class="profil-paragraph rna">
+                Fondateur : {{user.association.last_name}} {{user.association.first_name}}
+            </p>
+                <p class="profil-paragraph rna">
+                Email : {{user.association.email}}
+            </p>
+            <p class="profil-paragraph metier">
+                Adresse du siège social :{{user.association.siege_social}}
+            </p>
+            <p class="profil-paragraph mail">
+                Date de création : {{user.association.date_creation}}
+            </p>
+            <p class="profil-paragraph dateNais">
+                Numéro de téléphone : {{user.association.phone_number}}
+            </p>
+            <h1 class="profil-info interet">
+                Aide
+            </h1>
+            <p class="profil-paragraph acitvite">
+                Activité : Aide alimentaire, coiffure
+            </p>
+            <h1 class="profil-info">
+                Description
+            </h1>
+            <p class="profil-paragraph blabla">
+                Fondés par Coluche en 1985, les Restos du Keur ont pour but « d'aider et
+                d'apporter une assistance aux personnes démunies, notamment dans
+                l'alimentaire par l'accès à des repas gratuits, et par la
+                participation à leur insertion sociale et économique ».
+            </p>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
+<!-- End of Content -->
 
 
 {% endblock content %}

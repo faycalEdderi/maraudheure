@@ -63,7 +63,7 @@ class Association(User):
 
     )
     
-    date_creation = models.DateTimeField()
+    date_creation = models.DateField()
     
     phone_number = models.CharField(
        max_length= 10, 

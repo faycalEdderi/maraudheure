@@ -1,3 +1,6 @@
+{% extends 'theme.html' %}
+{% load static %}
+{% block content %}
 {% for message in messages %}
     <div class="alert alert-success">
         <a class="close" href="#" data-dismiss="alert">×</a>
@@ -13,73 +16,93 @@
         {% endfor %}
     {% endfor %}
 {% endif %}
-
-<form method="POST">    
-    {% csrf_token %}
+            <!-- Content -->
+            <div class="content-creation-wrapper">
+                <div class="content-creation-wrapper-left">
+                    <div class="content-creation-title-left">
+                        <h1 class="title-left">
+                            Donnez-vous du pouvoir, <br/> devenez bénévole
+                        </h1>
+                    </div>
+                    <div class="content-creation-image">
+                         <img
+                            src="{% static 'images/personnage_logo.png' %}" 
+                            alt="Header Image"
+                            class="header-image"
+                        />
+                    </div>
+                </div>
+                <div class="content-wrapper-right"> 
     
-    <p>
-    {{form.first_name.label}}
-    {{form.first_name}}
-    {{form.first_name.error}}
-    </p>
+                    <form method="POST" class="content-creation-form">
+                    {% csrf_token %}
+                        <h1 class="content-creation-title-right">
+                            Créer un compte d'association
+                        </h1>
+                       
+                    
+                        <div class="content-creation-fullname">
+                            <div class="content-creation-input">
+                                <label class="nom"> {{form.nom_association.label}}</label>
+                                 {{form.nom_association}}
+                            </div>
+                            <div class="content-creation-input">
+                                <label class="numeroRNA">{{form.num_rna.label}}</label>
+                               {{form.num_rna}}
+                                  {{form.num_rna.error}}
+                            </div>
+                        </div>
+                        <div class="content-creation-fullname">
+                            <div class="content-creation-input">
+                                    <label class="nom"> {{form.first_name.label}}</label>
+                                    {{form.first_name}}
+                                     {{form.first_name.error}}
+                            </div>
+                            <div class="content-creation-input">
+                                <label class="nom">{{form.last_name.label}}</label>
+                                {{form.last_name}}
+                                {{form.last_name.error}}
+                            </div>
 
-    <p>{{ form_user.username.as_hidden  }}</p>
+                        </div>
+                         <div class="content-creation-input">
+                                <label class="nom">{{form.phone_number.label}}</label>
+                                {{form.phone_number}}
+                                {{form.phone_number.error}}
+                        </div>
+                        <div class="content-creation-input">
+                                <label class="mailpass">{{form.siege_social.label}}</label>
+                                {{form.siege_social}}
+                                {{form.siege_social.error}}
+                        </div>
+                        <div class="content-creation-input">
+                                <label class="nom">{{form.date_creation.label}}</label>
+                                {{form.date_creation}}
+                                {{form.date_creation.error}}
+                        </div>
+                        <div class="content-creation-input">
+                            <label class="mailpass">{{form.email.label}}</label>
+                            {{form.email.error}}
+                            {{form.email}}
+                        </div>
+                        <div class="content-creation-input">
+                            <label class="mailpass">{{form.password1.label}}</label>
+                            {{form.password1.error}}
+                            {{form.password1}}
+                        </div>
+                        <div class="content-creation-input">
+                           <label class="mailpass">{{form.password2.label}}</label>
+                            {{form.password2.error}}
+                            {{form.password2}}
+                        </div>
+                        <div class="content-creation-forget">
+                            <a href="#" class="content-creation-password">Mot de passe oublié ?</a>
+                        </div>
+                        
+                        <input type="submit" value="Valider" class="form-btn"/>
+                    </form>
+                </div>
+            </div>
+            <!-- End of Content -->
 
-    <p>
-    {{form.last_name.label}}
-    {{form.last_name}}
-    {{form.last_name.error}}
-    </p>
-
-    <p>
-    {{form.email.label}}
-    {{form.email}}
-    {{form.email.error}}
-    </p>
-
-    <p>
-    {{form.phone_number.label}}
-    {{form.phone_number}}
-    </p>
-
-    <p>
-    {{form.password1.label}}
-    {{form.password1}}
-    {{form.password1.error}}
-    </p>
-
-    <p>
-    {{form.password2.label}}
-    {{form.password2.error}}
-    {{form.password2}}
-    </p>
-
-    <p>
-    {{form.num_rna.label}}
-    {{form.num_rna.error}}
-    {{form.num_rna}}
-    </p>
-
-<p>
-    {{form.nom_association.label}}
-    {{form.nom_association.error}}
-    {{form.nom_association}}
-    </p>
-
-<p>
-    {{form.siege_social.label}}
-    {{form.siege_social.error}}
-    {{form.siege_social}}
-    </p>
-
-
-<p>
-    {{form.date_creation.label}}
-    {{form.date_creation.error}}
-    {{form.date_creation}}
-    </p>
-
-    
-    <button type="submit">Valider</button>
-
-</form> 
+{% endblock content %}

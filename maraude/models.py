@@ -33,8 +33,12 @@ class Arrondissement(models.Model):
         return str(self.n_arrondissement )
 
 
+
 class Maraude(models.Model):
-    date = models.DateField(verbose_name = 'Date de maraude')
+    date = models.DateField(
+        verbose_name = 'Date de maraude',       
+        
+        )
     description = models.CharField(
         max_length= 2000, 
         blank=True, 

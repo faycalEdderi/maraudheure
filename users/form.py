@@ -4,7 +4,8 @@ from .models import *
 from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm
 
-
+class DateInput(forms.DateInput):
+    input_type="date"
 
 class CreateBenevoleForm(forms.ModelForm):
     email = forms.EmailField(
@@ -129,6 +130,7 @@ class CreateAssociationForm(forms.ModelForm):
     )
     date_creation = forms.CharField(
         label="Date de création de l'association",
+        widget= DateInput,
         required=True,  
            
     )

@@ -145,7 +145,7 @@ def create_association(request):
                 print("association created")
             else:
                 messages.error(request, "Les mots de passes ne sont pas identiques")
-                return redirect('create_association')
+                return redirect('inscription_association')
             '''
             send_mail(
                 'Votre compte a été créé',
@@ -157,8 +157,9 @@ def create_association(request):
             '''
             return redirect('connexion')
         else:
-            messages.error(request, "Error")
-            return redirect('create_association')
+            messages.error(request, form.errors)
+         
+            return redirect('inscription_association')
 
     else:
         form = CreateAssociationForm()

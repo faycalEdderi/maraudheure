@@ -3,17 +3,64 @@
 {% block content %}
 {% load static %}
 
+        <!-- Content -->
+            <section class="content-profil-wrapper">
+                <div class="content-profil">
+                  <p class="title">
+                      Mon profil Association
+                  </p>
+                </div>
+                <div class="profil-wrapper">
+                  <div class="profil-bg">
+                    <div class="profil">
+                        <div class="image">
+                            <img 
+                            src="{% static 'images/avatar.png'%}" 
+                            alt="Customer image"
+                            class="profil-image"
+                          />
+                        </div>
 
-        <tr>
-        <p><h1>Profil public :</h1></p>
-            <p><td>Nom de l'association : {{association.nom_association}}</td></p> <br>
-            <p><td>Siege sociale : {{association.siege_social}}</td></p><br>
-            <p><td>Date de création : {{association.date_creation}}</td></p><br>
-            <p><td>Numero de telephone : {{association.phone_number}}</td></p><br>
-            <p><td>Fondateur :{{association.first_name}} {{association.last_name}}</td></p><br>
-            
-           
-        </tr>
+                      <div class="profil-text">
+                            <div class="fullname">
+                                <h1 class="profil-fullname">
+                                    {{association.nom_association}}
+                                </h1>
+                            </div>
+                        <h1 class ="profil-info"> Information générale </h1>
+                        <p class="profil-paragraph rna">
+                            Fondateur : {{association.first_name}} {{association.last_name}}
+                        </p>
+                        <p class="profil-paragraph metier">
+                            Adresse du siège social :{{association.siege_social}}
+                        </p>
+                        <p class="profil-paragraph mail">
+                            Date de création : {{association.date_creation}}
+                        </p>
+                        <p class="profil-paragraph dateNais">
+                            Numéro de téléphone : {{association.phone_number}}
+                        </p>
+                        <h1 class="profil-info interet">
+                            Aide
+                        </h1>
+                        <p class="profil-paragraph acitvite">
+                            Activité : Aide alimentaire, coiffure
+                        </p>
+                        <h1 class="profil-info">
+                            Description
+                        </h1>
+                        <p class="profil-paragraph blabla">
+                            Fondés par Coluche en 1985, les Restos du Keur ont pour but « d'aider et
+                            d'apporter une assistance aux personnes démunies, notamment dans
+                            l'alimentaire par l'accès à des repas gratuits, et par la
+                            participation à leur insertion sociale et économique ».
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            <!-- End of Content -->
 
 {% endblock content %}
 

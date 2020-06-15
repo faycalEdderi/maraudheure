@@ -2,13 +2,15 @@ from django import forms
 from .models import *
 from django.forms import ModelForm
 
+class DateInput(forms.DateInput):
+    input_type="date"
 
 class CreateMaraudeForm(forms.ModelForm):
  
-    date = forms.CharField(
-    label="Date de la Maraude",
-    required=True,  
-        
+   
+    date = forms.DateField(
+        label="Date de la Maraude",
+        widget= DateInput
     )
     description = forms.CharField(
         label='Description : ',

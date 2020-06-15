@@ -1,13 +1,71 @@
 {% extends 'theme.html' %}
 {% load static %}
 {% block content %}
-<p>{{user.benevole.first_name}}</p>
 
-<p>{{user.benevole.last_name}}</p>
-<p>{{user.benevole.email}}</p>
-<p>{{user.benevole.phone_number}}</p>
-<p>{{user.benevole.ville}}</p>
-<p>{{user.benevole.adresse}}</p>
+<!-- Content -->
+            <section class="content-profil-wrapper">
+                <div class="content-profil">
+                  <p class="title">
+                      Mon profil
+                  </p>
+                </div>
+                <div class="profil-wrapper">
+                  <div class="profil-bg">
+                    <div class="profil">
+                      <img 
+                        src={% static "images/avatar.png"%}
+                        alt="Customer image"
+                        class="profil-image"
+                      />
+                      <div class="profil-text">
+                            <div class="fullname">
+                                <h1 class="profil-fullname">
+                                    {{user.benevole.first_name}}
+                                </h1>
+                                <h1 class="profil-fullname">
+                                   {{user.benevole.last_name}}
+                                </h1>
+                            </div>
+                        <h1 class ="profil-info"> Information générale </h1>
+                        <p class="profil-paragraph ville">
+                            Ville : {{user.benevole.ville}}
+                        </p>
+                        <p class="profil-paragraph ville">
+                            Adresse : {{user.benevole.adresse}}
+                        </p>
+                        
+                        <p class="profil-paragraph metier">
+                            Métier : Dev
+                        </p>
+                        <p class="profil-paragraph mail">
+                            Adresse mail : {{user.benevole.email}}
+                        </p>
+                        <p class="profil-paragraph dateNais">
+                            Numero de téléphone :{{user.benevole.phone_number}}
+                        </p>
+                        <h1 class="profil-info interet">
+                            Centre d'intérêt
+                        </h1>
+                        <p class="profil-paragraph acitvite">
+                            Activité : Confiné
+                        </p>
+                        <p class="profil-paragraph hobbies">
+                            Hobbies : Jouer à LoL
+                        </p>
+                        <h1 class="profil-info">
+                            Description
+                        </h1>
+                        <p class="profil-paragraph blabla">
+                            Hello je m'appelle Yutsu comment ça va toi ?
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <p>DISPONILITE CALENDRIER</p>
+
+            <!-- End of Content -->
 
 {% endblock content %}
 
