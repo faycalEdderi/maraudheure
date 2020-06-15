@@ -17,10 +17,48 @@
         {% endfor %}
     {% endfor %}
 {% endif %}
-<h1>Mes maraudes</h1>
 
-{% for maraudes in my_maraudes %}
-    <p> Le <a href="{% url 'my_inscrits' maraudes.id %}">{{ maraudes.date }} </a> : {{ maraudes.description }} </p>
-{% endfor %}
+<!-- Content -->
+<div class="content-creation-wrapper">
+    <section class="maraude-tours">
+        <h1 class="maraude-tours-heading">Liste des maraudes</h1>
+        <div class="maraude-wrapper">
+            
+            {% for maraudes in my_maraudes %}
+            <div class="maraude">
+                <div class="front-side">
+                    <img 
+                    src="{% static 'images/eau.jpg'%}"
+                    alt="eau" 
+                    class="maraude-image" 
+                    />
+                    <h1 class="maraude-name"> {{ maraudes.association }}  </h1>
+                    <ul class="maraude-list">
+                        <li class="maraude-list-item">{{ maraudes.date }}</li>
+                        <li class="maraude-list-item">16h - 18h</li>
+                        <li class="maraude-list-item">{{ maraudes.arrondissement }}</li>
+                        <li class="maraude-list-item">6 rue de la Marguerite</li>
+                        <li class="maraude-list-item">Eau, boisson chaude</li>
+                    </ul>
+                    
+                    <button class="navigation-button">
+                    Plus &gt;&gt;
+                    </button>
+
+                </div>
+                <div class="back-side center">
+                    <button class="navigation-button">
+                    &lt;&lt; Retour  <!-- '<<' -->
+                    </button>
+                    <h3 class="description">{{ maraudes.description }}</h3>
+                    <a href="{% url 'my_inscrits' maraudes.id %}" class="maraude-button">Détail</a>
+                </div>
+            </div>
+            {% endfor %}      
+            
+        </div>
+    </section>
+</div>
+<!-- End of Content -->
 
 {% endblock content %}
