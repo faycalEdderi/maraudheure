@@ -3,4 +3,4 @@ from .models import *
 
 admin.site.register(Maraude)
 admin.site.register(Arrondissement)
-
+admin.site.register(Product)

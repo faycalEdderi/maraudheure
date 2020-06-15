@@ -14,6 +14,10 @@ def create_maraude(request):
         form = CreateMaraudeForm(request.POST)
         
         print("Request : ", request.POST)
+
+        
+        
+        
         if form.is_valid():
 
             date = request.POST['date']
@@ -21,17 +25,35 @@ def create_maraude(request):
             
             get_arrond = request.POST['arrondissement']
 
+            heure_d = request.POST['heure_debut']
+
+            heure_f = request.POST['heure_fin']
+
+            adresse = request.POST['adresse']
+
+            get_service = request.POST.getlist('produits')
+            
+            
+
             arrondissement = Arrondissement.objects.get(id=get_arrond)
 
             user = request.user
             association = Association.objects.get(id=user.id)
-            
-            Maraude.objects.create(
+           
+            maraude = Maraude(
                 date = date,
                 description = description,
                 association = association,
-                arrondissement = arrondissement
+                arrondissement = arrondissement,
+                heure_debut = heure_d,
+                heure_fin = heure_f,
+                adresse = adresse,
             )
+            maraude.save()
+           
+            maraude.save()
+            maraude.produit.set(get_service)
+            
             return redirect('home')
         else:
             messages.error(request, "Error")

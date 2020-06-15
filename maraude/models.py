@@ -32,6 +32,23 @@ class Arrondissement(models.Model):
     def __str__(self):
         return str(self.n_arrondissement )
 
+class Product(models.Model):
+    SERVICES = (
+        ('Vetements', 'vetement'),
+        ('Produits alimentaires', 'nourriture'),
+        ('Services à la personne', 'service'),
+        ('Boissons', 'boisson'),
+        ('Dialogues', 'discussion'),
+        ('Soins', 'soin'),
+        ('Activités', 'activité'),
+        ('Sensibilisation', 'sensibilisation'),
+         
+    )
+    distribution = models.CharField(max_length=1500, choices=SERVICES, unique=True )
+
+    def __str__(self):
+        return str(self.distribution )
+
 
 
 class Maraude(models.Model):
@@ -39,19 +56,35 @@ class Maraude(models.Model):
         verbose_name = 'Date de maraude',       
         
         )
+    
     description = models.CharField(
         max_length= 2000, 
         blank=True, 
         null=True
     )
-    association =  models.ForeignKey(Association,default = "",on_delete=models.CASCADE,blank=True,
-                                  null=True, related_name='my_maraude')
+    heure_debut = models.CharField(
+        max_length= 2, 
+        blank=True, 
+        null=True
+    )
+    heure_fin = models.CharField(
+        max_length= 2, 
+        blank=True, 
+        null=True
+    )
+    adresse = models.CharField(
+        max_length= 2000, 
+        blank=True, 
+        null=True
+    )
+    association =  models.ForeignKey(Association,default = "",on_delete=models.CASCADE, related_name='my_maraude')
 
 
     arrondissement =  models.ForeignKey(Arrondissement,default = "",on_delete=models.CASCADE,blank=True,
                                   null=True)
     
-    
+    produit = models.ManyToManyField(Product,blank=True, related_name='maraude_product')
+
     benevole = models.ManyToManyField(Benevole,blank=True, related_name='maraude_benevole')
    
 
