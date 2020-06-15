@@ -25,7 +25,7 @@
         <div class="maraude-wrapper">
             
             {% for maraudes in my_maraudes %}
-            <div class="maraude">
+            <div class="maraude mr-5">
                 <div class="front-side">
                     <img 
                     src="{% static 'images/eau.jpg'%}"
@@ -35,10 +35,13 @@
                     <h1 class="maraude-name"> {{ maraudes.association }}  </h1>
                     <ul class="maraude-list">
                         <li class="maraude-list-item">{{ maraudes.date }}</li>
-                        <li class="maraude-list-item">16h - 18h</li>
+                        <li class="maraude-list-item">{{ maraudes.heure_debut }}h - {{ maraudes.heure_fin }}h</li>
                         <li class="maraude-list-item">{{ maraudes.arrondissement }}</li>
-                        <li class="maraude-list-item">6 rue de la Marguerite</li>
-                        <li class="maraude-list-item">Eau, boisson chaude</li>
+                        <li class="maraude-list-item">{{ maraudes.adresse }}</li>
+                        <li class="maraude-list-item">
+                        
+                        {% for items in maraudes.produit.all %}{{items}},
+                        {% endfor %}</li>
                     </ul>
                     
                     <button class="navigation-button">
