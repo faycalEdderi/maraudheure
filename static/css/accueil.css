@@ -29,8 +29,9 @@ html {
 
 .container {
     background-color: var(--white-color);
-    margin: 3rem;
+    /* margin: 3rem; */
     overflow: hidden;
+    width: 100%;
 }
 /* End of Common styles*/
 
@@ -46,6 +47,8 @@ html {
 }
 
 .navbar-image {
+    width: 70%;
+    height: 100%;
     cursor: pointer;
 }
 
@@ -69,14 +72,97 @@ html {
 
 
 /* End of Navbar */
+/* Content acceuil */
+/* Left */
+.DescriptionSite{
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.textDescription{
+    position: absolute;
+    justify-content: center;
+    align-self: center;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #89BDCD;
+    font-size: medium;
+    text-align: center;
+    font-family: 'Vollkron, serif';
+}
+.imgDescrip{
+    height: 400px;
+    width: 650px;
+    box-shadow: 0 2rem 4rem #777;
+}
+/* end left */
+/* Right  */
+.mapAcceuil{
+    margin-top: 20px;
+    left: 0;
+    top: 0;
+    background-color: gray;
+    height: 400px;
+}
+.formulaireHome{
+    font-size: 1.5rem;
+    text-align: center;
+    justify-content: center;
+}
+.btnFormHome{
+    padding: 3px;
+}
+/* end right  */
+/* End Content acceuil */
+/* Content search page */
 
+.contenuSearch{
+    margin: 20px 20px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+@media only screen and (min-width: 1100px){
+    .contenuSearch{
+    display: grid;
+    grid-template-columns: 6fr 5fr;
+}
+.mapSearch{
+    position: sticky!important;
+    left: 0;
+    top: 0;
+    background-color: gray;
+    height: 400px;
+}
+}
+/* Left  */
+.card-deck{
+    font-size: medium;
+}
+/* end left  */
+/* Right  */
+.btnSearch{
+    padding: 3px;
+    background-color: #89BDCD;
+    font-size: medium;
+}
+.inputSearch{
+    font-size: medium;
+}
+/* end right  */
+/* End content search  */
 /* Content */
+.contenuAccueil{
+    justify-content: space-evenly;
+    padding: 2rem;
+}
 /* Left */
 .content-creation-wrapper {
     display: flex;
     justify-content: space-evenly;
     padding: 2rem;
-    margin-bottom: 3rem;
 }
 .content-creation-form {
     background-color: #436D85;
@@ -91,8 +177,12 @@ html {
 }
 
 /* Right */
+.content-wrapper-right {
+    padding: 4rem;
+}
+
 .content-creation-form {
-    padding: 5rem;
+    padding: 8rem;
     border-radius: 2.5rem;
     text-align: center;
     flex-direction: column;
@@ -104,12 +194,8 @@ html {
     color: var(--white-color);
     text-transform: uppercase;
     text-decoration: underline;
+    margin-bottom: 5rem;
     letter-spacing: 0.1rem;
-}
-
-.content-creation-fullname {
-    display: flex;
-    justify-content: space-evenly;
 }
 
 .content-creation-input {
@@ -128,9 +214,9 @@ html {
     font-size: 1.4rem;
     letter-spacing: 0.1rem;
     border-radius: 1rem;
+    text-align: center;
     transition: border 0.5s;
 }
-
 .content-creation-input label {
     font-size: 1.2rem;
     font-weight: 600;
@@ -140,76 +226,11 @@ html {
     /*enfant de input group*/
     position: absolute;
     top: 1rem;
-    left: 1rem;
-}
-
-.content-creation-input .nom {
-    font-size: 1.2rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1rem;
-    color: var(--grey-color);
-    /*enfant de input group*/
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-}
-
-.content-creation-input .prenom {
-    font-size: 1.2rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1rem;
-    color: var(--grey-color);
-    /*enfant de input group*/
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-}
-
-.content-creation-input .mailpass {
-    font-size: 1.2rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1rem;
-    color: var(--grey-color);
-    /*enfant de input group*/
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-}
-
-.content-creation-input .mailpass {
-    font-size: 1.2rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1rem;
-    color: var(--grey-color);
-    /*enfant de input group*/
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-}
-
-.content-creation-input .confirm {
-    font-size: 1.2rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1rem;
-    color: var(--grey-color);
-    /*enfant de input group*/
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
+    left: 3.5rem;
 }
 
 .content-creation-forget {
     margin-top: 2rem;
-}
-
-.content-creation-forget:hover {
-    color: var(--white-color);
-    text-decoration: underline;
 }
 
 .content-creation-forget a {
@@ -238,6 +259,7 @@ html {
     background-color: var(--primary-color);
     width: 100%;
     height: 20%;
+    bottom: 0;
 }
 
 .footer {
@@ -280,118 +302,3 @@ html {
     padding: 1rem;
 }
 /* End of Footer */
-
-@media(max-width: 1035px){
-    .content-creation-fullname {
-        display: inline;
-    }
-    .content-creation-input .confirm{
-        left: 0.2rem;
-    }
-}
-
-@media(max-width: 870px){
-    .content-creation-wrapper {
-        display: inline;
-    }
-
-    .content-creation-image {
-        display: flex;
-        justify-content: center;
-        height : 100%
-    }
-
-    .navbar {
-        display: inline;
-    }
-
-    .navbar-logo {
-        display: flex;
-        justify-content: center;
-    }
-
-    .navbar-list {
-        margin-top: 3rem;
-        border-bottom: 2px solid #000;
-    }
-
-    .navbar-link {
-        font-size: 1.5rem;
-    }
-
-    .title-left {
-        font-size: 1.7rem;
-    }
-}
-
-@media(max-width: 1060px){
-
-}
-
-@media(max-width: 870px){
-    .content-creation-input label {
-        font-size: 1rem;
-        top: 1rem;
-    }
-}
-
-@media(max-width: 470px){
-    .footer {
-        display: inline;
-        text-align: center;
-    }
-
-    .footer-title {
-        margin-bottom: 1rem;
-    }
-
-    .footer-link-a:hover {
-        text-decoration: underline;
-        color: var(--white-color);
-    }
-
-    .navbar-link {
-        font-size: 1.3rem;
-    }
-
-    .footer-link {
-        margin: 0;
-    }
-
-    .content-creation-input .mailReset {
-        top: 0.5rem;
-    }
-}
-
-@media(max-width: 430px){
-    .content-creation-input .mailReset {
-        top: 0.5rem;
-    }
-    .content-creation-input .mailConfirm {
-        top: 0.5rem;
-    }
-}
-
-@media(max-width: 415px){
-    .navbar-link {
-        font-size: 1rem;
-    }
-    .title-left {
-        font-size: 1.2rem;
-    }
-    .form-btn {
-        width: 75%;
-    }
-    .content-creation-input .mailReset {
-        top: 0.5rem;
-    }
-}
-
-@media(max-width: 360px){
-    .form-btn {
-        width: 70%;
-    }
-    .content-creation-input .confirm{
-        left: -1rem;
-    }
-}

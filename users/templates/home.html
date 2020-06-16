@@ -1,19 +1,34 @@
-{% extends 'theme.html' %}
+{% extends 'theme2.html' %}
 {% load static %}
 {% block content %}
-<h1>HOME</h1>
-{% if user.is_authenticated %}
-    {% if user.benevole.role|stringformat:"s" == 'benevole' %}
-        <p>Bienvenue {{user.benevole.first_name}} {{user.benevole.last_name}}</p>
 
 
-    {% endif %}
-    {% if user.association.role|stringformat:"s" == 'association' %}
-    <p>Bienvenue {{user.association.nom_association}} </p>
-
-
-    {% endif %}
-{% endif %}
+<div class="contenuAccueil">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-4 DescriptionSite">
+            <img class="imgDescrip img-fluid" src="{% static 'images/poor.jpg' %}" />
+            <div class="textDescription">
+                <strong>Mauraud'heure</strong><br/>
+                Pointer sur l'aide humanitaire, Maurd'heure est un outil visant a aide benevole et association a se reunir et faciliter leur approche,
+                vous pourrez rejoindre, participer ou encore s'informer sur une association ou dans 
+                le cas contraire faire une demande de besoin aupres des benevoles,
+                Sans plus tarder<strong> rejoignez nous !</strong> 
+            </div>
+        </div>
+        <div class="col-1"></div>
+        <div class="col-5">
+            <div className="RechercheAdresse">
+            <div class="form-group formulaireHome">
+                <label for="searchHome">Rechercher une association ou ecrivez une adresse</label>
+                <input type="text" class="form-control" id="searchHome" placeholder="">                      
+                <button type="submit" class="btnFormHome mt-2">Rechercher</button>
+            </div>
+        </div>
+        <hr/><div class="mapAcceuil" id="map"></div></div>
+        <div class="col-1"></div>
+    </div>
+</div>
 
 
 {% endblock content %}

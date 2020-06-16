@@ -1,0 +1,12 @@
+{% if user.is_authenticated %}
+    {% if user.benevole.role|stringformat:"s" == 'benevole' %}
+        <p>Bienvenue {{user.benevole.first_name}} {{user.benevole.last_name}}</p>
+
+
+    {% endif %}
+    {% if user.association.role|stringformat:"s" == 'association' %}
+    <p>Bienvenue {{user.association.nom_association}} </p>
+
+
+    {% endif %}
+{% endif %}

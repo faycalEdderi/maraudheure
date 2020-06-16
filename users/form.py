@@ -128,12 +128,27 @@ class CreateAssociationForm(forms.ModelForm):
         required=True,  
            
     )
+
+    activite = forms.CharField(
+        label="Activité de l'association",
+        required=True,  
+           
+    )
+
+    description = forms.CharField(
+        label="Description de l'association",
+        required=True,  
+        widget=forms.Textarea 
+         
+    )
     date_creation = forms.CharField(
         label="Date de création de l'association",
         widget= DateInput,
         required=True,  
            
     )
+
+    
     class Meta:
         model = Association
         fields = (
@@ -147,6 +162,8 @@ class CreateAssociationForm(forms.ModelForm):
             'num_rna',
             'nom_association',
             'siege_social',
+            'description',
+            'activite',
             'date_creation',
             
             )

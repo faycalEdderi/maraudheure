@@ -1,31 +1,40 @@
-{% extends 'theme.html' %}
+{% extends 'theme2.html' %}
 {% load static %}
 {% block content %}
 
-<h1>Liste des Maraudes</h1>
-<form method="get">
-    {{myFilter.form}}
+<form id="searchHome" method="get">
+                {{myFilter.form}}
 
-    <button class="btn btn-primary" type="submit">Rechercher</button>
-</form>
-<table class="table">
-    <thead>
-        <th>Association</th>
-        <th>Date de maraude</th>
-        <th>Arrondissement</th>
-        <th>Description</th>
-
-    </thead>
-    <tbody>
-    {% for maraude in maraudes %}
-        <tr>
-            <td><a href="{% url 'maraude_detail' maraude.id %}">{{maraude.association}}</a></td>
-            <td>{{maraude.date}}</td>
-            <td>{{maraude.arrondissement}}</td>
-            <td>{{maraude.description}}</td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
-
+                <button class="btn btn-primary" type="submit">Rechercher</button>
+            </form>
+<div class="contenuSearch">
+    <div class="list-asso">
+        <div class="card-deck">
+        
+        {% for maraude in maraudes %}
+            <div class="card bg-light mb-3" style="max-width: 18rem;">
+                <div class="card-header"><a href="{% url 'maraude_detail' maraude.id %}">{{maraude.association}}</a></div>
+                <div class="card-body">
+                    <h5 class="card-title">{{maraude.arrondissement}}</h5>
+                    <p class="card-text">{{maraude.date}}</p>
+                    <p class="card-text">{{maraude.heure_debut}}h - {{maraude.heure_fin}}h </p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div>
+        <div class="align-content-center">
+        <button class="btnSearch mr-2" id="searchLoc">Localisation</button>
+        <button class="btnSearch ml-2" id="searchName">Nom - Adresse</button>                           
+        </div>
+        <hr/>
+        <!-- TODO onclick btn localisation confirm user to share sa loc  -->
+        <div class="mapSearch" id="map"></div>
+        <div id="searchInputName" class="mt-5">
+           <input type="text" class="inputSearch" size="50" id="searchHome" placeholder="Entrez une adresse ou un lieu"><br/>                      
+                    <button type="submit" class="btnSearch mt-2">Rechercher</button>
+        </div>
+    </div>
+</div>
 {% endblock content %}

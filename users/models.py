@@ -62,6 +62,17 @@ class Association(User):
         null= True
 
     )
+
+    activite = models.CharField(
+        max_length= 1500,
+        null= True
+
+    )
+
+    description = models.CharField(
+        max_length= 5000,
+        null= True
+    )
     
     date_creation = models.DateField()
     

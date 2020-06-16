@@ -40,7 +40,8 @@ class CreateMaraudeForm(forms.ModelForm):
     arrondissement = forms.ModelChoiceField(
         label="Arrondissement : ",
         required=True,
-        queryset= Arrondissement.objects.all()
+        queryset= Arrondissement.objects.all(),
+        
     )
     
 

@@ -1,5 +1,7 @@
 {% load static %}
 
+
+
     <nav class="navbar center">
         <div class="navbar-logo">
             <a href="{% url 'home'%}" class="navbar-link center"><img src="{% static 'images/logo.png' %}" src="images/logo.png" alt="Navbar_Image" class="navbar-image"/></a>
@@ -25,7 +27,8 @@
             {% if user.is_authenticated  %}
             <a href="{% url 'logout'%}" class="navbar-link center">Déconnexion</a>
             {% else %}
-            <a href="{% url 'create_benevole'%}" class="navbar-link center">Création de compte</a>
+              <a href="{% url 'create_benevole'%}" class="navbar-link center">Créer compte Bénévole</a>
+              <a href="{% url 'inscription_association'%}" class="navbar-link center">Créer compte Association</a>
             <a href="{% url 'connexion'%}" class="navbar-link center">Connexion</a>
             {% endif %}
            
@@ -33,3 +36,5 @@
     </nav>
 
 <!-- End of Navbar -->
+
+

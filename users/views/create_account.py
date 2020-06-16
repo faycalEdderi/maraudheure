@@ -30,6 +30,7 @@ def connexion(request):
 
         else:
             messages.error(request,'Adresse mail ou mot de passe incorrect') 
+            print("erro : ", form.errors)
             print("user not connected")
             return redirect('connexion')
 
@@ -119,6 +120,10 @@ def create_association(request):
             date = request.POST['date_creation']
             telephone = request.POST['phone_number']
 
+            description = request.POST['description']
+            activite = request.POST['activite']
+
+
             select_role = Role.objects.get(role_name = "association" )
             get_role = Role.objects.get(id = select_role.id )
 
@@ -134,7 +139,9 @@ def create_association(request):
                 nom_association = nom_association,
                 siege_social = siege,
                 date_creation = date,
-                phone_number = telephone
+                phone_number = telephone,
+                activite = activite,
+                description = description
             )
          
             if mdp1 == mdp2:
