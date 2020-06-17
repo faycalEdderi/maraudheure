@@ -39,10 +39,10 @@ def my_inscriptions(request, pk=None):
         connected_user = request.user
         association = Association.objects.get(id=connected_user.id)
         if association and connected_user:
-            my_maraudes = association.my_maraude.all()
-
+            select_maraude = Maraude.objects.get(id=pk)
+    
             context = {
-                "my_maraudes": my_maraudes,
+                "maraude": select_maraude,
             }
             return render(request, 'mes_inscrits.html', context)
     except:

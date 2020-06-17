@@ -1,27 +1,64 @@
 {% extends 'theme.html' %}
 {% load static %}
 {% block content %}
-<h1>Detail de la Maraudes</h1>
-<table class="table">
-    <thead class=" expleoColorT">
-        <th>Association</th>
-        <th>Date de maraude</th>
-        <th>Description</th>
+<!-- Content -->
+            <section class="content-profil-wrapper">
+                <div class="content-profil">
+                    <p class="title">
+                        Les maraudes en détail
+                    </p>
+                  </div>
+                <div class="profil-wrapper">
+                  <div class="profil-bg">
+                    <div class="profil">
+                        <div class="image">
+                            <img 
+                            src="{% static 'images/avatar.png' %}" 
+                            alt="Customer image"
+                            class="profil-image"
+                          />
+                        </div>
+                        <div class="profil-text">
+                                <div class="name_maraude">
+                                    <h1 class="profil-fullname">
+                                       <a href="{% url 'assoc_public_profil' maraude.association.id %}">{{maraude.association}}</a>
+                                    </h1>
+                                </div>
+                            <p class="profil-paragraph blabla">
+                                {{maraude.description}}
+                            </p>
+                            <div class="date-button">
+                                <h1 class ="profil-paragraph-date">{{maraude.date}}</h1>
+                                <form action="{% url 'inscription_maraude' maraude.id %}">
+                                
+                              
+                                  {% if maraude.benevole.all %}
 
-    </thead>
-    <tbody>
-    
-        <tr>
-            <td><a href="{% url 'assoc_public_profil' maraude.association.id %}">{{maraude.association}}</a></td>
-            <td>{{maraude.date}}</td>
-            <td>{{maraude.description}}</td>
-        
-        </tr>
-   
-    </tbody>
-</table>
-<form action="{% url 'inscription_maraude' maraude.id %}">
-    <button>Inscription</button>
-</form>
+                                    {% for benevole in maraude.benevole.all %}
+                                      {% if user.benevole.id == benevole.id %}
+                                    
+                            
+                                        <input type="hidden" value="S'inscrire" />
+                                        <p>Vous etes inscrit à cette maraude </p>
+                                     
+                                      {% else %}
+                                      <input type="submit" value="S'inscrire" />
+                                    {% endif %}
+                                    {% endfor %}
+                                    {% else %}
+                                      <input type="submit" value="S'inscrire" />
+
+                                  {% endif %}
+
+                              
+                                </form>
+                                
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            <!-- End of Content -->
 
 {% endblock content %}

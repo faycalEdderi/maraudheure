@@ -16,15 +16,42 @@
         {% endfor %}
     {% endfor %}
 {% endif %}
-<h1>Mes maraudes</h1>
 
-{% for maraudes in my_maraudes %}
-    <p> Date : {{ maraudes.date }} </p>
-    <p> Description : {{ maraudes.description }} </p>
-    <p>Benevoles inscrits :</p>
-     {% for benevole in maraudes.benevole.all %}
-        <p>Prénom :  {{ benevole.first_name }} / Nom : {{ benevole.last_name }}  </p>
-    {% endfor %}
-{% endfor %}
 
+<!-- Content -->
+            <section class="content-profil-wrapper">
+                <div class="content-profil">
+                    <p class="title">
+                        Maraude : Details
+                    </p>
+                  </div>
+                <div class="profil-wrapper">
+                  <div class="profil-bg">
+                    <div class="profil">
+                        <div class="image">
+                            <img 
+                            src="{% static 'images/avatar.png'%}" 
+                            alt="Customer image"
+                            class="profil-image"
+                          />
+                        </div>
+                        <div class="profil-text">
+                                <div class="name_maraude">
+                                    <h1 class="profil-fullname">
+                                        {{ maraude.association }}
+                                    </h1>
+                                </div>
+                            <p class="profil-paragraph blabla">
+                               {{ maraude.description }}
+                            </p>
+                                <h1 class ="profil-paragraph-date"> Date : {{ maraude.date }} </h1>
+                                <h3 class ="profil-paragraph-date"> Bénévoles  : </h3>
+                                {% for benevole in maraude.benevole.all %}
+                                <p class ="profil-paragraph-date">{{ benevole.first_name|capfirst }} {{ benevole.last_name|capfirst  }} </p>
+                                {% endfor %}
+                                </div>
+                  </div>
+                </div>
+              </section>
+            <!-- End of Content -->
 {% endblock content %}
