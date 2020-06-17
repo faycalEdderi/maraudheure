@@ -26,9 +26,25 @@
                                 </div>
                             <p class="profil-paragraph blabla">
                                 {{maraude.description}}
+                                
+                            </p>
+                            <p class="profil-paragraph blabla">
+                                {{maraude.arrondissement}}
+                                
+                            </p>
+                            <p class="profil-paragraph blabla">
+                               Adresse: {{maraude.adresse}}
+                                
+                            </p>
+                            <p class="profil-paragraph blabla">
+                              <h1 class ="profil-paragraph-date">
+                               Horaire :{{maraude.heure_debut}} h - {{maraude.heure_fin}}h </h1>
+                                
                             </p>
                             <div class="date-button">
-                                <h1 class ="profil-paragraph-date">{{maraude.date}}</h1>
+                                <h1 class ="profil-paragraph-date">
+                                Date :{{maraude.date}}</h1>
+                                
                                 <form action="{% url 'inscription_maraude' maraude.id %}">
                                 
                               
@@ -42,18 +58,23 @@
                                         <p>Vous etes inscrit à cette maraude </p>
                                      
                                       {% else %}
+                                      {% if user.is_authenticated %}
                                       <input type="submit" value="S'inscrire" />
+                                      {% endif %}
                                     {% endif %}
                                     {% endfor %}
                                     {% else %}
+                                    {% if user.is_authenticated %}
                                       <input type="submit" value="S'inscrire" />
-
+                                      {% endif %}
                                   {% endif %}
 
                               
                                 </form>
                                 
                             </div>
+                        </div>
+                        <div class="date-button">
                         </div>
                     </div>
                   </div>
