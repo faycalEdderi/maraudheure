@@ -32,6 +32,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
 
+    
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,6 +43,9 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'maraude.apps.MaraudeConfig',
     'django_filters',
+    'maps',
+    
+    
 
     
  
@@ -142,6 +147,8 @@ AUTHENTICATION_BACKENDS = (
 )
 
 # Format de date
+subscription_key = "AtPquY3AoMYIdpfth1uEmsTyCdWBgbyq05OkJ4IPJ4FigdknfTsWEi_Fq_4oAeHz"
+assert subscription_key
 
 
 

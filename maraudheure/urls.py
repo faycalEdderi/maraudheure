@@ -20,4 +20,6 @@ urlpatterns = [
 
     path('maraudes/', include('maraude.maraude_url')),
     path('users/', include('users.user_url')),
+
+    path('maps', include('maps.urls'))
 ]
