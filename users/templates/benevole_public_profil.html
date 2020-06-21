@@ -1,0 +1,79 @@
+{% extends 'theme.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Content -->
+            <section class="content-profil-wrapper">
+                <div class="content-profil">
+                  <p class="title">
+                      Profil public bénévole
+                      
+                  </p>
+                </div>
+                <div class="profil-wrapper">
+                  <div class="profil-bg">
+                    <div class="profil">
+                      <img 
+                        src={% static "images/avatar.png"%}
+                        alt="Customer image"
+                        class="profil-image"
+                      />
+                      <div class="profil-text">
+                            <div class="fullname">
+                                <h1 class="profil-fullname">
+                                    {{benevole.first_name}}
+                                </h1>
+                                <h1 class="profil-fullname">
+                                   {{benevole.last_name}}
+                                </h1>
+                            </div>
+                        <h1 class ="profil-info"> Information générale </h1>
+                        <p class="profil-paragraph ville">
+                            Ville : {{benevole.ville|default_if_none:'' }}
+                        </p>
+                        <p class="profil-paragraph ville">
+                            Adresse : {{benevole.adresse|default_if_none:'' }}
+                        </p>
+                        
+                        <p class="profil-paragraph metier">
+                            Métier :  {{benevole.metier|default_if_none:'' }}
+                        </p>
+                        <p class="profil-paragraph mail">
+                            Adresse mail : {{benevole.email}}
+                        </p>
+                        <p class="profil-paragraph dateNais">
+                            Numero de téléphone :{{benevole.phone_number|default_if_none:'' }}
+                        </p>
+                        <h1 class="profil-info interet">
+                            Centre d'intérêt 
+                        </h1>
+                        <p class="profil-paragraph acitvite">
+                            Activité :  {{benevole.activite|default_if_none:'' }}
+                        </p>
+                        <p class="profil-paragraph hobbies">
+                            Hobbies : {{benevole.hobbies|default_if_none:'' }}
+                        </p>
+                        <h1 class="profil-info">
+                            Description
+                        </h1>
+                        <p class="profil-paragraph blabla">
+                        {{benevole.description|default_if_none:'' }}
+                            
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              
+
+            <!-- End of Content -->
+
+{% endblock content %}
+
+
+
+            
+
+
+

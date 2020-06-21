@@ -47,7 +47,7 @@
                                 <h1 class ="profil-paragraph-date"> Date : {{ maraude.date }} </h1>
                                 <h3 class ="profil-paragraph-date"> Bénévoles  : </h3>
                                 {% for benevole in maraude.benevole.all %}
-                                <p class ="profil-paragraph-date">{{ benevole.first_name|capfirst }} {{ benevole.last_name|capfirst  }} </p>
+                                    <p class ="profil-paragraph-date"><a href="{% url "benevole_public_profil" benevole.id %}">{{ benevole.first_name|capfirst }} {{ benevole.last_name|capfirst  }} </a></p>
                                 {% endfor %}
                                 </div>
                   </div>

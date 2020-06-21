@@ -23,5 +23,6 @@ urlpatterns = [
     path('inscription/benevole', users_views.create_benevole, name='create_benevole'),
     path('inscription/association', users_views.create_association, name='inscription_association'),
     path('association/<int:pk>/profil', users_views.assoc_public_profil, name='assoc_public_profil'),
+    path('benevole/<int:pk>/profil', users_views.benevole_public_profil, name='benevole_public_profil'),
 
 ]

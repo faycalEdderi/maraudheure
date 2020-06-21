@@ -14,9 +14,6 @@ def create_maraude(request):
         form = CreateMaraudeForm(request.POST)
         
         print("Request : ", request.POST)
-
-        
-        
         
         if form.is_valid():
 
@@ -33,8 +30,7 @@ def create_maraude(request):
 
             get_service = request.POST.getlist('produits')
             
-            
-
+        
             arrondissement = Arrondissement.objects.get(id=get_arrond)
 
             user = request.user
