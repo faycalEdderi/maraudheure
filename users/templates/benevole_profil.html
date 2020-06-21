@@ -7,6 +7,7 @@
                 <div class="content-profil">
                   <p class="title">
                       Mon profil
+                      <a href="{% url 'edit_benevole'%}" class="navbar-link center">Modifier profil</a>
                   </p>
                 </div>
                 <div class="profil-wrapper">
@@ -28,34 +29,35 @@
                             </div>
                         <h1 class ="profil-info"> Information générale </h1>
                         <p class="profil-paragraph ville">
-                            Ville : {{user.benevole.ville}}
+                            Ville : {{user.benevole.ville|default_if_none:'' }}
                         </p>
                         <p class="profil-paragraph ville">
-                            Adresse : {{user.benevole.adresse}}
+                            Adresse : {{user.benevole.adresse|default_if_none:'' }}
                         </p>
                         
                         <p class="profil-paragraph metier">
-                            Métier : 
+                            Métier :  {{user.benevole.metier|default_if_none:'' }}
                         </p>
                         <p class="profil-paragraph mail">
                             Adresse mail : {{user.benevole.email}}
                         </p>
                         <p class="profil-paragraph dateNais">
-                            Numero de téléphone :{{user.benevole.phone_number}}
+                            Numero de téléphone :{{user.benevole.phone_number|default_if_none:'' }}
                         </p>
                         <h1 class="profil-info interet">
-                            Centre d'intérêt
+                            Centre d'intérêt 
                         </h1>
                         <p class="profil-paragraph acitvite">
-                            Activité : 
+                            Activité :  {{user.benevole.activite|default_if_none:'' }}
                         </p>
                         <p class="profil-paragraph hobbies">
-                            Hobbies : 
+                            Hobbies : {{user.benevole.hobbies|default_if_none:'' }}
                         </p>
                         <h1 class="profil-info">
                             Description
                         </h1>
                         <p class="profil-paragraph blabla">
+                        {{user.benevole.description|default_if_none:'' }}
                             
                         </p>
                       </div>

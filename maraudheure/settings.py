@@ -44,11 +44,7 @@ INSTALLED_APPS = [
     'maraude.apps.MaraudeConfig',
     'django_filters',
     'maps',
-    
-    
-
-    
- 
+     
 ]
 
 MIDDLEWARE = [
@@ -149,6 +145,10 @@ AUTHENTICATION_BACKENDS = (
 # Format de date
 subscription_key = "AtPquY3AoMYIdpfth1uEmsTyCdWBgbyq05OkJ4IPJ4FigdknfTsWEi_Fq_4oAeHz"
 assert subscription_key
+
+
+
+
 
 
 

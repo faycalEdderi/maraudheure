@@ -168,3 +168,141 @@ class CreateAssociationForm(forms.ModelForm):
             
             )
 
+class EditAssociationForm(forms.ModelForm):
+    email = forms.EmailField(
+        label='Email :',
+        required=True,
+        error_messages={'required': 'Veuillez entrer une Adresse Mail'},
+
+    )
+    
+    first_name = forms.CharField(
+        label='Prénom du dirigeant : ',
+        required=True,
+        error_messages={'required': 'Veuillez entrer un prénom'},
+
+    )
+    last_name = forms.CharField(
+        label='Nom du dirigeant : ',
+        required=True,
+        error_messages={'required': 'Veuillez entrer un nom'},
+
+    )
+   
+    phone_number = forms.CharField(
+        label="Téléphone",
+        required=False,  
+           
+    )
+    nom_association = forms.CharField(
+        label="Nom de l'association",
+        required=True,  
+           
+    )
+    siege_social = forms.CharField(
+        label="Adresse du siege social",
+        required=True,  
+           
+    )
+
+    activite = forms.CharField(
+        label="Activité de l'association",
+        required=True,  
+           
+    )
+
+    description = forms.CharField(
+        label="Description de l'association",
+        required=True,  
+        widget=forms.Textarea 
+         
+    )
+
+    
+    class Meta:
+        model = Association
+        fields = (
+           
+            'first_name',
+            'last_name',
+            'email',
+            'nom_association',
+            'phone_number',
+            'siege_social',
+            'activite',  
+            'description',          
+            )
+
+class EditBenevoleForm(forms.ModelForm):
+    email = forms.EmailField(
+        label='Email :',
+        required=True,
+        error_messages={'required': 'Veuillez entrer une Adresse Mail'},
+
+    )
+    first_name = forms.CharField(
+        label='Prénom : ',
+        required=True,
+        error_messages={'required': 'Veuillez entrer un prénom'},
+
+    )
+    last_name = forms.CharField(
+        label='Nom : ',
+        required=True,
+        error_messages={'required': 'Veuillez entrer un nom'},
+
+    )
+   
+    phone_number = forms.CharField(
+        label="Téléphone",
+        required=False,  
+           
+    )
+    ville = forms.CharField(
+        label="Ville",
+        required=False,  
+           
+    )
+    adresse = forms.CharField(
+        label="Adresse",
+        required=False,  
+           
+    )
+    activite = forms.CharField(
+        label="Activité",
+        required=False,  
+           
+    )
+    hobbies = forms.CharField(
+        label="Hobbies",
+        required=False,  
+           
+    )
+    metier = forms.CharField(
+        label="Metier",
+        required=False,  
+           
+    )
+    description = forms.CharField(
+        label="Description de l'association",
+        required=False,  
+        widget=forms.Textarea 
+         
+    )
+
+    class Meta:
+        model = Benevole
+        fields = (
+            'email',
+            'first_name',
+            'last_name',
+            'phone_number',
+            'ville',
+            'adresse',
+            'activite',
+            'hobbies',
+            'metier',
+            'description'
+        )
+
+

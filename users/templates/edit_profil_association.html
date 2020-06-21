@@ -1,90 +1,54 @@
 {% extends 'theme.html' %}
 {% load static %}
 {% block content %}
-<form method="POST" >
-{% csrf_token %}
+<!-- Content -->
+<div class="content-creation-wrapper">
+    <div class="content-wrapper-right">
+        <form method="POST" class="content-creation-form">
+        {% csrf_token %}
+            <h1 class="content-creation-title-right">
+                Editer votre profil association
+            </h1>
+            <div class="content-creation-input">
+                <label>{{form_edit_association.nom_association.label}}</label>
+                {{form_edit_association.nom_association}}
+            </div>
+            <div class="content-creation-input">
+                <label>{{form_edit_association.first_name.label}}</label>
+                {{form_edit_association.first_name}}
+            </div>
+            <div class="content-creation-input">
+                <label>{{form_edit_association.last_name.label}}</label>
+                {{form_edit_association.last_name}}
+            </div>
+            <div class="content-creation-input">
+                <label>{{form_edit_association.siege_social.label}}</label>
+                {{form_edit_association.siege_social}}
+            </div>
+            <div class="content-creation-input">
+                <label>{{form_edit_association.phone_number.label}}</label>
+                {{form_edit_association.phone_number}}
+            </div>
+            <div class="content-creation-input">
+                <label>{{form_edit_association.email.label}}</label>
+                {{form_edit_association.email}}
+            </div>
+            <div class="content-creation-input">
+                <label>{{form_edit_association.activite.label}}</label>
+                {{form_edit_association.activite}}
+            </div>
+            <div class="content-creation-input">
+                <label>{{form_edit_association.description.label}}</label>
+                {{form_edit_association.description}}
+            </div>
 
-  
-    <p>
-    {{form_edit_association.first_name.label}}
-    {{form_edit_association.first_name}}
-    {{form_edit_association.first_name.error}}
-    </p>
+            <div class="content-creation-forget">
+                <input type="submit" value="Valider" class="form-btn"/>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- End of Content -->
 
-    <p>{{ form_edit_association.username.as_hidden  }}</p>
-
-    <p>
-    {{form_edit_association.last_name.label}}
-    {{form_edit_association.last_name}}
-    {{form_edit_association.last_name.error}}
-    </p>
-
-    <p>
-    {{form_edit_association.email.label}}
-    {{form_edit_association.email}}
-    {{form_edit_association.email.error}}
-    </p>
-
-    <p>
-    {{form_edit_association.phone_number.label}}
-    {{form_edit_association.phone_number}}
-    </p>
-
-    <p>
-    {{form_edit_association.ville.label}}
-    {{form_edit_association.ville}}
-    </p>
-
-    <p>
-    {{form_edit_association.adresse.label}}
-    {{form_edit_association.adresse}}
-    </p>
-
-    
-
-    <p>
-    {{form_edit_association.num_rna.label}}
-    {{form_edit_association.num_rna.error}}
-    {{form_edit_association.num_rna}}
-    </p>
-
-<p>
-    {{form_edit_association.nom_association.label}}
-    {{form_edit_association.nom_association.error}}
-    {{form_edit_association.nom_association}}
-    </p>
-
-<p>
-    {{form_edit_association.siege_social.label}}
-    {{form_edit_association.siege_social.error}}
-    {{form_edit_association.siege_social}}
-    </p>
-
-
-<p>
-    {{form_edit_association.date_creation.label}}
-    {{form_edit_association.date_creation.error}}
-    {{form_edit_association.date_creation}}
-    </p>
 {% endblock content %}
 
-    
-
-     
-
-
-    
-    
-
-
-    
-
-
-    
-
-
-
-
-
-    <button type="submit">Valider</button>
-</form>

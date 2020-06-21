@@ -1,6 +1,56 @@
-<form method="POST" >
-{% csrf_token %}
-
-    {{form_edit_benevole.as_p}}
-    <button type="submit">Valider</button>
-</form>
+{% extends 'theme.html' %}
+{% load static %}
+{% block content %}
+<!-- Content -->
+<div class="content-creation-wrapper">
+    <div class="content-wrapper-right">
+        <form method="POST" class="content-creation-form">
+        {% csrf_token %}
+            <h1 class="content-creation-title-right">
+                Editer votre profil bénévole
+            </h1>
+            <div class="content-creation-input">
+                <label> {{form_edit_benevole.last_name.label}}</label>
+                    {{form_edit_benevole.last_name}}
+            </div>
+            <div class="content-creation-input">
+                <label> {{form_edit_benevole.first_name.label}}</label>
+                {{form_edit_benevole.first_name}}
+            </div>
+            <div class="content-creation-input">
+                <label> {{form_edit_benevole.email.label}}</label>
+                    {{form_edit_benevole.email}}
+            </div>
+            <div class="content-creation-input">
+                <label> {{form_edit_benevole.ville.label}}</label>
+                {{form_edit_benevole.ville}}
+            </div>
+            <div class="content-creation-input">
+                <label> {{form_edit_benevole.adresse.label}}</label>
+                {{form_edit_benevole.adresse}}
+            </div>
+            <div class="content-creation-input">
+                <label> {{form_edit_benevole.metier.label}}</label>
+                    {{form_edit_benevole.metier}}
+            </div>
+            <div class="content-creation-input">
+                <label> {{form_edit_benevole.activite.label}}</label>
+                    {{form_edit_benevole.activite}}
+            </div>
+            <div class="content-creation-input">
+                <label> {{form_edit_benevole.hobbies.label}}</label>
+                    {{form_edit_benevole.hobbies}}
+            </div>
+            
+            <div class="content-creation-input">
+                <label> {{form_edit_benevole.description.label}}</label>
+                    {{form_edit_benevole.description}}
+            </div>
+            <div class="content-creation-forget">
+                <input type="submit" value="Valider" class="form-btn"/>
+            </div>
+        </form>
+    </div>
+</div>
+            <!-- End of Content -->
+{% endblock content %}

@@ -13,7 +13,7 @@ from users.form import *
 def edit_benevole(request):
     if request.method == "POST":
 
-        form_edit_profil = CreateBenevoleForm(request.POST, request.FILES  or None,
+        form_edit_profil = EditBenevoleForm(request.POST, request.FILES  or None,
                                         instance=request.user.benevole)
         print("Request : ", request.POST)
         if form_edit_profil.is_valid():
@@ -25,7 +25,7 @@ def edit_benevole(request):
             messages.error(request, "Erreur dans le formulaire")
             return redirect('edit_benevole')
     else:
-        form_edit_profil = CreateBenevoleForm(instance=request.user.benevole)
+        form_edit_profil = EditBenevoleForm(instance=request.user.benevole)
         args = { 'form_edit_benevole' : form_edit_profil }
 
     return render(request, 'edit_profil_benevole.html', args )
@@ -36,19 +36,19 @@ def edit_benevole(request):
 def edit_association(request):
     if request.method == "POST":
 
-        form_edit_profil = CreateAssociationForm(request.POST, request.FILES  or None,
+        form_edit_profil = EditAssociationForm(request.POST, request.FILES  or None,
                                         instance=request.user.association)
         print("Request : ", request.POST)
         if form_edit_profil.is_valid():
 
             form_edit_profil.save()
 
-            return redirect("home")
+            return redirect("association_profil")
         else:
             messages.error(request, "Erreur dans le formulaire")
             return redirect('edit_association')
     else:
-        form_edit_profil = CreateAssociationForm(instance=request.user.association)
+        form_edit_profil = EditAssociationForm(instance=request.user.association)
         args = { 'form_edit_association' : form_edit_profil }
 
     return render(request, 'edit_profil_association.html', args )

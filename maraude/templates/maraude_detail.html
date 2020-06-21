@@ -1,4 +1,4 @@
-{% extends 'theme.html' %}
+{% extends 'theme3.html' %}
 {% load static %}
 {% block content %}
 <!-- Content -->
@@ -79,7 +79,37 @@
                     </div>
                   </div>
                 </div>
+  
+               <div id='map' width="100%" style='width: 100%%; height: 300px;'></div>
               </section>
+              
             <!-- End of Content -->
+ 
 
 {% endblock content %}
+{% block script %}
+<script>
+  console.log("hello")
+
+  mapboxgl.accessToken = 'pk.eyJ1IjoiemVyYWlzc2UiLCJhIjoiY2tibmUwazdxMXJvaTJycHZxZXpuajhsZSJ9.wi3tj3MLF6IaELpfmHpLzw';
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v10',
+    center: [2.333333 , 48.866667],
+    zoom: 11
+  });
+  console.log(map)
+
+  // Add zoom and rotation controls to the map.
+  map.addControl(
+    new MapboxGeocoder({
+    accessToken: mapboxgl.accessToken,
+    mapboxgl: mapboxgl
+    })
+  );
+var x = document.getElementsByClassName("mapboxgl-ctrl-geocoder--input");
+  console.log(x)
+    
+</script>
+
+{% endblock script %}

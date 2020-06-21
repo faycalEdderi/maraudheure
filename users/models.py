@@ -21,6 +21,26 @@ class Benevole(User):
         blank=True, 
         null=True
     )
+    activite = models.CharField(
+        max_length= 255,
+        blank=True, 
+        null=True
+    )
+    metier = models.CharField(
+        max_length= 255,
+        blank=True, 
+        null=True
+    )
+    hobbies = models.CharField(
+        max_length= 255,
+        blank=True, 
+        null=True
+    )
+    description = models.CharField(
+        max_length= 1500,
+        blank=True, 
+        null=True
+    )
     
     ville = models.CharField(
         max_length= 200, 
