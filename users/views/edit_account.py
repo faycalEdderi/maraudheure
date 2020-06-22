@@ -52,3 +52,25 @@ def edit_association(request):
         args = { 'form_edit_association' : form_edit_profil }
 
     return render(request, 'edit_profil_association.html', args )
+
+
+def delete_user(request, pk=None):
+    
+    try:
+        connected_user = request.user
+        user = User.objects.get(id = connected_user.id)
+       
+        
+
+        if user:
+            user.delete()
+            messages.add_message(request, messages.INFO, 'Votre compte a été supprimé')
+            return redirect('home')
+        else:
+            messages.error(request, "Une erreur s'est produite : votre compte n'a pas été supprimé")
+            if user.benevole:
+                return redirect('benevole_profil', pk=user.benevole.id)
+            if user.association:
+                return redirect('association_profil', pk=user.association.id)
+    except:
+        return redirect('home')

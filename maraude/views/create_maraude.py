@@ -10,6 +10,9 @@ from maraude.form import *
 
 def create_maraude(request):
 
+    connected_user = request.user
+    association = Association.objects.get(id = connected_user.id)
+
     if request.method == 'POST':
         form = CreateMaraudeForm(request.POST)
         
@@ -50,7 +53,7 @@ def create_maraude(request):
             maraude.save()
             maraude.produit.set(get_service)
             
-            return redirect('home')
+            return redirect('my_maraudes', pk=association.id)
         else:
             messages.error(request, "Error")
             print(form.errors)
@@ -64,3 +67,23 @@ def create_maraude(request):
         }
 
         return render(request, 'create_maraude.html', args)
+
+def delete_maraude(request, pk=None):
+    
+    try:
+        connected_user = request.user
+        association = Association.objects.get(id = connected_user.id)
+        maraude = Maraude.objects.get(id=pk)
+
+        if association and maraude:
+            maraude.delete()
+            messages.add_message(request, messages.INFO, 'Suppression de la maraude effectuée')
+            return redirect('my_maraudes', pk=association.id)
+        else:
+            messages.error(request, "Une erreur s'est produite : la maraude n'a pas été supprimée")
+            return redirect('my_maraudes', pk=association.id)
+         
+    except:
+        return redirect('home')
+
+

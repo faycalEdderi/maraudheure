@@ -23,9 +23,6 @@
     <link rel="stylesheet" href="{% static 'css/inscription_association.css' %}">
     <link rel="stylesheet" href="{% static 'css/details.css' %}">
     
-
-
-
     </head>
 
     <body>
@@ -35,6 +32,25 @@
                 {% include 'menu.html' %}
                 <!-- End Navbar -->
             </div>
+            {% block message %}
+                {% for message in messages %}
+                    <div class="alert alert-success">
+                        <a class="close" href="#" data-dismiss="alert">×</a>
+
+                        <p class="text-center" >{{ message }}</p> 
+
+                    </div>
+                {% endfor %}
+                {% if form.errors %}
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            <p> {{ error }} </p>
+                        {% endfor %}
+                    {% endfor %}
+                {% endif %}
+             
+            {% endblock message %}
+
              <!-- Content -->
             <div class="content-creation-wrapper">
             {% block content %}{% endblock content %}

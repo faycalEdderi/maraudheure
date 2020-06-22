@@ -1,21 +1,7 @@
 {% extends 'theme.html' %}
 {% load static %}
 {% block content %}
-{% for message in messages %}
-    <div class="alert alert-success">
-        <a class="close" href="#" data-dismiss="alert">×</a>
 
-        <p class="text-center" >{{ message }}</p> 
-
-    </div>
-{% endfor %}
-{% if form.errors %}
-    {% for field in form %}
-        {% for error in field.errors %}
-            <p> {{ error }} </p>
-        {% endfor %}
-    {% endfor %}
-{% endif %}
 
 
 <!-- Content -->
@@ -24,6 +10,8 @@
                     <p class="title">
                         Maraude : Details
                     </p>
+                    <a  href="{% url 'delete_maraude'  maraude.id %}">Supprimer</a>
+                    <a  href="{% url 'edit_maraude'  maraude.id %}">Modifier</a>
                   </div>
                 <div class="profil-wrapper">
                   <div class="profil-bg">

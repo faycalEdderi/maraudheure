@@ -25,4 +25,6 @@ urlpatterns = [
     path('association/<int:pk>/profil', users_views.assoc_public_profil, name='assoc_public_profil'),
     path('benevole/<int:pk>/profil', users_views.benevole_public_profil, name='benevole_public_profil'),
 
+    path('user/<int:pk>/delete', users_views.delete_user, name='delete_user'),
+
 ]
