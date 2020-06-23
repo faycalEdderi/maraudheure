@@ -1,0 +1,13 @@
+{% extends 'theme.html' %}
+{% load static %}
+{% block content %}
+
+<div class="content-wrapper-right"> 
+    <h1>Etes vous sure de vouloir supprimer votre compte ?</h1>
+    <h4>Cette action est irreversible toutes vos données seront supprimés</h4>
+
+    <a href="{% url 'delete_user' user.id%}" class="navbar-link center">Supprimer mon compte</a>
+</div>                 
+  
+{% endblock content %}
+

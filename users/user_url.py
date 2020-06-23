@@ -24,7 +24,9 @@ urlpatterns = [
     path('inscription/association', users_views.create_association, name='inscription_association'),
     path('association/<int:pk>/profil', users_views.assoc_public_profil, name='assoc_public_profil'),
     path('benevole/<int:pk>/profil', users_views.benevole_public_profil, name='benevole_public_profil'),
+    path('change/mdp', users_views.change_pwd, name='modifMdp'),
 
     path('user/<int:pk>/delete', users_views.delete_user, name='delete_user'),
+    path('user/delete/validation', users_views.confirm_delete_account, name='confirm_delete_account'),
 
 ]

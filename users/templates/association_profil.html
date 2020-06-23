@@ -6,8 +6,7 @@
     <div class="content-profil">
         <p class="title">
             Mon compte
-            <a href="{% url 'edit_association'%}" class="navbar-link center">Modifier profil</a>
-             <a href="{% url 'delete_user' user.id %}" class="navbar-link center">Supprimer mon compte</a>
+            
         </p>
     </div>
     <div class="profil-wrapper">
@@ -61,6 +60,11 @@
         </div>
         </div>
     </div>
+        <a href="{% url 'edit_association'%}" class="navbar-link center">Modifier profil</a>
+        
+        <a href="{% url 'modifMdp'%}" class="navbar-link center">Modifier mot de passe</a>
+
+        <a href="{% url 'confirm_delete_account' %}" class="navbar-link center">Supprimer mon compte</a>
 </section>
 <!-- End of Content -->
 

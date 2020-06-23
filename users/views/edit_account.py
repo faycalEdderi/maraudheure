@@ -60,8 +60,6 @@ def delete_user(request, pk=None):
         connected_user = request.user
         user = User.objects.get(id = connected_user.id)
        
-        
-
         if user:
             user.delete()
             messages.add_message(request, messages.INFO, 'Votre compte a été supprimé')
@@ -74,3 +72,14 @@ def delete_user(request, pk=None):
                 return redirect('association_profil', pk=user.association.id)
     except:
         return redirect('home')
+
+
+def confirm_delete_account(request):
+    try:
+        connected_user = request.user
+        user = User.objects.get(id = connected_user.id)
+        if user:
+            return render(request, 'valide_delete_account.html')
+    except:
+        return redirect('home')
+
