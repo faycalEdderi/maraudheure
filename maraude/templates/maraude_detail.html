@@ -55,22 +55,38 @@
                                     
                             
                                         <input type="hidden" value="S'inscrire" />
+                                        
                                         <p>Vous etes inscrit à cette maraude </p>
                                      
                                       {% else %}
-                                      {% if user.is_authenticated %}
-                                      <input type="submit" value="S'inscrire" />
+                                      {% if user.is_authenticated and user.benevole.id != benevole.id %}
+                                 
+                                        <input type="submit" value="S'inscrire" />
                                       {% endif %}
                                     {% endif %}
                                     {% endfor %}
                                     {% else %}
-                                    {% if user.is_authenticated %}
+                                    {% if user.is_authenticated and user.benevole.id != benevole.id %}
                                       <input type="submit" value="S'inscrire" />
                                       {% endif %}
                                   {% endif %}
 
                               
                                 </form>
+                                {% if maraude.benevole.all %}
+
+                                  {% for benevole in maraude.benevole.all %}
+                                    {% if user.benevole.id == benevole.id %}
+                                    {% for benevole in maraude.benevole.all %}
+                                        {% if user.benevole.id == benevole.id %}
+                                        <form action="{% url 'desinscription_maraude' maraude.id %}">
+                                          <input type="submit" value="Se désincrire" />
+                                        </form>
+                                        {% endif %}
+                                      {% endfor %}
+                                    {% endif %}
+                                  {% endfor %}
+                                {% endif %}
                                 
                             </div>
                         </div>

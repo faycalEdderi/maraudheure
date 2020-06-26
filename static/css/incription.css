@@ -76,6 +76,7 @@ html {
     display: flex;
     justify-content: space-evenly;
     padding: 2rem;
+    margin-bottom: 3rem;
 }
 .content-creation-form {
     background-color: #436D85;

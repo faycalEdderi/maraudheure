@@ -21,10 +21,17 @@
                     <h1 class="maraude-name"> {{ maraudes.association }}  </h1>
                     <ul class="maraude-list">
                         <li class="maraude-list-item">{{ maraudes.date }}</li>
-                        <li class="maraude-list-item">16h - 18h</li>
+                        <li class="maraude-list-item">{{ maraudes.heure_debut }}h - {{ maraudes.heure_fin }}h</li>
                         <li class="maraude-list-item">{{ maraudes.arrondissement }}</li>
-                        <li class="maraude-list-item">6 rue de la Marguerite</li>
-                        <li class="maraude-list-item">Eau, boisson chaude</li>
+                        <li class="maraude-list-item">{{ maraudes.adresse }}</li>
+                        <li class="maraude-list-item">
+                        Produits :
+                        {% for produit in maraudes.produit.all %}
+                            {{produit}},
+                        {% endfor %}
+                        
+                        
+                        </li>
                     </ul>
                     
                     <button class="navigation-button">
