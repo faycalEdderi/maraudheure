@@ -4,7 +4,7 @@
 <!-- Content -->
 <div class="content-creation-wrapper">
     <div class="content-wrapper-right">
-        <form method="POST" class="content-creation-form">
+        <form method="POST" enctype='multipart/form-data' class="content-creation-form">
         {% csrf_token %}
             <h1 class="content-creation-title-right">
                 Editer votre profil bénévole
@@ -17,6 +17,15 @@
                 <label> {{form_edit_benevole.first_name.label}}</label>
                 {{form_edit_benevole.first_name}}
             </div>
+
+
+            <div class="content-creation-input">
+                <label> {{form_edit_benevole.image.label}}</label>
+                {{form_edit_benevole.image}}
+            </div>
+
+
+
             <div class="content-creation-input">
                 <label> {{form_edit_benevole.email.label}}</label>
                     {{form_edit_benevole.email}}

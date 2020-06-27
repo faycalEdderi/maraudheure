@@ -31,7 +31,7 @@
         {% endfor %}
     {% endfor %}
 {% endif %}
-    <form method="POST" class="content-creation-form">
+    <form method="POST" enctype='multipart/form-data' class="content-creation-form">
      {% csrf_token %}
     
         <h1 class="content-creation-title-right">
@@ -51,7 +51,7 @@
             </div>
         </div>
         <div class="content-creation-input">
-        <label class="mailpass">{{form.email.label}}</label>
+            <label class="mailpass">{{form.email.label}}</label>
             {{form.email}}
             {{form.email.error}}
         </div>
@@ -67,6 +67,15 @@
             {{form.password2.error}}
             {{form.password2}}
         </div>
+
+        <div class="content-creation-input">
+            <label class="mailpass">{{form.image.label}}</label>
+            {{form.image}}
+            {{form.image.error}}
+        </div>
+
+
+
         <div class="content-creation-forget">
             <a href="#" class="content-creation-password">Mot de passe oublié ?</a>
         </div>

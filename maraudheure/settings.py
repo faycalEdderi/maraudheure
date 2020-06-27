@@ -31,9 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-
-    
-
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,6 +41,7 @@ INSTALLED_APPS = [
     'maraude.apps.MaraudeConfig',
     'django_filters',
     'maps',
+    'django_cleanup.apps.CleanupConfig'
      
 ]
 
@@ -127,6 +125,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'profil_pic/')
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS=(

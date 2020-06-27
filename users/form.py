@@ -14,6 +14,13 @@ class CreateBenevoleForm(forms.ModelForm):
         error_messages={'required': 'Veuillez entrer une Adresse Mail'},
 
     )
+    image = forms.ImageField(
+        label="Photo de profil :",
+        required=False,
+        error_messages={ 'invalid': "Veuillez selectionner uniquement un fichier de type "
+                                    "image"},
+        widget=forms.FileInput,
+    )
     username = forms.CharField(
         required=False,
     )
@@ -30,30 +37,30 @@ class CreateBenevoleForm(forms.ModelForm):
 
     )
     password1 = forms.CharField(
-        label="Mot de passe",
+        label="Mot de passe :",
         required=False,
         error_messages={'required': 'Les deux mots de passes ne sont pas identiques'},
         widget=forms.PasswordInput,
 
     )
     password2 = forms.CharField(
-        label="Saisir à nouveau le mot de passe",
+        label="Saisir à nouveau le mot de passe :",
         required=False,
         error_messages={'required': 'Les deux mots de passes ne sont pas identiques'},
         widget=forms.PasswordInput,
     )
     phone_number = forms.CharField(
-        label="Téléphone",
+        label="Téléphone :",
         required=False,  
            
     )
     ville = forms.CharField(
-        label="Ville",
+        label="Ville :",
         required=False,  
            
     )
     adresse = forms.CharField(
-        label="Adresse",
+        label="Adresse :",
         required=False,  
            
     )
@@ -62,6 +69,7 @@ class CreateBenevoleForm(forms.ModelForm):
         model = Benevole
         fields = (
             'email',
+            'image',
             'username',
             'first_name',
             'last_name',
@@ -80,6 +88,13 @@ class CreateAssociationForm(forms.ModelForm):
         error_messages={'required': 'Veuillez entrer une Adresse Mail'},
 
     )
+    image = forms.ImageField(
+        label="Photo de profil :",
+        required=False,
+        error_messages={ 'invalid': "Veuillez selectionner uniquement un fichier de type "
+                                    "image"},
+        widget=forms.FileInput,
+    )
     username = forms.CharField(
         required=False,
     )
@@ -96,53 +111,53 @@ class CreateAssociationForm(forms.ModelForm):
 
     )
     password1 = forms.CharField(
-        label="Mot de passe",
+        label="Mot de passe :",
         required=False,
         error_messages={'required': 'Les deux mots de passes ne sont pas identiques'},
         widget=forms.PasswordInput,
 
     )
     password2 = forms.CharField(
-        label="Saisir à nouveau le mot de passe",
+        label="Saisir à nouveau le mot de passe :",
         required=False,
         error_messages={'required': 'Les deux mots de passes ne sont pas identiques'},
         widget=forms.PasswordInput,
     )
     phone_number = forms.CharField(
-        label="Téléphone",
+        label="Téléphone :",
         required=False,  
            
     )
     num_rna = forms.CharField(
-        label="Numéro RNA",
+        label="Numéro RNA :",
         required=True,  
            
     )
     nom_association = forms.CharField(
-        label="Nom de l'association",
+        label="Nom de l'association :",
         required=True,  
            
     )
     siege_social = forms.CharField(
-        label="Adresse du siege social",
+        label="Adresse du siege social :",
         required=True,  
            
     )
 
     activite = forms.CharField(
-        label="Activité de l'association",
+        label="Activité de l'association :",
         required=True,  
            
     )
 
     description = forms.CharField(
-        label="Description de l'association",
+        label="Description de l'association :",
         required=True,  
         widget=forms.Textarea 
          
     )
     date_creation = forms.CharField(
-        label="Date de création de l'association",
+        label="Date de création de l'association :",
         widget= DateInput,
         required=True,  
            
@@ -153,6 +168,7 @@ class CreateAssociationForm(forms.ModelForm):
         model = Association
         fields = (
             'username',
+            'image',
             'first_name',
             'last_name',
             'email',
@@ -174,6 +190,13 @@ class EditAssociationForm(forms.ModelForm):
         required=True,
         error_messages={'required': 'Veuillez entrer une Adresse Mail'},
 
+    )
+    image = forms.ImageField(
+        label="Photo de profil :",
+        required=False,
+        error_messages={ 'invalid': "Veuillez selectionner uniquement un fichier de type "
+                                    "image"},
+        widget=forms.FileInput,
     )
     
     first_name = forms.CharField(
@@ -226,6 +249,7 @@ class EditAssociationForm(forms.ModelForm):
             'first_name',
             'last_name',
             'email',
+            'image',
             'nom_association',
             'phone_number',
             'siege_social',
@@ -239,6 +263,13 @@ class EditBenevoleForm(forms.ModelForm):
         required=True,
         error_messages={'required': 'Veuillez entrer une Adresse Mail'},
 
+    )
+    image = forms.ImageField(
+        label="Photo de profil :",
+        required=False,
+        error_messages={ 'invalid': "Veuillez selectionner uniquement un fichier de type "
+                                    "image"},
+        widget=forms.FileInput,
     )
     first_name = forms.CharField(
         label='Prénom : ',
@@ -294,6 +325,7 @@ class EditBenevoleForm(forms.ModelForm):
         model = Benevole
         fields = (
             'email',
+            'image',
             'first_name',
             'last_name',
             'phone_number',

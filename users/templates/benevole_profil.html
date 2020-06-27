@@ -14,11 +14,14 @@
                 <div class="profil-wrapper">
                   <div class="profil-bg">
                     <div class="profil">
-                      <img 
-                        src={% static "images/avatar.png"%}
-                        alt="Customer image"
-                        class="profil-image"
-                      />
+
+                    {% if user.benevole.image %}
+                          <img class="profil-image"  src="{{ user.benevole.image.url }}"
+                               alt="photo de profil" >
+                          {% else %}
+                          <img class="profil-image"  src="{% static "images/avatar.png"%}" alt="photo de profil par défaut">
+                        {% endif %}
+                      
                       <div class="profil-text">
                             <div class="fullname">
                                 <h1 class="profil-fullname">

@@ -4,7 +4,7 @@
 <!-- Content -->
 <div class="content-creation-wrapper">
     <div class="content-wrapper-right">
-        <form method="POST" class="content-creation-form">
+        <form method="POST" enctype='multipart/form-data' class="content-creation-form">
         {% csrf_token %}
             <h1 class="content-creation-title-right">
                 Editer votre profil association
@@ -21,6 +21,16 @@
                 <label>{{form_edit_association.last_name.label}}</label>
                 {{form_edit_association.last_name}}
             </div>
+
+            <div class="content-creation-input">
+                <label>{{form_edit_association.image.label}}</label>
+                {{form_edit_association.image}}
+            </div>
+
+
+
+
+
             <div class="content-creation-input">
                 <label>{{form_edit_association.siege_social.label}}</label>
                 {{form_edit_association.siege_social}}

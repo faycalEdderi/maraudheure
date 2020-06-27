@@ -43,7 +43,7 @@ def connexion(request):
 def create_benevole(request):
 
     if request.method == 'POST':
-        form = CreateBenevoleForm(request.POST)
+        form = CreateBenevoleForm(request.POST, request.FILES)
 
 
         print("Request : ", request.POST)
@@ -53,6 +53,7 @@ def create_benevole(request):
           
             nom = request.POST['last_name']
             prenom = request.POST['first_name']
+            image = request.FILES['image']
             mdp1 = request.POST['password1']
             mdp2 = request.POST['password2']
 
@@ -64,6 +65,7 @@ def create_benevole(request):
                 email = email, 
                 first_name = prenom,
                 last_name = nom,
+                image= image,
                 role=get_role
             )
          
@@ -102,7 +104,7 @@ def create_benevole(request):
 def create_association(request):
 
     if request.method == 'POST':
-        form = CreateAssociationForm(request.POST)
+        form = CreateAssociationForm(request.POST, request.FILES)
 
         print("Request : ", request.POST)
         if form.is_valid():
@@ -113,6 +115,8 @@ def create_association(request):
             prenom = request.POST['first_name']
             mdp1 = request.POST['password1']
             mdp2 = request.POST['password2']
+
+            image = request.FILES['image']
 
             num_rna = request.POST['num_rna']
             nom_association = request.POST['nom_association']
@@ -132,6 +136,7 @@ def create_association(request):
             new_association = Association(
                 username = nom + '_' + prenom,  
                 email = email, 
+                image=image,
                 first_name = prenom,
                 last_name = nom,
                 role=get_role,
