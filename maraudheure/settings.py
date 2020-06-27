@@ -149,6 +149,16 @@ assert subscription_key
 
 
 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'maraudheure@gmail.com'
+EMAIL_HOST_PASSWORD = 'Faycal.78'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+
+
+
+
 
 
 

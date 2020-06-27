@@ -19,6 +19,10 @@ urlpatterns = [
     path('', users_views.home, name='home'),
     path("deconnexion/", LogoutView.as_view(), name="logout"),
     path('connexion', users_views.connexion, name='connexion'),
+    path("reset_password", PasswordResetView.as_view(), name='reset_password'),
+    path("reset_password/done", PasswordResetDoneView.as_view(), name='password_reset_done'),
+    path('reset_password/confirm/<uidb64>/<token>/', PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    path('reset_password/complete/', PasswordResetCompleteView.as_view(), name='password_reset_complete'),
 
     path('maraudes/', include('maraude.maraude_url')),
     path('users/', include('users.user_url')),
