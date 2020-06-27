@@ -12,11 +12,13 @@
                   <div class="profil-bg">
                     <div class="profil">
                         <div class="image">
-                            <img 
-                            src="{% static 'images/avatar.png' %}" 
-                            alt="Customer image"
-                            class="profil-image"
-                          />
+                      
+                            {% if maraude.association.image %}
+                          <img class="profil-image"  src="{{ maraude.association.image.url }}"
+                               alt="photo de profil" >
+                          {% else %}
+                          <img class="profil-image"  src="{% static "images/avatar.png"%}" alt="photo de profil par défaut">
+                        {% endif %}
                         </div>
                         <div class="profil-text">
                                 <div class="name_maraude">
