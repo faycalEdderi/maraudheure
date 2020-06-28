@@ -108,20 +108,26 @@ class Association(User):
 
     activite = models.CharField(
         max_length= 1500,
-        null= True
+        blank=True, 
+        null=True
 
     )
 
     description = models.CharField(
         max_length= 5000,
-        null= True
+        blank=True, 
+        null=True
     )
     
-    date_creation = models.DateField()
+    date_creation = models.DateField(
+        blank=True, 
+        null=True
+    )
     
     phone_number = models.CharField(
-       max_length= 10, 
-       null= True
+        max_length= 10, 
+        blank=True, 
+        null=True
     )
 
 

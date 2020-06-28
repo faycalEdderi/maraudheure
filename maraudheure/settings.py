@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'maraude.apps.MaraudeConfig',
     'django_filters',
     'maps',
-    'django_cleanup.apps.CleanupConfig'
+    'django_cleanup.apps.CleanupConfig',
+    'widget_tweaks',
      
 ]
 

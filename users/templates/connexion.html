@@ -1,43 +1,41 @@
 {% extends 'theme.html' %}
 {% load static %}
+{% load widget_tweaks %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/loginPassword.css'%}" />
+{% endblock %}
 {% block content %}
 
 
-    <div class="content-creation-wrapper-left">
-        <div class="content-creation-title-left">
-            <h1 class="title-left">
-                Votre temps est votre plus <br/> importante contribution
-            </h1>
-        </div>
-        <div class="content-creation-image">
-            <img
-            src="{% static 'images/personnage_logo.png' %}" 
-            alt="Header Image"
-            class="header-image"
-            />
-        </div>
-    </div>
-    <div class="content-wrapper-right">
-        <form method="POST" class="content-creation-form user">
-            {% csrf_token %}
-            <h1 class="content-creation-title-right">
-                Se connecter
-            </h1>
-            <div class="content-creation-input">
-                <label for="{{ form.email }}">Adresse mail:</label>
-                {{form.username}}
-            </div>
-            <div class="content-creation-input">
-                <label for="{{ form.pasword.id_for_label }}">Mot de passe:</label>
-                {{form.password}}
-            </div>
-            <div class="content-creation-forget">
-                <a href="{% url 'reset_password' %}" class="content-creation-password">Mot de passe oublié ?</a>
-            </div>
-            <input type="submit" value="Valider" class="form-btn"/>
-        </form>
-    </div>
 
+
+
+             <!-- Content -->
+            <div class="wrapper fadeInDown">
+                <div class="formContent">
+                    <!-- Titles -->
+                    <h2 class="fadeIn first title-log-mdp"> Se connecter </h2>
+
+                    <!-- Icon -->
+                    <div class="fadeIn second">
+                        <img src="{% static 'images/icon.png'%}" style="width:35px" alt="Icon" />
+                    </div>
+
+                    <!-- Login Form -->
+                    <form method="POST" class="content-creation-form user">
+                        {% csrf_token %}
+                        {{form.username|add_class:"fadeIn second"|attr:"type:email"|attr:"id:login"|attr:"placeholder:Adresse mail"}}
+                        {{form.password|add_class:"fadeIn third"|attr:"type:password"|attr:"id:password"|attr:"placeholder:Mot de passe"}}
+                        <input type="submit" class="fadeIn fourth" value="Valider">
+                    </form>
+
+                    <!-- Forget Passowrd -->
+                    <div class="formFooter">
+                         <a href="{% url 'reset_password' %}" class="underlineHover">Mot de passe oublié ?</a>
+                    </div>
+                </div>
+              </div>
             <!-- End of Content -->
 {% endblock content %}
 

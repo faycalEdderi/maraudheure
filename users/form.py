@@ -34,6 +34,7 @@ class CreateBenevoleForm(forms.ModelForm):
         label='Nom : ',
         required=True,
         error_messages={'required': 'Veuillez entrer un nom'},
+        widget=forms.TextInput(attrs={'class':'form-creation-input'})
 
     )
     password1 = forms.CharField(
@@ -44,7 +45,7 @@ class CreateBenevoleForm(forms.ModelForm):
 
     )
     password2 = forms.CharField(
-        label="Saisir à nouveau le mot de passe :",
+        label="Confirmer :",
         required=False,
         error_messages={'required': 'Les deux mots de passes ne sont pas identiques'},
         widget=forms.PasswordInput,
@@ -88,28 +89,12 @@ class CreateAssociationForm(forms.ModelForm):
         error_messages={'required': 'Veuillez entrer une Adresse Mail'},
 
     )
-    image = forms.ImageField(
-        label="Photo de profil :",
-        required=False,
-        error_messages={ 'invalid': "Veuillez selectionner uniquement un fichier de type "
-                                    "image"},
-        widget=forms.FileInput,
-    )
+   
     username = forms.CharField(
         required=False,
     )
-    first_name = forms.CharField(
-        label='Prénom du dirigeant : ',
-        required=True,
-        error_messages={'required': 'Veuillez entrer un prénom'},
-
-    )
-    last_name = forms.CharField(
-        label='Nom du dirigeant : ',
-        required=True,
-        error_messages={'required': 'Veuillez entrer un nom'},
-
-    )
+    
+    
     password1 = forms.CharField(
         label="Mot de passe :",
         required=False,
@@ -118,16 +103,12 @@ class CreateAssociationForm(forms.ModelForm):
 
     )
     password2 = forms.CharField(
-        label="Saisir à nouveau le mot de passe :",
+        label="Confirmer :",
         required=False,
         error_messages={'required': 'Les deux mots de passes ne sont pas identiques'},
         widget=forms.PasswordInput,
     )
-    phone_number = forms.CharField(
-        label="Téléphone :",
-        required=False,  
-           
-    )
+    
     num_rna = forms.CharField(
         label="Numéro RNA :",
         required=True,  
@@ -144,43 +125,23 @@ class CreateAssociationForm(forms.ModelForm):
            
     )
 
-    activite = forms.CharField(
-        label="Activité de l'association :",
-        required=True,  
-           
-    )
 
-    description = forms.CharField(
-        label="Description de l'association :",
-        required=True,  
-        widget=forms.Textarea 
-         
-    )
-    date_creation = forms.CharField(
-        label="Date de création de l'association :",
-        widget= DateInput,
-        required=True,  
-           
-    )
 
     
     class Meta:
         model = Association
         fields = (
             'username',
-            'image',
-            'first_name',
-            'last_name',
+            
+            
             'email',
             'password1',
             'password2',
-            'phone_number',
+           
             'num_rna',
             'nom_association',
             'siege_social',
-            'description',
-            'activite',
-            'date_creation',
+            
             
             )
 

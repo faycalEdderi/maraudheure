@@ -1,64 +1,82 @@
 {% extends 'theme.html' %}
 {% load static %}
+{% load widget_tweaks %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/editerCompteEtMaraude.css' %}">
+ 
+{% endblock %}
 {% block content %}
 <!-- Content -->
-<div class="content-creation-wrapper">
-    <div class="content-wrapper-right">
-        <form method="POST" enctype='multipart/form-data' class="content-creation-form">
-        {% csrf_token %}
-            <h1 class="content-creation-title-right">
-                Editer votre profil association
-            </h1>
-            <div class="content-creation-input">
-                <label>{{form_edit_association.nom_association.label}}</label>
-                {{form_edit_association.nom_association}}
-            </div>
-            <div class="content-creation-input">
-                <label>{{form_edit_association.first_name.label}}</label>
-                {{form_edit_association.first_name}}
-            </div>
-            <div class="content-creation-input">
-                <label>{{form_edit_association.last_name.label}}</label>
-                {{form_edit_association.last_name}}
-            </div>
-
-            <div class="content-creation-input">
-                <label>{{form_edit_association.image.label}}</label>
-                {{form_edit_association.image}}
-            </div>
 
 
 
-
-
-            <div class="content-creation-input">
-                <label>{{form_edit_association.siege_social.label}}</label>
-                {{form_edit_association.siege_social}}
+<h1 class="center title-edit">Editer votre profil d'association</h1>
+            <div class="center">
+                <div class="form-edit">
+                    <form method="POST" enctype='multipart/form-data'>
+                    {% csrf_token %}
+                        <fieldset>
+                            <legend>Information personnelle</legend>
+                            <label>
+                                 <span>{{form_edit_association.nom_association.label}}</span>
+                                {{form_edit_association.nom_association}}
+                            </label>
+                            <label>
+                                <span>{{form_edit_association.image.label}}</span>
+                                {{form_edit_association.image|add_class:"input-field"}}
+                            </label>
+                            <label>
+                                <span>{{form_edit_association.first_name.label}}  </span>
+                                    {{form_edit_association.first_name|add_class:"input-field"}}
+                              
+                                
+                            </label>
+                            <label>
+                                <span>{{form_edit_association.last_name.label}} </span>
+                                    {{form_edit_association.last_name|add_class:"input-field"}}
+                               
+                                
+                            </label>
+                            <label>
+                                <span>{{form_edit_association.siege_social.label}}</span>
+                                {{form_edit_association.siege_social|add_class:"input-field"}}
+                            </label>
+                            <label>
+                                <span>{{form_edit_association.date.label}}</span>
+                                
+                                {{form_edit_association.date}}
+                            </label>
+                            <label>
+                                <span>{{form_edit_association.phone_number.label}}</span>
+                                {{form_edit_association.phone_number|add_class:"input-field"}}
+                            </label>
+                            <label>
+                                <span>{{form_edit_association.email.label}}</span>
+                                {{form_edit_association.email|add_class:"input-field"}}
+                            </label>
+                            
+                        </fieldset>
+                        <fieldset>
+                            <legend>Aide</legend>
+                            <label>
+                                <span>{{form_edit_association.activite.label}}</span>
+                                {{form_edit_association.activite|add_class:"input-field"}}
+                            </label>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Description</legend>
+                            <label>
+                                <span>Message</span>
+                                {{form_edit_association.description|add_class:"textarea-field"}}
+                            </label>
+                            <label>
+                                <input class="form-btn-creation" type="submit" value="Valider"/>
+                            </label>
+                        </fieldset>
+                    </form>
+                </div>
             </div>
-            <div class="content-creation-input">
-                <label>{{form_edit_association.phone_number.label}}</label>
-                {{form_edit_association.phone_number}}
-            </div>
-            <div class="content-creation-input">
-                <label>{{form_edit_association.email.label}}</label>
-                {{form_edit_association.email}}
-            </div>
-            <div class="content-creation-input">
-                <label>{{form_edit_association.activite.label}}</label>
-                {{form_edit_association.activite}}
-            </div>
-            <div class="content-creation-input">
-                <label>{{form_edit_association.description.label}}</label>
-                {{form_edit_association.description}}
-            </div>
-
-            <div class="content-creation-forget">
-                <input type="submit" value="Valider" class="form-btn"/>
-            </div>
-        </form>
-    </div>
-</div>
-<!-- End of Content -->
+            <!-- End of Content -->
 
 {% endblock content %}
 

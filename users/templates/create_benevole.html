@@ -1,5 +1,13 @@
 {% extends 'theme.html' %}
 {% load static %}
+{% block css %}
+
+  
+
+      <link rel="stylesheet" href="{% static 'css/creationCompte.css' %}" />
+
+
+{% endblock%}
 {% block content %}
 <div class="content-creation-wrapper-left">
     <div class="content-creation-title-left">
@@ -31,59 +39,59 @@
         {% endfor %}
     {% endfor %}
 {% endif %}
-    <form method="POST" enctype='multipart/form-data' class="content-creation-form">
-     {% csrf_token %}
     
-        <h1 class="content-creation-title-right">
-            Créer un compte
-        </h1>
-        
-        <div class="content-creation-fullname">
-            <div class="content-creation-input">
-                <label class="nom">{{form.last_name.label}}</label>
-                {{form.last_name}}
-                {{form.last_name.error}}
-            </div>
-            <div class="content-creation-input">
-                <label class="prenom">{{form.first_name.label}}</label>
-                {{form.first_name}}
-                {{form.first_name.error}}
-            </div>
-        </div>
-        <div class="content-creation-input">
-            <label class="mailpass">{{form.email.label}}</label>
-            {{form.email}}
-            {{form.email.error}}
-        </div>
-        <div class="content-creation-input">
-        <label class="mailpass">{{form.password1.label}}</label>
-            
-            {{form.password1}}
-            {{form.password1.error}}
-        </div>
-        <div class="content-creation-input">
-        <label class="confirm"> {{form.password2.label}}</label>
-           
-            {{form.password2.error}}
-            {{form.password2}}
-        </div>
-
-        <div class="content-creation-input">
-            <label class="mailpass">{{form.image.label}}</label>
-            {{form.image}}
-            {{form.image.error}}
-        </div>
-
-
-
-        <div class="content-creation-forget">
-            <a href="#" class="content-creation-password">Mot de passe oublié ?</a>
-        </div>
-        <input type="submit" value="Valider" class="form-btn"/>
-    </form>
-</div>
        
-            <!-- End of Content -->
+           <!-- Content -->
+
+    <div class="content-wrapper-right">
+        <form method="POST" enctype='multipart/form-data' class="content-creation-form">
+            {% csrf_token %}
+            <h1 class="content-creation-title-right">
+                Créer un compte bénévole
+            </h1>
+            <div class="content-creation-fullname">
+                <div class="content-creation-input">
+                <label class="nom">{{form.last_name.label}}</label>
+                    {{form.last_name}}
+                    {{form.last_name.error}}
+                    
+
+                </div>
+                <div class="content-creation-input">
+                    <label class="prenom">{{form.first_name.label}}</label>
+                    {{form.first_name}}
+                    {{form.first_name.error}}
+                </div>
+            </div>
+            <div class="content-creation-input">
+                    <label class="mailpass">{{form.email.label}}</label>
+                {{form.email}}
+                {{form.email.error}}
+            </div>
+            <div class="content-creation-input">
+                    <label class="mailpass">{{form.image.label}}</label>
+                {{form.image}}
+                {{form.image.error}}
+            </div>
+            <div class="content-creation-input">
+                <label class="mailpass">{{form.password1.label}}</label>
+
+                    {{form.password1}}
+                    {{form.password1.error}}
+            </div>
+            <div class="content-creation-input">
+                <label class="confirm"> {{form.password2.label}}</label>
+
+                {{form.password2.error}}
+                {{form.password2}}
+            </div>
+            <input type="submit" value="Valider" class="form-btn-creation"/>
+        </form>
+    </div>
+</div>
+<!-- End of Content -->
+
+
 {% endblock content %}
 
 

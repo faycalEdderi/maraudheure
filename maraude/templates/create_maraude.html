@@ -1,62 +1,58 @@
 {% extends 'theme.html' %}
 {% load static %}
+{% load widget_tweaks %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/ajouterMaraude.css'%}" />
+{% endblock %}
 {% block content %}
 
+
 {% if user.association.role|stringformat:"s" == "association" %}
-<div class="content-creation-wrapper">
 
-                <div class="content-wrapper-right">
-                    <form class="content-creation-form" method="POST">    
+
+
+             <!-- Content -->
+            <h1 class="center title-add-maraude">Ajouter une maraude</h1>
+                <div class="form-edit">
+                    <div class="form-add-maraude">
+                        <form enctype='multipart/form-data' method="POST">    
                         {% csrf_token %}
-                        <h1 class="content-creation-title-right">
-                            Ajouter une nouvelle maraude
-                        </h1>
-                        <div class="content-creation-input">
-                            <label class="nom">{{form.date.label}}</label>
-                            {{form.date.error}}
-                            {{form.date}}
-                        </div>
-                        <div class="content-creation-fullname">
-                            <div class="content-creation-input">
-                                <label class="nom">{{form.heure_debut.label}}</label>
+                            <fieldset>
+                                <legend>
+                                    <span class="number">1</span> 
+                                    Information générale
+                                </legend>
+                                {{form.image|attr:"placeholder:Image"}}
                                 
-                                    {{form.heure_debut}}
-                                    {{form.heure_debut.error}}
+                                {{form.heure_debut|attr:"placeholder:Heure de debut"}}
+                                {{form.heure_fin|attr:"placeholder:Heure de fin"}}
+                                {{form.date|attr:"placeholder:Date"|attr:"type:date"}}
+                                {{form.adresse|attr:"placeholder:Adresse"|attr:"type:text"}}
+                                {{form.arrondissement|attr:"placeholder:Arrondissement"}}
                                 
-                            </div>
-                            <div class="content-creation-input">
-                                <label class="prenom">{{form.heure_fin.label}}</label>
-                               {{form.heure_fin}}
-                            </div>
-                        </div>
-                        <div class="content-creation-input">
-                            <label class="adresse">{{form.adresse.label}}</label>
-                                {{form.adresse.error}}
-                                {{form.adresse}}
-                        </div>
-                        <div class="content-creation-input">
-                           <p class=" font-weight-bold h3" > {{form.arrondissement.label}} </p>
-                            {{form.arrondissement.error}}
-                            {{form.arrondissement}}
-                        </div>
-                        <div class="content-creation-input">
-                            <label>{{form.description.label}}</label>
-                           {{form.description}}
-                           {{form.description.error}}
-                        </div>
                         
-                        <div class="checkbox"><fieldset>
-                            <legend class="checkbox-title">{{form.produits.label}}</legend>
-                            
-                                {{form.produits}}
+                            </fieldset>
+                            <fieldset>
+                                <legend>
+                                    <span class="number">2</span> 
+                                    Description
+                                </legend>
+                                {{form.description|attr:"placeholder:Description"}}
+                            </fieldset>
+                            <fieldset>
+                                <legend>
+                                    <span class="number">3</span>
+                                    Type de distribution
+                                </legend>
+                                <div class="type-distrib">
+                                    {{form.produits}}
                                 {{form.produits.error}}
-                            
-                        </fieldset></div>
-
-                        <input type="submit" value="Valider" class="form-btn"/>
-                    </form>
+                                </div>
+                            </fieldset>
+                            <input type="submit" class="form-btn-add-maraude" value="Valider" />
+                        </form>
+                    </div>
                 </div>
-            </div>
             <!-- End of Content -->
 
 {% endif %}

@@ -43,7 +43,7 @@ def connexion(request):
 def create_benevole(request):
 
     if request.method == 'POST':
-        form = CreateBenevoleForm(request.POST, request.FILES)
+        form = CreateBenevoleForm(request.POST or None , request.FILES or None)
 
 
         print("Request : ", request.POST)
@@ -53,7 +53,8 @@ def create_benevole(request):
           
             nom = request.POST['last_name']
             prenom = request.POST['first_name']
-            image = request.FILES['image']
+            image = request.FILES.get('image') 
+
             mdp1 = request.POST['password1']
             mdp2 = request.POST['password2']
 
@@ -111,21 +112,17 @@ def create_association(request):
 
             email = request.POST['email']
           
-            nom = request.POST['last_name']
-            prenom = request.POST['first_name']
+           
+           
             mdp1 = request.POST['password1']
             mdp2 = request.POST['password2']
 
-            image = request.FILES['image']
+            
 
             num_rna = request.POST['num_rna']
             nom_association = request.POST['nom_association']
             siege = request.POST['siege_social']
-            date = request.POST['date_creation']
-            telephone = request.POST['phone_number']
-
-            description = request.POST['description']
-            activite = request.POST['activite']
+        
 
 
             select_role = Role.objects.get(role_name = "association" )
@@ -134,19 +131,18 @@ def create_association(request):
             
             
             new_association = Association(
-                username = nom + '_' + prenom,  
+                username = nom_association,  
                 email = email, 
-                image=image,
-                first_name = prenom,
-                last_name = nom,
+                
+               
+                
                 role=get_role,
                 num_rna = num_rna,
                 nom_association = nom_association,
                 siege_social = siege,
-                date_creation = date,
-                phone_number = telephone,
-                activite = activite,
-                description = description
+                
+                
+                
             )
          
             if mdp1 == mdp2:

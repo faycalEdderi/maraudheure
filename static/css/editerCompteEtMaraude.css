@@ -1,0 +1,105 @@
+.title-edit{
+    text-decoration: underline;
+    font-size: 2.5rem;
+    margin: 3.5rem;
+    text-align: center;
+}
+
+.margin-bottom {
+    margin-bottom: 2rem;
+}
+
+.form-edit{
+    text-align: center;
+    justify-items: center;
+    max-width: 450px;
+    font-family: 'Vollkron, serif';
+    margin-bottom: 3rem;
+}
+
+.form-edit label{
+    display:block;
+    margin-bottom: 2rem;
+}
+
+.form-edit label > span{
+    float: left;
+    width: 120px;
+    color: var(--white-color);
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+.form-edit fieldset{
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    margin: 0px 0px 10px 0px;
+    border: 1px solid var(--white-color);
+    padding: 20px;
+    background: var(--secondary-color);
+}
+
+.form-edit fieldset legend{
+    color: var(--white-color);
+    border-top: 1px solid var(--primary-color);
+    border-left: 1px solid var(--primary-color);
+    border-right: 1px solid var(--primary-color);
+    border-radius: 5px 5px 0px 0px;
+    -webkit-border-radius: 5px 5px 0px 0px;
+    -moz-border-radius: 5px 5px 0px 0px;
+    background: var(--primary-color);
+    padding: 0px 8px 3px 8px;
+    font-weight: normal;
+    font-size: 1.5rem;
+    text-decoration: underline;
+}
+
+.form-edit textarea{
+    width:250px;
+    height:100px;
+}
+
+.form-edit input[type=file]{
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    outline: none;
+    color: var(--black-color);
+    padding: 5px 8px 5px 8px;
+    width:50%;
+    color: var(--white-color);
+}
+
+.form-edit input[type=text],
+.form-edit input[type=date],
+.form-edit input[type=datetime],
+.form-edit input[type=number],
+.form-edit input[type=search],
+.form-edit input[type=time],
+.form-edit input[type=url],
+.form-edit input[type=email],
+.form-edit select, 
+.form-edit textarea{
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border: 1px solid var(--white-color);
+    outline: none;
+    color: var(--black-color);
+    padding: 5px 8px 5px 8px;
+    background: var(--white-color);
+    width:50%;
+}
+
+.type-distrib {
+    color: var(--white-color);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+@media(max-width: 340px){
+    .form-edit label > span {
+        text-align: initial;
+    }
+}

@@ -1,61 +1,75 @@
 {% extends 'theme.html' %}
+{% load widget_tweaks %}
 {% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/editerCompteEtMaraude.css' %}">
+ 
+{% endblock %}
 {% block content %}
 
 {% if user.association.role|stringformat:"s" == "association" %}
-<div class="content-creation-wrapper">
 
-                <div class="content-wrapper-right">
-                    <form class="content-creation-form" method="POST">    
-                        {% csrf_token %}
-                        <h1 class="content-creation-title-right">
-                            Modifier la maraude
-                        </h1>
-                        <div class="content-creation-input">
-                            <label class="nom">{{form.date.label}}</label>
-                            {{form.date.error}}
-                            {{form.date}}
-                        </div>
-                        <div class="content-creation-fullname">
-                            <div class="content-creation-input">
-                                <label class="nom">{{form.heure_debut.label}}</label>
-                                
-                                    {{form.heure_debut}}
-                                    {{form.heure_debut.error}}
-                                
-                            </div>
-                            <div class="content-creation-input">
-                                <label class="prenom">{{form.heure_fin.label}}</label>
-                               {{form.heure_fin}}
-                            </div>
-                        </div>
-                        <div class="content-creation-input">
-                            <label class="adresse">{{form.adresse.label}}</label>
-                                {{form.adresse.error}}
-                                {{form.adresse}}
-                        </div>
-                        <div class="content-creation-input">
-                           <p class=" font-weight-bold h3" > {{form.arrondissement.label}} </p>
-                            {{form.arrondissement.error}}
+
+            <!-- End of Content -->
+
+
+
+             <!-- Content -->
+            <h1 class="center title-edit">Editer votre maraude</h1>
+            <div class="center">
+            <div class="form-edit">
+               <form class="content-creation-form" method="POST"> 
+               {% csrf_token %}   
+                    <fieldset>
+                        <legend>Information générale</legend>
+                        <label>
+                            <span> {{form.image.label}}</span>
+                            {{form.image}}
+                        </label>
+                        <label>
+                            <span> {{form.date.label}}</span>
+                             {{form.date}}
+                        </label>
+                        <label>
+                            <span>{{form.heure_debut.label}}</span>
+                            {{form.heure_debut}}
+                        </label>
+                        <label>
+                            <span>{{form.heure_fin.label}}</span>
+                            {{form.heure_fin}}
+                        </label>
+                        <label>
+                            <span>{{form.adresse.label}}</span>
+                            {{form.adresse}}
+                        </label>
+                        <label>
+                            <span> {{form.arrondissement.label}}
+                            </span>
                             {{form.arrondissement}}
-                        </div>
-                        <div class="content-creation-input">
-                            <label>{{form.description.label}}</label>
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Description</legend>
+                        <label>
+                            <span>Message</span>
+                          
                            {{form.description}}
                            {{form.description.error}}
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Type de distribution</legend>
+                        <div class="type-distrib">
+                            {{form.produits}}
+                            {{form.produits.error}}
+                            
                         </div>
-                        
-                        <div class="checkbox"><fieldset>
-                            <legend class="checkbox-title">{{form.produits.label}}</legend>
-                            
-                                {{form.produits}}
-                                {{form.produits.error}}
-                            
-                        </fieldset></div>
-
-                        <input type="submit" value="Valider" class="form-btn"/>
-                    </form>
-                </div>
+                        <label>
+                            <input class="form-btn-creation" type="submit" value="Valider"/>
+                        </label>
+                    </fieldset>
+                </form>
+            </div>
             </div>
             <!-- End of Content -->
 
