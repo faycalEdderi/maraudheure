@@ -162,13 +162,13 @@ class EditAssociationForm(forms.ModelForm):
     
     first_name = forms.CharField(
         label='Prénom du dirigeant : ',
-        required=True,
+        required=False,
         error_messages={'required': 'Veuillez entrer un prénom'},
 
     )
     last_name = forms.CharField(
         label='Nom du dirigeant : ',
-        required=True,
+        required=False,
         error_messages={'required': 'Veuillez entrer un nom'},
 
     )
@@ -191,13 +191,13 @@ class EditAssociationForm(forms.ModelForm):
 
     activite = forms.CharField(
         label="Activité de l'association",
-        required=True,  
+        required=False,
            
     )
 
     description = forms.CharField(
         label="Description de l'association",
-        required=True,  
+        required=False,
         widget=forms.Textarea 
          
     )

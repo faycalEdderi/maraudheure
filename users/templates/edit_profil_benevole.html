@@ -1,65 +1,79 @@
 {% extends 'theme.html' %}
 {% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/editerCompteEtMaraude.css' %}">
+
+{% endblock %}
 {% block content %}
+
+
+           
+          
+
+
+
 <!-- Content -->
-<div class="content-creation-wrapper">
-    <div class="content-wrapper-right">
-        <form method="POST" enctype='multipart/form-data' class="content-creation-form">
-        {% csrf_token %}
-            <h1 class="content-creation-title-right">
-                Editer votre profil bénévole
-            </h1>
-            <div class="content-creation-input">
-                <label> {{form_edit_benevole.last_name.label}}</label>
-                    {{form_edit_benevole.last_name}}
+            <h1 class="center title-edit">Editer votre profil bénévole</h1>
+            <div class="center">
+                <div class="form-edit">
+                    <form method="POST" enctype='multipart/form-data' >
+                        {% csrf_token %}
+                        <fieldset>
+                            <legend>Information personnelle</legend>
+                            <label>
+                                <span>Image de profil</span>
+                                 {{form_edit_benevole.image}}
+                            </label>
+                            <label>
+                                <span>Nom</span>
+                                  {{form_edit_benevole.last_name}}
+                            </label>
+                            <label>
+                                <span>Prénom</span>
+                                 {{form_edit_benevole.first_name}}
+                            </label>
+                            <label>
+                                <span>Metier</span>
+                                  {{form_edit_benevole.metier}}
+                            </label>
+                            <label>
+                                <span>Ville</span>
+                                  {{form_edit_benevole.ville}}
+                            </label>
+                            <label>
+                                <span>Adresse</span>
+                                  {{form_edit_benevole.adresse}}
+                            </label>
+                            <label>
+                                <span>Adresse mail</span>
+                                  {{form_edit_benevole.email}}
+                            </label>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Centre d'intérêt</legend>
+                            <label>
+                                <span>Activité</span>
+                                  {{form_edit_benevole.activite}}
+                            </label>
+                            <label>
+                                <span>Hobbies</span>
+                                  {{form_edit_benevole.hobbies}}
+                            </label>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Description</legend>
+                            <label>
+                                <span>Message</span>
+                              
+                                {{form_edit_benevole.description}}
+                            </label>
+                            <label>
+                                <input class="form-btn-creation" type="submit" value="Valider"/>
+                            </label>
+                        </fieldset>
+                    </form>
+                </div>
             </div>
-            <div class="content-creation-input">
-                <label> {{form_edit_benevole.first_name.label}}</label>
-                {{form_edit_benevole.first_name}}
-            </div>
-
-
-            <div class="content-creation-input">
-                <label> {{form_edit_benevole.image.label}}</label>
-                {{form_edit_benevole.image}}
-            </div>
-
-
-
-            <div class="content-creation-input">
-                <label> {{form_edit_benevole.email.label}}</label>
-                    {{form_edit_benevole.email}}
-            </div>
-            <div class="content-creation-input">
-                <label> {{form_edit_benevole.ville.label}}</label>
-                {{form_edit_benevole.ville}}
-            </div>
-            <div class="content-creation-input">
-                <label> {{form_edit_benevole.adresse.label}}</label>
-                {{form_edit_benevole.adresse}}
-            </div>
-            <div class="content-creation-input">
-                <label> {{form_edit_benevole.metier.label}}</label>
-                    {{form_edit_benevole.metier}}
-            </div>
-            <div class="content-creation-input">
-                <label> {{form_edit_benevole.activite.label}}</label>
-                    {{form_edit_benevole.activite}}
-            </div>
-            <div class="content-creation-input">
-                <label> {{form_edit_benevole.hobbies.label}}</label>
-                    {{form_edit_benevole.hobbies}}
-            </div>
-            
-            <div class="content-creation-input">
-                <label> {{form_edit_benevole.description.label}}</label>
-                    {{form_edit_benevole.description}}
-            </div>
-            <div class="content-creation-forget">
-                <input type="submit" value="Valider" class="form-btn"/>
-            </div>
-        </form>
-    </div>
-</div>
+            <!-- End of Content -->
             <!-- End of Content -->
 {% endblock content %}

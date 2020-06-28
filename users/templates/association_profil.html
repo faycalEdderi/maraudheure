@@ -1,77 +1,61 @@
 {% extends 'theme.html' %}
 {% load static %}
 {% block css %}
-    <link rel="stylesheet" href="{% static 'css/profil.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profilCompte.css' %}">
   
 {% endblock %}
 {% block content %}
-<!-- Content -->
-<section class="content-profil-wrapper">
-    <div class="content-profil">
-        <p class="title">
-            Mon compte
-            
-        </p>
-    </div>
-    <div class="profil-wrapper">
-        <div class="profil-bg">
-        <div class="profil">
-            <div class="image">
-               {% if user.association.image %}
+
+ <!-- Content -->
+            <section class="content-profil-wrapper">
+                <div class="content-profil">
+                  <p class="title-profil">
+                      Mon profil Association
+                  </p>
+                </div>
+                <div class="profil-wrapper">
+                    <div class="profil-bg">
+                        <div class="profil">
+                            <div class="image">
+                               {% if user.association.image %}
                           <img class="profil-image"  src="{{ user.association.image.url }}"
                                alt="photo de profil" >
                           {% else %}
                           <img class="profil-image"  src="{% static "images/avatar.png"%}" alt="photo de profil par défaut">
                         {% endif %}
-            </div>
-
-            <div class="profil-text">
-                <div class="fullname">
-                    <h1 class="profil-fullname">
-                        {{user.association.nom_association}}
-                    </h1>
+                            </div>
+                            <div class="profil-text">
+                                    <div class="fullname">
+                                        <h1 class="profil-fullname">
+                                            {{user.association.nom_association}}
+                                        </h1>
+                                    </div>
+                                <h1 class ="profil-info"> Information générale </h1>
+                                <p class="profil-paragraph"><span class="underline">Numéro RNA</span>:{{user.association.num_rna}}</p>
+                                
+                                <p class="profil-paragraph"><span class="underline">Dirigeant</span>: {{user.association.last_name}} {{user.association.first_name}}</p>
+                                <p class="profil-paragraph"><span class="underline">Adresse du siège social</span>: {{user.association.siege_social}}</p>
+                                <p class="profil-paragraph"><span class="underline">Date de création</span>: {{user.association.date_creation}}</p>
+                                <p class="profil-paragraph"><span class="underline">Numéro de téléphone</span>: {{user.association.phone_number}}</p>
+                                <p class="profil-paragraph"><span class="underline">Email</span>:  {{user.association.email}}</p>
+                               
+                                <h1 class="profil-info">Aide</h1>
+                                <p class="profil-paragraph"><span class="underline">Activité</span>: {{user.association.activite}}</p>
+                                <h1 class="profil-info">Description</h1>
+                                <p class="profil-paragraph">
+                                    {{user.association.description}}
+                                </p>
+                            </div>
+                        </div>
+                  </div>
                 </div>
-            <h1 class ="profil-info"> Information générale </h1>
-            <p class="profil-paragraph rna">
-                Numéro RNA : {{user.association.num_rna}}
-            </p>
-            <p class="profil-paragraph rna">
-                Fondateur : {{user.association.last_name}} {{user.association.first_name}}
-            </p>
-                <p class="profil-paragraph rna">
-                Email : {{user.association.email}}
-            </p>
-            <p class="profil-paragraph metier">
-                Adresse du siège social :{{user.association.siege_social}}
-            </p>
-            <p class="profil-paragraph mail">
-                Date de création : {{user.association.date_creation}}
-            </p>
-            <p class="profil-paragraph dateNais">
-                Numéro de téléphone : {{user.association.phone_number}}
-            </p>
-            <h1 class="profil-info interet">
-                Aide
-            </h1>
-            <p class="profil-paragraph acitvite">
-                Activité : {{user.association.activite}}
-            <h1 class="profil-info">
-                Description
-            </h1>
-            <p class="profil-paragraph blabla">
-               {{user.association.description}}
-            </p>
-            </div>
-        </div>
-        </div>
-    </div>
-        <a href="{% url 'edit_association'%}" class="navbar-link center">Modifier profil</a>
+                <a href="{% url 'edit_association'%}" class="navbar-link center">Modifier profil</a>
         
         <a href="{% url 'modifMdp'%}" class="navbar-link center">Modifier mot de passe</a>
 
         <a href="{% url 'confirm_delete_account' %}" class="navbar-link center">Supprimer mon compte</a>
-</section>
-<!-- End of Content -->
+              </section>
+            <!-- End of Content -->
 
 
 {% endblock content %}

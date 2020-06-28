@@ -1,71 +1,60 @@
 {% extends 'theme.html' %}
 {% load static %}
 {% block css %}
-    <link rel="stylesheet" href="{% static 'css/profil.css' %}">
- 
+    <link rel="stylesheet" href="{% static 'css/profilCompte.css' %}">
+  
 {% endblock %}
 {% block content %}
-{% load static %}
 
-        <!-- Content -->
+ <!-- Content -->
             <section class="content-profil-wrapper">
                 <div class="content-profil">
-                  <p class="title">
-                      Profil public de l'association
+                  <p class="title-profil">
+                      Profil public
                   </p>
                 </div>
                 <div class="profil-wrapper">
-                  <div class="profil-bg">
-                    <div class="profil">
-                        <div class="image">
-                            {% if association.image %}
-                          <img class="profil-image"  src="{{ association.image.url }}"
+                    <div class="profil-bg">
+                        <div class="profil">
+                            <div class="image">
+                               {% if  association.image %}
+                          <img class="profil-image"  src="{{  association.image.url }}"
                                alt="photo de profil" >
                           {% else %}
                           <img class="profil-image"  src="{% static "images/avatar.png"%}" alt="photo de profil par défaut">
                         {% endif %}
-                        </div>
-
-                      <div class="profil-text">
-                            <div class="fullname">
-                                <h1 class="profil-fullname">
-                                    {{association.nom_association}}
-                                </h1>
                             </div>
-                        <h1 class ="profil-info"> Information générale </h1>
-                        <p class="profil-paragraph rna">
-                            Fondateur : {{association.first_name}} {{association.last_name}}
-                        </p>
-                        <p class="profil-paragraph metier">
-                            Adresse du siège social :{{association.siege_social}}
-                        </p>
-                        <p class="profil-paragraph mail">
-                            Date de création : {{association.date_creation}}
-                        </p>
-                        <p class="profil-paragraph dateNais">
-                            Numéro de téléphone : {{association.phone_number}}
-                        </p>
-                        <h1 class="profil-info interet">
-                            Aide
-                        </h1>
-                        <p class="profil-paragraph acitvite">
-                            Activité : {{association.activite}}
-                        </p>
-                        <h1 class="profil-info">
-                            Description
-                        </h1>
-                        <p class="profil-paragraph blabla">
-                            {{association.description}}
-                        </p>
-                      </div>
-                    </div>
+                            <div class="profil-text">
+                                    <div class="fullname">
+                                        <h1 class="profil-fullname">
+                                            {{ association.nom_association|default_if_none:''}}
+                                        </h1>
+                                    </div>
+                                <h1 class ="profil-info"> Information générale </h1>
+                               
+                                
+                                <p class="profil-paragraph"><span class="underline">Dirigeant</span>: {{ association.last_name|default_if_none:''}} {{ association.first_name|default_if_none:''}}</p>
+                                <p class="profil-paragraph"><span class="underline">Adresse du siège social</span>: {{ association.siege_social|default_if_none:''}}</p>
+                                <p class="profil-paragraph"><span class="underline">Date de création</span>: {{ association.date_creation|default_if_none:''}}</p>
+                                <p class="profil-paragraph"><span class="underline">Numéro de téléphone</span>: {{ association.phone_number|default_if_none:''}}</p>
+                                <p class="profil-paragraph"><span class="underline">Email</span>:  {{ association.email|default_if_none:''}}</p>
+                               
+                                <h1 class="profil-info">Aide</h1>
+                                <p class="profil-paragraph"><span class="underline">Activité</span>: {{ association.activite|default_if_none:''}}</p>
+                                <h1 class="profil-info">Description</h1>
+                                <p class="profil-paragraph">
+                                    {{ association.description|default_if_none:''}}
+                                </p>
+                            </div>
+                        </div>
                   </div>
                 </div>
+                
               </section>
             <!-- End of Content -->
 
-{% endblock content %}
 
+{% endblock content %}
 
 
 

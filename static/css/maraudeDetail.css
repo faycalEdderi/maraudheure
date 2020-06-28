@@ -1,0 +1,129 @@
+/* Content */
+.maraude-detail-wrapper {
+    /*parent de video-container*/
+    position: relative;
+}
+
+.title-maraude-detail{
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 2.5rem;
+    text-decoration: underline;
+}
+
+.detail-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.detail-img {
+
+    /*space dans la story*/
+    padding: 5rem;
+    /*space between stories*/
+    margin: 5rem;
+    /*horizontal*/
+    width: 100%;
+    border: 2px solid var(--secondary-color);
+}
+
+.detail {
+    /*put the text to the right, image | text*/
+    display: flex;
+}
+
+.detail-image {
+    width: 20rem;
+    height: 20rem;
+    object-fit: cover;
+    margin-right: 5rem;
+}
+
+.detail-text {
+    letter-spacing: 0.1rem;
+    width: 90%;
+}
+
+.fullname {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 2rem;
+}
+
+.detail-fullname {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    columns: var(--grey-color);
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--black-color);
+}
+
+.detail-paragraph {
+    margin: 1.8rem;
+    font-size: 1.8rem;
+    color: var(--light-grey-color);
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.detail-paragraph-date {
+    margin: 1.8rem;
+    font-size: 2rem;
+    color: var(--secondary-color);
+}
+
+.detail-paragraph::first-letter {
+    margin-left: 1rem;
+}
+
+.detail-info {
+    border-bottom: 2px solid var(--black-color);
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.date-button {
+    display: flex;
+    justify-content: space-between;
+}
+/* End of Content */
+
+@media(max-width: 870px){
+    .date-button {
+        display: inline;
+    }
+}
+
+@media(max-width: 775px){
+    .detail {
+        display: inline;
+        text-align: center;
+    }
+
+    .detail-text {
+        margin-top: 3rem;
+        width: 100%;
+    }
+
+    .detail .image .detail-image {
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    .detail-image {
+        margin-right: 0;
+    }
+
+    .detail .image .detail-image {
+        width: 50%;
+    }
+}
+
+@media(max-width: 470px){
+    .detail-image {
+        width: 70%;
+        height: 70%;
+    }
+}

@@ -6,81 +6,55 @@
     
 
 {% block css %}
-    <link rel="stylesheet" href="{% static 'css/profil.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profilCompte.css' %}">
 
 {% endblock %}
 {% block content %}
 
-<!-- Content -->
+
+
+
+               <!-- Content -->
             <section class="content-profil-wrapper">
                 <div class="content-profil">
-                  <p class="title">
-                      Mon profil
-                     
-                      
-                  </p>
-                </div>
+                    <p class="title-profil">
+                        Mon profil bénévole
+                    </p>
+                  </div>
                 <div class="profil-wrapper">
                   <div class="profil-bg">
                     <div class="profil">
-
-                    {% if user.benevole.image %}
+                        <div class="image">
+                           {% if user.benevole.image %}
                           <img class="profil-image"  src="{{ user.benevole.image.url }}"
                                alt="photo de profil" >
                           {% else %}
                           <img class="profil-image"  src="{% static "images/avatar.png"%}" alt="photo de profil par défaut">
                         {% endif %}
-                      
-                      <div class="profil-text">
+                        </div>
+                        <div class="profil-text">
                             <div class="fullname">
-                                <h1 class="profil-fullname">
-                                    {{user.benevole.first_name}}
-                                </h1>
-                                <h1 class="profil-fullname">
-                                   {{user.benevole.last_name}}
-                                </h1>
+                                <h1 class="profil-fullname">{{ user.benevole.first_name }} {{ user.benevole.last_name }} </h1>
                             </div>
-                        <h1 class ="profil-info"> Information générale </h1>
-                        <p class="profil-paragraph ville">
-                            Ville : {{user.benevole.ville|default_if_none:'' }}
-                        </p>
-                        <p class="profil-paragraph ville">
-                            Adresse : {{user.benevole.adresse|default_if_none:'' }}
-                        </p>
-                        
-                        <p class="profil-paragraph metier">
-                            Métier :  {{user.benevole.metier|default_if_none:'' }}
-                        </p>
-                        <p class="profil-paragraph mail">
-                            Adresse mail : {{user.benevole.email}}
-                        </p>
-                        <p class="profil-paragraph dateNais">
-                            Numero de téléphone :{{user.benevole.phone_number|default_if_none:'' }}
-                        </p>
-                        <h1 class="profil-info interet">
-                            Centre d'intérêt 
-                        </h1>
-                        <p class="profil-paragraph acitvite">
-                            Activité :  {{user.benevole.activite|default_if_none:'' }}
-                        </p>
-                        <p class="profil-paragraph hobbies">
-                            Hobbies : {{user.benevole.hobbies|default_if_none:'' }}
-                        </p>
-                        <h1 class="profil-info">
-                            Description
-                        </h1>
-                        <p class="profil-paragraph blabla">
-                        {{user.benevole.description|default_if_none:'' }}
-                            
-                        </p>
+                            <h1 class ="profil-info"> Information générale </h1>
+                            <p class="profil-paragraph"><span class="underline">Ville</span>: {{user.benevole.ville|default_if_none:'' }}</p>
+                            <p class="profil-paragraph"><span class="underline">Métier</span>: {{user.benevole.metier|default_if_none:'' }}</p>
+                            <p class="profil-paragraph"><span class="underline">Adresse mail</span>: {{user.benevole.email}}</p>
+                            <p class="profil-paragraph"><span class="underline">Téléphone</span>: {{user.benevole.phone_number|default_if_none:'' }}</p>
+                            <h1 class="profil-info">Centre d'intérêt</h1>
+                            <p class="profil-paragraph"><span class="underline">Activité</span>:  {{user.benevole.activite|default_if_none:'' }}</p>
+                            <p class="profil-paragraph"><span class="underline">Hobbies</span>: {{user.benevole.hobbies|default_if_none:'' }}</p>
+                            <h1 class="profil-info">Description</h1>
+                            <p class="profil-paragraph"> {{user.benevole.description|default_if_none:'' }}</p>
                       </div>
                     </div>
                   </div>
                 </div>
-                 <a href="{% url 'edit_benevole'%}" class="navbar-link center">Modifier profil</a>
+                <a href="{% url 'edit_benevole'%}" class="navbar-link center">Modifier profil</a>
                   <a href="{% url 'modifMdp'%}" class="navbar-link center">Modifier mot de passe</a>
                   <a href="{% url 'confirm_delete_account' %}" class="navbar-link center">Supprimer mon compte</a>
               </section>
+            <!-- End of Content -->
               
               
 

@@ -1,0 +1,111 @@
+/* Content */
+.content-profil-wrapper {
+    /*parent de video-container*/
+    position: relative;
+}
+
+.title-profil{
+    text-align: center;
+    font-size: 2.5rem;
+    text-decoration: underline;
+}
+
+.profil-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profil-bg {
+
+    /*space dans la story*/
+    padding: 5rem;
+    /*space between stories*/
+    margin: 5rem;
+    /*horizontal*/
+    width: 80%;
+    box-shadow: 0 2rem 5rem rgba(51, 51, 51, 0.4);
+}
+
+.profil {
+    /*put the text to the right, image | text*/
+    display: flex;
+}
+
+.profil-image {
+    width: 20rem;
+    height: 20rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 5rem;
+}
+
+.profil-text {
+    letter-spacing: 0.1rem;
+    width: 90%;
+}
+
+.profil-under {
+    text-decoration: underline;
+}
+
+.fullname {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 2rem;
+}
+
+.profil-fullname {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    columns: var(--grey-color);
+    margin-bottom: 1rem;
+}
+
+.profil-paragraph {
+    margin: 1.8rem;
+    font-size: 1.8rem;
+    color: var(--light-grey-color);
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.profil-paragraph::first-letter {
+    margin-left: 1rem;
+}
+
+.profil-info {
+    border-bottom: 2px solid var(--secondary-color);
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+    color: var(--secondary-color);
+}
+/* End of Content */
+
+
+@media(max-width: 775px){
+    .profil {
+        display: inline;
+        text-align: center;
+    }
+
+    .profil-text {
+        margin-top: 3rem;
+        width: 100%;
+    }
+
+    .profil .image .profil-image {
+        justify-content: center;
+    }
+
+    .profil-image {
+        margin-right: 0;
+    }
+}
+
+@media(max-width: 470px){
+    .profil-image {
+        width: 70%;
+        height: 70%;
+    }
+}

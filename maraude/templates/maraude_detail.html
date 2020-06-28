@@ -1,133 +1,119 @@
-{% extends 'theme3.html' %}
+{% extends 'theme.html' %}
 {% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/maraudeDetail.css' %}">
+    <link rel="stylesheet" href="{% static 'css/button.css' %}" />
+
+{% endblock %}
 {% block content %}
-<!-- Content -->
-            <section class="content-profil-wrapper">
-                <div class="content-profil">
-                    <p class="title">
-                        Les maraudes en détail
-                    </p>
-                  </div>
-                <div class="profil-wrapper">
-                  <div class="profil-bg">
-                    <div class="profil">
-                        <div class="image">
-                      
-                            {% if maraude.association.image %}
-                          <img class="profil-image"  src="{{ maraude.association.image.url }}"
-                               alt="photo de profil" >
-                          {% else %}
-                          <img class="profil-image"  src="{% static "images/avatar.png"%}" alt="photo de profil par défaut">
-                        {% endif %}
-                        </div>
-                        <div class="profil-text">
-                                <div class="name_maraude">
-                                    <h1 class="profil-fullname">
-                                       <a href="{% url 'assoc_public_profil' maraude.association.id %}">{{maraude.association}}</a>
-                                    </h1>
-                                </div>
-                            <p class="profil-paragraph blabla">
-                                {{maraude.description}}
-                                
-                            </p>
-                            <p class="profil-paragraph blabla">
-                                {{maraude.arrondissement}}
-                                
-                            </p>
-                            <p class="profil-paragraph blabla">
-                               Adresse: {{maraude.adresse}}
-                                
-                            </p>
-                            <p class="profil-paragraph blabla">
-                              <h1 class ="profil-paragraph-date">
-                               Horaire :{{maraude.heure_debut}} h - {{maraude.heure_fin}}h </h1>
-                                
-                            </p>
-                            <div class="date-button">
-                                <h1 class ="profil-paragraph-date">
-                                Date :{{maraude.date}}</h1>
-                                
-                                <form action="{% url 'inscription_maraude' maraude.id %}">
-                                
-                              
-                                  {% if maraude.benevole.all %}
-
-                                    {% for benevole in maraude.benevole.all %}
-                                      {% if user.benevole.id == benevole.id %}
-                                    
-                            
-                                        <input type="hidden" value="S'inscrire" />
-                                        
-                                        <p>Vous etes inscrit à cette maraude </p>
-                                     
-                                      {% else %}
-                                      {% if user.is_authenticated and user.benevole.id != benevole.id %}
-                                 
-                                        <input type="submit" value="S'inscrire" />
-                                      {% endif %}
-                                    {% endif %}
-                                    {% endfor %}
-                                    {% else %}
-                                    {% if user.is_authenticated and user.benevole.id != benevole.id %}
-                                      <input type="submit" value="S'inscrire" />
-                                      {% endif %}
-                                  {% endif %}
-
-                              
-                                </form>
-                                {% if maraude.benevole.all %}
-
-                                  {% for benevole in maraude.benevole.all %}
-                                    {% if user.benevole.id == benevole.id %}
-                                    {% for benevole in maraude.benevole.all %}
-                                        {% if user.benevole.id == benevole.id %}
-                                        <form action="{% url 'desinscription_maraude' maraude.id %}">
-                                          <input type="submit" value="Se désincrire" />
-                                        </form>
-                                        {% endif %}
-                                      {% endfor %}
-                                    {% endif %}
-                                  {% endfor %}
-                                {% endif %}
-                                
-                            </div>
-                        </div>
-                        <div class="date-button">
-                        </div>
-                    </div>
-                  </div>
+    <!-- Content -->
+<section class="maraude-detail-wrapper">
+    <div class="maraude-detail">
+        <p class="title-maraude-detail">Les maraudes en détail</p>
+    </div>
+    <div class="detail-wrapper">
+        <div class="detail-img">
+            <div class="detail">
+                <div class="image">
+                {% if maraude.association.image %}
+              <img  class="detail-image" src="{{ maraude.association.image.url }}"
+                    alt="photo de profil" >
+              {% else %}
+              <img  class="detail-image" src="{% static "images/avatar.png"%}" alt="photo de profil par défaut">
+            {% endif %}
+                    
                 </div>
-  
-               <div id='map' width="100%" style='width: 100%%; height: 300px;'></div>
-              </section>
-              
-            <!-- End of Content -->
- 
+                <div class="detail-text">
+                    <div class="name_maraude">
+                        <h1 class="detail-fullname"><a href="{% url 'assoc_public_profil' maraude.association.id %}">{{maraude.association}}</a></h1>
+                    </div>
+                    <h1 class ="detail-paragraph-date"><span class="underline">Adresse</span> :{{maraude.adresse}}</h1>
+                    <h1 class ="detail-paragraph-date"><span class="underline">Arrondissement</span> :{{maraude.arrondissement}}</h1>
+                      
+                    <p class="detail-paragraph">
+                        {{maraude.description}}
+                    </p>
+                    <div class="date-button">
+                        <h1 class ="detail-paragraph-date"><span class="underline">Date</span> :{{maraude.date}}</h1>
+                        <h1 class ="detail-paragraph-date"><span class="underline">Heure</span> : {{maraude.heure_debut}}h - {{maraude.heure_fin}}h</h1>
+                        
+                        <form action="{% url 'inscription_maraude' maraude.id %}">
+                    
+                  
+                        {% if maraude.benevole.all %}
+
+                          {% for benevole in maraude.benevole.all %}
+                            {% if user.benevole.id == benevole.id %}
+                          
+                  
+                              <input type="hidden" value="S'inscrire" />
+                              
+                              <p>Vous etes inscrit à cette maraude </p>
+                          
+                            {% else %}
+                            {% if user.is_authenticated and user.benevole.id != benevole.id %}
+                      
+                              <input type="submit" value="S'inscrire" class="detail-btn-benevole"/>
+                            {% endif %}
+                          {% endif %}
+                          {% endfor %}
+                          {% else %}
+                          {% if user.is_authenticated and user.benevole.id != benevole.id %}
+                            <input type="submit" value="S'inscrire" class="detail-btn-benevole"/>
+                            {% endif %}
+                        {% endif %}
+
+                    
+                      </form>
+                      {% if maraude.benevole.all %}
+
+                        {% for benevole in maraude.benevole.all %}
+                          {% if user.benevole.id == benevole.id %}
+                          {% for benevole in maraude.benevole.all %}
+                              {% if user.benevole.id == benevole.id %}
+                              <form action="{% url 'desinscription_maraude' maraude.id %}">
+                                <input type="submit" value="Se désincrire" class="detail-btn-benevole" />
+                              </form>
+                              {% endif %}
+                            {% endfor %}
+                          {% endif %}
+                        {% endfor %}
+                      {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id='map' width="100%" style='width: 100%%; height: 300px;'></div>
+  </section>
+<!-- End of Content -->
+
+
 
 {% endblock content %}
 {% block script %}
 <script>
-  console.log("hello")
 
-  mapboxgl.accessToken = 'pk.eyJ1IjoiemVyYWlzc2UiLCJhIjoiY2tibmUwazdxMXJvaTJycHZxZXpuajhsZSJ9.wi3tj3MLF6IaELpfmHpLzw';
-  var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v10',
-    center: [2.333333 , 48.866667],
-    zoom: 11
-  });
-  console.log(map)
 
-  // Add zoom and rotation controls to the map.
-  map.addControl(
-    new MapboxGeocoder({
-    accessToken: mapboxgl.accessToken,
-    mapboxgl: mapboxgl
-    })
-  );
+mapboxgl.accessToken = 'pk.eyJ1IjoiemVyYWlzc2UiLCJhIjoiY2tibmUwazdxMXJvaTJycHZxZXpuajhsZSJ9.wi3tj3MLF6IaELpfmHpLzw';
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v10',
+center: [2.333333 , 48.866667],
+zoom: 11
+});
+console.log(map)
+
+// Add zoom and rotation controls to the map.
+map.addControl(
+new MapboxGeocoder({
+accessToken: mapboxgl.accessToken,
+mapboxgl: mapboxgl
+})
+);
 var x = document.getElementsByClassName("mapboxgl-ctrl-geocoder--input");
-  console.log(x)
-    
+console.log(x)
+
 </script>
 
 {% endblock script %}

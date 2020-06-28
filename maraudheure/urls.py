@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path,include
 from users import views as users_views
+from maraudheure import views
 from maraude import views as maraude_views
 from django.conf import settings
 from django.conf.urls.static import static
@@ -23,6 +24,8 @@ urlpatterns = [
     path("reset_password/done", PasswordResetDoneView.as_view(), name='password_reset_done'),
     path('reset_password/confirm/<uidb64>/<token>/', PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
     path('reset_password/complete/', PasswordResetCompleteView.as_view(), name='password_reset_complete'),
+
+    path('select/type/account', views.account_type, name='account_type'),
 
     path('maraudes/', include('maraude.maraude_url')),
     path('users/', include('users.user_url')),

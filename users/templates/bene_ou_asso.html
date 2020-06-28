@@ -1,0 +1,40 @@
+{% extends 'theme.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/creationCompte.css' %}">
+  
+{% endblock %}
+{% block content %}
+ <!-- Content -->
+            <div class="content-creation-wrapper">
+                <div class="content-creation-wrapper-left">
+                    <div class="content-creation-title-left">
+                        <h1 class="title-left">
+                            Créer un compte Bénévole
+                        </h1>
+                    </div>
+                    <div class="content-creation-image">
+                        <a href="{% url 'create_benevole'%}"> <img src="{% static 'images/test.png'%}" class="img-benevole" ></a>
+                    </div>
+                </div>
+                <div class="content-wrapper-right">
+                    <div class="content-creation-title-left">
+                        <h1 class="title-left">
+                            Créer un compte d'association
+                        </h1>
+                    </div>
+                    <div class="content-creation-image">
+                        <a href="{% url 'inscription_association'%}"><img src="{% static 'images/assos.jpg'%}" class="img-association"></a>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Content -->
+ 
+{% endblock content %}
+
+
+
+            
+
+
+
