@@ -34,6 +34,34 @@ html {
 }
 /* End of Common styles*/
 
+/*Error messages*/
+.warning-edit-add{
+    font-size: 3.5rem;
+    margin: 3.5rem;
+    text-align: center;
+    color: green;
+    border: 2px solid green;
+}
+
+.warning-edit-modify{
+    font-size: 3.5rem;
+    margin: 3.5rem;
+    text-align: center;
+    color: orange;
+    border: 2px solid orange;
+
+}
+
+.warning-edit-remove{
+    font-size: 3.5rem;
+    margin: 3.5rem;
+    text-align: center;
+    color: red;
+    border: 2px solid red;
+}
+
+/* End errors messages*/
+
 
 /* Navbar */
 .content-creation-image {

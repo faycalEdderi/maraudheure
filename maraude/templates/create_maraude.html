@@ -3,6 +3,7 @@
 {% load widget_tweaks %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/ajouterMaraude.css'%}" />
+<link href="{% static 'css/jquery.timepicker.css' %}" rel="stylesheet">
 {% endblock %}
 {% block content %}
 
@@ -15,7 +16,7 @@
             <h1 class="center title-add-maraude">Ajouter une maraude</h1>
                 <div class="form-edit">
                     <div class="form-add-maraude">
-                        <form enctype='multipart/form-data' method="POST">    
+                        <form id="formSub" enctype='multipart/form-data' method="POST">    
                         {% csrf_token %}
                             <fieldset>
                                 <legend>
@@ -24,8 +25,8 @@
                                 </legend>
                                 {{form.image|attr:"placeholder:Image"}}
                                 
-                                {{form.heure_debut|attr:"placeholder:Heure de debut"}}
-                                {{form.heure_fin|attr:"placeholder:Heure de fin"}}
+                                {{form.heure_debut|attr:"placeholder:Heure de debut"|attr:"id:debut"}}
+                                {{form.heure_fin|attr:"placeholder:Heure de fin"|attr:"id:fin"}}
                                 {{form.date|attr:"placeholder:Date"|attr:"type:date"}}
                                 {{form.adresse|attr:"placeholder:Adresse"|attr:"type:text"}}
                                 {{form.arrondissement|attr:"placeholder:Arrondissement"}}
@@ -58,3 +59,24 @@
 {% endif %}
 
 {% endblock content %}
+
+{% block scripts %}
+ <script src="{% static 'javascript/jquery.timepicker.min.js'%}"></script>
+
+<script>
+
+$('.timepicker').timepicker({
+   timeFormat: 'H:i'
+});
+
+
+
+$( "#formSub" ).submit(function( event ) {
+  var hDebut = $('#debut').value();
+  console.log(hDebut)
+});
+
+
+</script>
+
+{% endblock  %}

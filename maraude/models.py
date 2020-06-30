@@ -63,12 +63,12 @@ class Maraude(models.Model):
         null=True
     )
     heure_debut = models.CharField(
-        max_length= 2, 
+        max_length= 7, 
         blank=True, 
         null=True
     )
     heure_fin = models.CharField(
-        max_length= 2, 
+        max_length= 7, 
         blank=True, 
         null=True
     )

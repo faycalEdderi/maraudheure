@@ -17,15 +17,20 @@ class CreateMaraudeForm(forms.ModelForm):
         label='Description : ',
         required=False,
         error_messages={'required': 'Veuillez entrer une description'},
+        widget=forms.Textarea 
 
     )
+    
     heure_debut = forms.CharField(
+        widget=forms.DateInput(attrs={'class':'timepicker'}),
         label='Heure de debut : ',
         required=False,
         error_messages={'required': 'Veuillez entrer une heure de debut'},
 
     )
+
     heure_fin = forms.CharField(
+        widget=forms.DateInput(attrs={'class':'timepicker'}),
         label='Heure de fin : ',
         required=False,
         error_messages={'required': 'Veuillez entrer une heure de fin'},

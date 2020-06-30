@@ -26,6 +26,7 @@ urlpatterns = [
     path('reset_password/complete/', PasswordResetCompleteView.as_view(), name='password_reset_complete'),
 
     path('select/type/account', views.account_type, name='account_type'),
+    path('contact', views.contact, name='contact'),
 
     path('maraudes/', include('maraude.maraude_url')),
     path('users/', include('users.user_url')),

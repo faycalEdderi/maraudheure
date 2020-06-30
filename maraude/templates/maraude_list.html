@@ -9,11 +9,13 @@
                 <button class="btn btn-primary" type="submit">Rechercher</button>
             </form>
 <div class="contenuSearch">
-    <div class="list-asso">
-        <div class="card-deck">
+    <div class="list-asso " style="overflow-y: scroll;">
+        <div class="card-deck ">
         
         {% for maraude in maraudes %}
-            <div class="card bg-light mb-3" style="max-width: 18rem;">
+     
+        <div class="grid ">
+            <div class="card text-dark mb-3" style="max-width: 18rem;">
                 <div class="card-header"><a href="{% url 'maraude_detail' maraude.id %}">{{maraude.association}}</a></div>
                 <div class="card-body">
                     <h5 class="card-title">{{maraude.arrondissement}}</h5>
@@ -21,7 +23,8 @@
                     <p class="card-text">{{maraude.heure_debut}}h - {{maraude.heure_fin}}h </p>
                 </div>
             </div>
-            {% endfor %}
+        </div>
+        {% endfor %}
         </div>
     </div>
     <div>

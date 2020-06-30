@@ -1,0 +1,23 @@
+{% extends 'theme.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/nousContacter.css' %}" />
+  
+{% endblock %}
+{% block content %}
+        
+            <!-- Content -->
+            <div class="form-contact">
+                <h1>Nous contacter</h1>
+                <form method="POST" >
+                    {% csrf_token %}
+                    {{form.prenom|attr:"placeholder:Prénom* "}}
+                    {{form.email|attr:"placeholder:Adresse mail* "}}
+                    {{form.message|attr:"placeholder:Écrivez ce que vous avez à dire* "}}
+                   
+                    <input type="submit" value="Envoyer" />
+                </form>
+            </div>
+            <!-- End of Content -->
+{% endblock %}
