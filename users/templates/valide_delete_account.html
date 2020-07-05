@@ -1,13 +1,30 @@
 {% extends 'theme.html' %}
 {% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/maraudeDetail.css' %}">
+    <link rel="stylesheet" href="{% static 'css/button.css' %}" />
+
+{% endblock %}
 {% block content %}
+    <!-- Content -->
+<section class="maraude-detail-wrapper">
+ 
+    <div class="detail-wrapper">
+ 
+            
+        <div class="detail-text">
+            <div class="name_maraude">
+                <h1 class="detail-fullname">Etes vous sûre de vouloir supprimer votre compte ?</a></h1>
+            </div>
+            <h1 class ="detail-paragraph-date"><span class="underline">Cette action est irreversible, toutes vos données seront supprimés </span> </h1>
+            <a href="{% url 'delete_user' user.id%}" class="navbar-link center">Supprimer mon compte</a>
+        </div> 
+    </div>
+ 
+  </section>
+<!-- End of Content -->
 
-<div class="content-wrapper-right"> 
-    <h1>Etes vous sure de vouloir supprimer votre compte ?</h1>
-    <h4>Cette action est irreversible toutes vos données seront supprimés</h4>
 
-    <a href="{% url 'delete_user' user.id%}" class="navbar-link center">Supprimer mon compte</a>
-</div>                 
-  
+
 {% endblock content %}
 
