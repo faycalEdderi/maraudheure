@@ -32,6 +32,15 @@ html {
     margin: 3rem;
     overflow: hidden;
 }
+.mapAcceuil{
+    margin-top: 20px;
+    left: 0;
+    top: 0;
+   
+    height: 400px;
+}
+
+
 /* End of Common styles*/
 
 /*Error messages*/

@@ -2,15 +2,17 @@
 {% load static %}
 {% block css %}
     <link rel="stylesheet" href="{% static 'css/maraudeDetail.css' %}">
-    <link rel="stylesheet" href="{% static 'css/button.css' %}" />
-
 {% endblock %}
 {% block content %}
     <!-- Content -->
 <section class="maraude-detail-wrapper">
+
+
     <div class="maraude-detail">
         <p class="title-maraude-detail">Les maraudes en détail</p>
+        
     </div>
+      
     <div class="detail-wrapper">
         <div class="detail-img">
             <div class="detail">
@@ -34,7 +36,7 @@
                         {{maraude.description}}
                     </p>
                     <div class="date-button">
-                        <h1 class ="detail-paragraph-date"><span class="underline">Date</span> :{{maraude.date}}</h1>
+                        <h1 class ="detail-paragraph-date"><span class="underline">Date</span> : {{maraude.date}}</h1>
                         <h1 class ="detail-paragraph-date"><span class="underline">Heure</span> : {{maraude.heure_debut}}h - {{maraude.heure_fin}}h</h1>
                         
                         <form action="{% url 'inscription_maraude' maraude.id %}">
@@ -83,37 +85,15 @@
                 </div>
             </div>
         </div>
+         
+        
     </div>
-    <div id='map' width="100%" style='width: 100%%; height: 300px;'></div>
+    
   </section>
+
+  <div id='map' style=' margin:3rem; width: 100%; height: 300px;'></div>
 <!-- End of Content -->
 
 
 
 {% endblock content %}
-{% block script %}
-<script>
-
-
-mapboxgl.accessToken = 'pk.eyJ1IjoiemVyYWlzc2UiLCJhIjoiY2tibmUwazdxMXJvaTJycHZxZXpuajhsZSJ9.wi3tj3MLF6IaELpfmHpLzw';
-var map = new mapboxgl.Map({
-container: 'map',
-style: 'mapbox://styles/mapbox/streets-v10',
-center: [2.333333 , 48.866667],
-zoom: 11
-});
-console.log(map)
-
-// Add zoom and rotation controls to the map.
-map.addControl(
-new MapboxGeocoder({
-accessToken: mapboxgl.accessToken,
-mapboxgl: mapboxgl
-})
-);
-var x = document.getElementsByClassName("mapboxgl-ctrl-geocoder--input");
-console.log(x)
-
-</script>
-
-{% endblock script %}
