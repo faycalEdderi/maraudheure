@@ -5,16 +5,20 @@
     <title> Maraud'heure </title>
     <!-- CSS Files -->
     
-    <link href="{% static 'css/google_font.css' %}" rel="stylesheet">
-    
+
+ 
      <link rel="stylesheet" href="{% static 'css/core.css' %}" />
+     {% block css %}{% endblock %}
+    
      <link rel="stylesheet" href="{% static 'css/button.css' %}" />
+
+
+      
 
 
 <!--CSS RESPONSIVE-->
    
    
-    {% block css %}{% endblock %}
     
     </head>
 
@@ -50,16 +54,27 @@
             <!-- End of Content -->
             </div>
         </div>
+
+
+
+
+
+
+
         <div class="footer-wrapper">
             {% include 'footer.html' %}
         </div>
-        <!-- End of Footer -->
+    <!-- End of Footer -->
+
         <script src="{% static 'javascript/maraude_detail.js'%}"></script>
         <script src="{% static 'javascript/jquery.min.js'%}"></script>
         <script src="{% static 'javascript/popper.min.js'%}" ></script>
         <script src="{% static 'javascript/bootstrap.min.js'%}"></script>
         <script src="{% static 'javascript/vendor.js'%}"></script>
-       
+         <script src="{% static 'javascript/jquery.ihavecookies.min.js' %}"></script>
+
+
+
 
       {% block scripts %}{% endblock  %}
     </body>

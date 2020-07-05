@@ -24,12 +24,13 @@ urlpatterns = [
     path("reset_password/done", PasswordResetDoneView.as_view(), name='password_reset_done'),
     path('reset_password/confirm/<uidb64>/<token>/', PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
     path('reset_password/complete/', PasswordResetCompleteView.as_view(), name='password_reset_complete'),
+    
 
     path('select/type/account', views.account_type, name='account_type'),
     path('contact', views.contact, name='contact'),
+    path('cgu', views.cgu, name='cgu'),
 
     path('maraudes/', include('maraude.maraude_url')),
     path('users/', include('users.user_url')),
 
-    path('maps', include('maps.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

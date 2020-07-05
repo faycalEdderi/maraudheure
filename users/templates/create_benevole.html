@@ -68,11 +68,7 @@
                 {{form.email}}
                 {{form.email.error}}
             </div>
-            <div class="content-creation-input">
-                    <label class="mailpass">{{form.image.label}}</label>
-                {{form.image}}
-                {{form.image.error}}
-            </div>
+           
             <div class="content-creation-input">
                 <label class="mailpass">{{form.password1.label}}</label>
 
@@ -84,6 +80,11 @@
 
                 {{form.password2.error}}
                 {{form.password2}}
+            </div>
+            <div class="content-creation-input">
+                    <label class="prenom">J'ai lu et j'accepte les <a href="{% url 'cgu'%}">Conditions Générales d'Utilisation</a></label>
+                    {{form.cgu}}
+                    {{form.cg.error}}
             </div>
             <input type="submit" value="Valider" class="form-btn-creation"/>
         </form>

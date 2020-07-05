@@ -40,10 +40,8 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'maraude.apps.MaraudeConfig',
     'django_filters',
-    'maps',
     'django_cleanup.apps.CleanupConfig',
-    'widget_tweaks',
-     
+    'widget_tweaks',     
 ]
 
 MIDDLEWARE = [

@@ -14,13 +14,6 @@ class CreateBenevoleForm(forms.ModelForm):
         error_messages={'required': 'Veuillez entrer une Adresse Mail'},
 
     )
-    image = forms.ImageField(
-        label="Photo de profil :",
-        required=False,
-        error_messages={ 'invalid': "Veuillez selectionner uniquement un fichier de type "
-                                    "image"},
-        widget=forms.FileInput,
-    )
     username = forms.CharField(
         required=False,
     )
@@ -65,12 +58,12 @@ class CreateBenevoleForm(forms.ModelForm):
         required=False,  
            
     )
+    cgu = forms.BooleanField(required=True)
 
     class Meta:
         model = Benevole
         fields = (
             'email',
-            'image',
             'username',
             'first_name',
             'last_name',
@@ -124,20 +117,16 @@ class CreateAssociationForm(forms.ModelForm):
         required=True,  
            
     )
-
-
+    cgu = forms.BooleanField(required=True)
 
     
     class Meta:
         model = Association
         fields = (
             'username',
-            
-            
             'email',
             'password1',
             'password2',
-           
             'num_rna',
             'nom_association',
             'siege_social',

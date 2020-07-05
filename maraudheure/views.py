@@ -6,13 +6,14 @@ from .form import *
 from django.core.mail import send_mail
 
 
-
-
-
 # Fonction d'affichage de la page permettant de selectionné le type de profil a creer
 def account_type(request):
     return render(request, "bene_ou_asso.html")
 
+def cgu(request):
+    return render(request, "cgu.html")
+
+# fonction de prise de contact avec admin
 def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST or None)

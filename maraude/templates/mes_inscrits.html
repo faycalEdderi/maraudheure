@@ -1,7 +1,10 @@
 {% extends 'theme.html' %}
 {% load static %}
 {% block css %}
+<link rel="stylesheet" href="{% static 'css/core.css' %}" />
+     
     <link rel="stylesheet" href="{% static 'css/maraudeDetail.css' %}">
+    <link rel="stylesheet" href="{% static 'css/button.css' %}" />
  
 {% endblock %}
 {% block content %}
@@ -10,51 +13,57 @@
 
 
              <!-- Content -->
-            <section class="maraude-detail-wrapper">
-                <div class="maraude-detail">
-                    <p class="title-maraude-detail">
-                        Les maraudes en détail
-                    </p>
-                    <a  href="{% url 'delete_maraude'  maraude.id %}">Supprimer</a>
-                    <a  href="{% url 'edit_maraude'  maraude.id %}">Modifier</a>
-                  </div>
-                <div class="detail-wrapper">
-                    <div class="detail-img">
-                        <div class="detail">
-                        {% if maraude.association.image %}
-                          <img class="detail-image"  src="{{ maraude.association.image.url }}"
-                               alt="photo de profil" >
-                          {% else %}
-                          <img class="detail-image"  src="{% static "images/avatar.png"%}" alt="photo de profil par défaut">
-                        {% endif %}
-                          
-                            <div class="detail-text">
-                                <div class="name_maraude">
-                                    <h1 class="detail-fullname"> {{ maraude.association }}</h1>
-                                </div>
-                                <h1 class ="detail-paragraph-date"><span class="underline">Adresse</span> : {{ maraude.adresse }}</h1>
-                                <p class="detail-paragraph">
-                                   {{ maraude.description }}
-                                </p>
-                                <p class="detail-paragraph">
-                                Distribution :
-                                {% for produit in  maraude.produit.all %}
-                                   {{ produit }},
-                                  {% endfor %}
-                                </p>
-                                <div class="date-button">
-                                    <h1 class ="detail-paragraph-date"><span class="underline">Date</span> :{{ maraude.date }}</h1>
-                                    <h1 class ="detail-paragraph-date"><span class="underline">Horaire</span> : {{ maraude.heure_debut }}h {{ maraude.heure_fin }}h</h1>
-                                    
-                                    <h1 class ="detail-paragraph-date"><span class="underline">Benevoles</span> :
-                                    {% for benevole in maraude.benevole.all %}
-                                    <p class ="profil-paragraph-date"><a href="{% url "benevole_public_profil" benevole.id %}">{{ benevole.first_name|capfirst }} {{ benevole.last_name|capfirst  }} </a></p>
-                                {% endfor %}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<section class="maraude-detail-wrapper">
+    <div class="maraude-detail">
+        <p class="title-maraude-detail">
+        Les maraudes en détail
+        </p>
+
+
+    </div>
+    <div class="detail-wrapper">
+        <form action="{% url 'edit_maraude'  maraude.id %}">
+            <input type="submit" value="Editer cette maraude" class="btn-maraude-edit-detail"/><br/>
+        </form>
+    <div class="detail-img">
+        <div class="detail">
+        {% if maraude.association.image %}
+            <img class="detail-image"  src="{{ maraude.association.image.url }}"
+                alt="photo de profil" >
+            {% else %}
+            <img class="detail-image"  src="{% static "images/avatar.png"%}" alt="photo de profil par défaut">
+        {% endif %}
+            
+            <div class="detail-text">
+                <div class="name_maraude">
+                    <h1 class="detail-fullname"> {{ maraude.association }}</h1>
                 </div>
-              </section>
-            <!-- End of Content -->
+                <h1 class ="detail-paragraph-date"><span class="underline">Adresse</span> : {{ maraude.adresse }}</h1>
+                <p class="detail-paragraph">
+                    {{ maraude.description }}
+                </p>
+                <p class="detail-paragraph">
+                Distribution :
+                {% for produit in  maraude.produit.all %}
+                    {{ produit }},
+                    {% endfor %}
+                </p>
+                <div class="date-button">
+                    <h1 class ="detail-paragraph-date"><span class="underline">Date</span> :{{ maraude.date }}</h1>
+                    <h1 class ="detail-paragraph-date"><span class="underline">Horaire</span> : {{ maraude.heure_debut }} - {{ maraude.heure_fin }} </h1>
+                    
+                    <h1 class ="detail-paragraph-date"><span class="underline">Benevoles</span> :
+                    {% for benevole in maraude.benevole.all %}
+                    <p class ="profil-paragraph-date"><a href="{% url "benevole_public_profil" benevole.id %}">{{ benevole.first_name|capfirst }} {{ benevole.last_name|capfirst  }} </a></p>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <form action="{% url 'delete_maraude'  maraude.id %}">
+        <input type="submit" value="Supprimer cette maraude" class="btn-maraude-remove-detail"/>
+    </form>
+    </div>
+</section>
+<!-- End of Content -->
 {% endblock content %}

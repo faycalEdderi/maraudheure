@@ -6,64 +6,69 @@
 {% block content %}
  <!-- Content -->
   
-                <div class="content-creation-wrapper-left">
-                    <div class="content-creation-title-left">
-                        <h1 class="title-left">
-                            Donnez-vous du pouvoir, <br/> devenez bénévole
-                        </h1>
-                    </div>
-                    <div class="content-creation-image">
-                        <img
-        src="{% static 'images/personnage_logo.png' %}" 
-        alt="Header Image"
-        class="header-image"
-        />
-                    </div>
+    <div class="content-creation-wrapper-left">
+        <div class="content-creation-title-left">
+        <h1 class="title-left">
+        VOTRE TEMPS EST VOTRE PLUS <br/> IMPORTANTE CONTRIBUTION 
+        </h1>
+        </div>
+        <div class="content-creation-image">
+            <img
+            src="{% static 'images/personnage_logo.png' %}" 
+            alt="Header Image"
+            class="header-image"
+            />
+        </div>
+    </div>
+    <div class="content-wrapper-right">
+        <form method="POST" enctype='multipart/form-data' class="content-creation-form">
+            {% csrf_token %}
+            <h1 class="content-creation-title-right">
+            Créer un compte d'association
+            </h1>
+            <div class="content-creation-fullname">
+                <div class="content-creation-input">
+                <label class="nom"> {{form.nom_association.label}}</label>
+                {{form.nom_association}}
                 </div>
-                <div class="content-wrapper-right">
-                   <form method="POST" enctype='multipart/form-data' class="content-creation-form">
-                    {% csrf_token %}
-                        <h1 class="content-creation-title-right">
-                            Créer un compte d'association
-                        </h1>
-                        <div class="content-creation-fullname">
-                            <div class="content-creation-input">
-                                <label class="nom"> {{form.nom_association.label}}</label>
-                                 {{form.nom_association}}
-                            </div>
-                            <div class="content-creation-input">
-                                <label class="numeroRNA">{{form.num_rna.label}}</label>
-                               {{form.num_rna}}
-                                  {{form.num_rna.error}}
-                            </div>
-                        </div>
-                        <div class="content-creation-input">
-                            <label class="mailpass">{{form.siege_social.label}}</label>
-                                {{form.siege_social}}
-                                {{form.siege_social.error}}
-                        </div>
-                        <div class="content-creation-input">
-                            <label class="mailpass">{{form.email.label}}</label>
-                            {{form.email.error}}
-                            {{form.email}}
-                        </div>
-                        <div class="content-creation-input">
-                           <label class="mailpass">{{form.password1.label}}</label>
-                            {{form.password1.error}}
-                            {{form.password1}}
-                        </div>
-                        <div class="content-creation-input">
-                           <label class="mailpass">{{form.password2.label}}</label>
-                            {{form.password2.error}}
-                            {{form.password2}}
-                        </div>
-                        
-                        <input type="submit" value="Valider" class="form-btn-creation"/>
-                    </form>
+                <div class="content-creation-input">
+                <label class="numeroRNA">{{form.num_rna.label}}</label>
+                {{form.num_rna}}
+                {{form.num_rna.error}}
                 </div>
             </div>
-            <!-- End of Content -->
-            
-     
+            <div class="content-creation-input">
+                <label class="mailpass">{{form.siege_social.label}}</label>
+                {{form.siege_social}}
+                {{form.siege_social.error}}
+            </div>
+            <div class="content-creation-input">
+                <label class="mailpass">{{form.email.label}}</label>
+                {{form.email.error}}
+                {{form.email}}
+            </div>
+            <div class="content-creation-input">
+                <label class="mailpass">{{form.password1.label}}</label>
+                {{form.password1.error}}
+                {{form.password1}}
+            </div>
+            <div class="content-creation-input">
+                <label class="mailpass">{{form.password2.label}}</label>
+                {{form.password2.error}}
+                {{form.password2}}
+            </div>
+            <div class="content-creation-input">
+                    <label class="prenom">J'ai lu et j'accepte les <a href="{% url 'cgu'%}">Conditions Générales d'Utilisation</a></label>
+                    {{form.cgu}}
+                    {{form.cg.error}}
+            </div>
 
-{% endblock content %}
+            <input type="submit" value="Valider" class="form-btn-creation"/>
+        </form>
+        </div>
+    </div>
+    <!-- End of Content -->
+
+
+
+    {% endblock content %}

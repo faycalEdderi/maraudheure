@@ -15,6 +15,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-bottom: 2px solid #000;
 }
 
 .detail-img {
@@ -22,10 +23,13 @@
     /*space dans la story*/
     padding: 5rem;
     /*space between stories*/
-    margin: 5rem;
     /*horizontal*/
     width: 100%;
     border: 2px solid var(--secondary-color);
+}
+
+.detail-margin {
+    margin: 5rem;
 }
 
 .detail {
@@ -87,6 +91,7 @@
     display: flex;
     justify-content: space-between;
 }
+
 /* End of Content */
 
 @media(max-width: 870px){

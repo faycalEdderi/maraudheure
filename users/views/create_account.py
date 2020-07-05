@@ -44,7 +44,7 @@ def connexion(request):
 def create_benevole(request):
 
     if request.method == 'POST':
-        form = CreateBenevoleForm(request.POST or None , request.FILES or None)
+        form = CreateBenevoleForm(request.POST or None )
 
 
         print("Request : ", request.POST)
@@ -54,7 +54,7 @@ def create_benevole(request):
           
             nom = request.POST['last_name']
             prenom = request.POST['first_name']
-            image = request.FILES.get('image') 
+             
 
             mdp1 = request.POST['password1']
             mdp2 = request.POST['password2']
@@ -67,7 +67,6 @@ def create_benevole(request):
                 email = email, 
                 first_name = prenom,
                 last_name = nom,
-                image= image,
                 role=get_role
             )
          
@@ -80,15 +79,15 @@ def create_benevole(request):
             else:
                 messages.error(request, "Les mots de passes ne sont pas identiques")
                 return redirect('inscription_benevole')
-            '''
+            
             send_mail(
                 'Votre compte a été créé',
-                'Votre mdp : ' + mdp,
-                'Admin@expleogroup.com',
+                'Bienvenue sur Maraudheure: ' + prenom + nom,
+                'Admin@maraudheure.com',
                 [email],
                 fail_silently=False,
             )
-            '''
+            
             return redirect('connexion')
         else:
             messages.error(request, "Error")
@@ -112,20 +111,11 @@ def create_association(request):
         if form.is_valid():
 
             email = request.POST['email']
-          
-           
-           
             mdp1 = request.POST['password1']
             mdp2 = request.POST['password2']
-
-            
-
             num_rna = request.POST['num_rna']
             nom_association = request.POST['nom_association']
             siege = request.POST['siege_social']
-        
-
-
             select_role = Role.objects.get(role_name = "association" )
             get_role = Role.objects.get(id = select_role.id )
 
@@ -134,16 +124,10 @@ def create_association(request):
             new_association = Association(
                 username = nom_association,  
                 email = email, 
-                
-               
-                
                 role=get_role,
                 num_rna = num_rna,
                 nom_association = nom_association,
                 siege_social = siege,
-                
-                
-                
             )
          
             if mdp1 == mdp2:
@@ -155,15 +139,14 @@ def create_association(request):
             else:
                 messages.error(request, "Les mots de passes ne sont pas identiques")
                 return redirect('inscription_association')
-            '''
+
             send_mail(
                 'Votre compte a été créé',
-                'Votre mdp : ' + mdp,
-                'Admin@expleogroup.com',
+                'Bienvenue sur Maraudheure: ' + nom_association,
+                'Admin@maraudheure.com',
                 [email],
                 fail_silently=False,
             )
-            '''
             return redirect('connexion')
         else:
             messages.error(request, form.errors)
