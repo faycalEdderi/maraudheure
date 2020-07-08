@@ -40,22 +40,15 @@ def connexion(request):
         form = AuthenticationForm()
     return render(request, 'connexion.html', {'form': form})
 
-    # Fonction de création utilisateur
+# Fonction de création bénévole
 def create_benevole(request):
-
     if request.method == 'POST':
         form = CreateBenevoleForm(request.POST or None )
-
-
         print("Request : ", request.POST)
         if form.is_valid():
-
             email = request.POST['email']
-          
             nom = request.POST['last_name']
             prenom = request.POST['first_name']
-             
-
             mdp1 = request.POST['password1']
             mdp2 = request.POST['password2']
 
@@ -69,11 +62,8 @@ def create_benevole(request):
                 last_name = nom,
                 role=get_role
             )
-         
             if mdp1 == mdp2:
-
                 new_benevole.set_password(mdp1)
-        
                 new_benevole.save()
                 print("user created")
             else:
@@ -87,12 +77,10 @@ def create_benevole(request):
                 [email],
                 fail_silently=False,
             )
-            
             return redirect('connexion')
         else:
             messages.error(request, "Error")
             return redirect('create_benevole')
-
     else:
         form = CreateBenevoleForm()
         args = {
@@ -101,9 +89,7 @@ def create_benevole(request):
 
         return render(request, 'create_benevole.html', args)
 
-
 def create_association(request):
-
     if request.method == 'POST':
         form = CreateAssociationForm(request.POST, request.FILES)
 
@@ -119,8 +105,6 @@ def create_association(request):
             select_role = Role.objects.get(role_name = "association" )
             get_role = Role.objects.get(id = select_role.id )
 
-            
-            
             new_association = Association(
                 username = nom_association,  
                 email = email, 

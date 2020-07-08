@@ -1,5 +1,48 @@
 let $map = document.querySelector('#map')
 
+
+class MapBox {
+    constructor() {
+        this.map = null
+    }
+
+    async load(){
+        mapboxgl.accessToken = 'pk.eyJ1IjoibmFzc2ltOTUxIiwiYSI6ImNrYzI5ODM4ZjIxZHEyd214czE1Y2draXUifQ.vb6BRjY6H2EOmgSlU5fBdA';
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/nassim951/ckcaitjh04rsw1ipe4qjf5rz2', // style URL
+            center: [2.333333, 48.866667],
+            zoom: 10
+          });
+
+          map.on('click', function(e) {
+            var features = map.queryRenderedFeatures(e.point, {
+              layers: ['maraude']
+            });
+            if (!features.length) {
+              return;
+            }
+          
+            var feature = features[0];
+          
+            var popup = new mapboxgl.Popup({ offset: [0, -15] })
+              .setLngLat(feature.geometry.coordinates)
+              .setHTML('<h3>' + feature.properties.title + '</h3><p>' + feature.properties.description + '</p>')
+              .addTo(map);
+          });
+
+           // Add zoom and rotation controls to the map.
+           map.addControl(
+            new MapboxGeocoder({
+            accessToken: mapboxgl.accessToken,
+            mapboxgl: mapboxgl
+            })
+            );
+
+        }
+        
+}
+// VERSION AVEC MAPS
 class GoogleMap {
 
     constructor() {
@@ -45,18 +88,18 @@ class GoogleMap {
     /**
      * centre la map pour englober les markers
      */
-    // centerMap(){
-    //     this.map.panToBounds(this.bounds)
-    //     this.map.fitBounds(this.bounds)
-    // }
+    centerMap(){
+        this.map.panToBounds(this.bounds)
+        this.map.fitBounds(this.bounds)
+    }
 }
 
 const initMap = async function (){
-    let map = new GoogleMap()
+    let map = new MapBox()
     await  map.load($map)
-    Array.from(document.querySelectorAll('.item')).forEach(element => {
-        map.addMarker(item.dataset.lat, item.dataset.lng)
-    })   
+    // Array.from(document.querySelectorAll('.item')).forEach(element => {
+    //     map.addMarker(item.dataset.lat, item.dataset.lng)
+    // })   
     // map.centerMap()
 }
 
