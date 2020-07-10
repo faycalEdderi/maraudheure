@@ -16,7 +16,7 @@ def inscription_maraude(request, pk=None):
     maraude.benevole.add(benevole)
     maraude.save()
   
-    return redirect('my_maraude')
+    return redirect('home')
     
 # fonction d'inscription a une maraude pour un bénévole
 def desinscription_maraude(request, pk=None):

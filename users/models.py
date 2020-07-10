@@ -26,6 +26,8 @@ class Benevole(User):
 
     role = models.ForeignKey(Role, null=True, on_delete=models.CASCADE)
 
+    
+
     image = models.ImageField(
         upload_to=upload_location,
         null=True,

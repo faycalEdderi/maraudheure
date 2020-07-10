@@ -39,48 +39,30 @@
                         <h1 class ="detail-paragraph-date"><span class="underline">Date</span> : {{maraude.date}}</h1>
                         <h1 class ="detail-paragraph-date"><span class="underline">Heure</span> : {{maraude.heure_debut}}h - {{maraude.heure_fin}}h</h1>
                         
-                        <form action="{% url 'inscription_maraude' maraude.id %}">
-                    
-                  
-                        {% if maraude.benevole.all %}
+                        {% if is_inscrit %}
+                         <p>Vous etes inscrit à cette maraude </p>
+                          <form action="{% url 'desinscription_maraude' maraude.id %}">
+                                <input type="submit" value="Se désincrire" class="detail-btn-benevole" />
+                        </form>
+                        
+                        {%else%}
+                          {% if user.is_authenticated %}
 
-                          {% for benevole in maraude.benevole.all %}
-                            {% if user.benevole.id == benevole.id %}
-                          
-                  
-                              <input type="hidden" value="S'inscrire" />
-                              
-                              <p>Vous etes inscrit à cette maraude </p>
-                          
-                            {% else %}
-                            {% if user.is_authenticated and user.benevole.id != benevole.id %}
-                      
+                            <form action="{% url 'inscription_maraude' maraude.id %}">
+
                               <input type="submit" value="S'inscrire" class="detail-btn-benevole"/>
-                            {% endif %}
+                            </form>
+                            {%else%}
+                          <p>Vous devez <a href="{% url 'connexion' %}">  vous connecter</a> pour vous inscrire à cette maraude </p>
+                          <p>Vous pouvez vous  <a href="{% url 'account_type' %}">créer un compte</a> si vous n'en avez pas </p>
                           {% endif %}
-                          {% endfor %}
-                          {% else %}
-                          {% if user.is_authenticated and user.benevole.id != benevole.id %}
-                            <input type="submit" value="S'inscrire" class="detail-btn-benevole"/>
-                            {% endif %}
+                          
                         {% endif %}
 
-                    
-                      </form>
-                      {% if maraude.benevole.all %}
+                        
+                        
 
-                        {% for benevole in maraude.benevole.all %}
-                          {% if user.benevole.id == benevole.id %}
-                          {% for benevole in maraude.benevole.all %}
-                              {% if user.benevole.id == benevole.id %}
-                              <form action="{% url 'desinscription_maraude' maraude.id %}">
-                                <input type="submit" value="Se désincrire" class="detail-btn-benevole" />
-                              </form>
-                              {% endif %}
-                            {% endfor %}
-                          {% endif %}
-                        {% endfor %}
-                      {% endif %}
+                          
                     </div>
                 </div>
             </div>

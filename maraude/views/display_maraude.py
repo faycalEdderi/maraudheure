@@ -24,10 +24,24 @@ def maraude_list(request):
 
 # afficher les details d'une maraude
 def maraude_detail(request, pk=None):
+    connected_user = request.user
+    is_inscrit=False
     select_maraude = Maraude.objects.get(id=pk)
+    print("user_connected", connected_user.id)
+    
+    for benevole in select_maraude.benevole.all():
+        print("all benevoles", benevole.id)
+
+        if connected_user.id == benevole.id:
+            is_inscrit = True
+            break
+        else:
+            is_inscrit=False
+        
     
     context = {
         "maraude": select_maraude,
+        "is_inscrit" : is_inscrit
     }
 
     return render(request, 'maraude_detail.html', context)
