@@ -87,13 +87,15 @@ html {
 .maraude-wrapper {
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
 .maraude {
     width: 35rem;
-    /*parent de back-side*/
+  
     position: relative;
     perspective: 150rem;
+    margin: 2rem;
 }
 
 .maraude-image {
@@ -107,11 +109,12 @@ html {
     background-color: var(--white-color);
     border-radius: 0.3rem;
     position: relative;
-    /*permet de se mettre en avant avec*/
+
     z-index: 10;
     opacity: 0.9;
-    transition: opacity 0.4s, transform 0.4s,
-        box-shadow 0.4s;
+    transition: opacity 0.4s, transform 0.4s;
+    box-shadow : 0.4s;
+    border: solid 1px #777;
 }
 
 .change > .front-side {
@@ -156,7 +159,6 @@ html {
     width: 100%;
     height: 100%;
     border-radius: 0.3rem;
-    box-shadow: 0 2rem 4rem #777;
     flex-direction: column;
     /*translateZ diminue*/
     transform: translateZ(-5rem)
@@ -259,10 +261,6 @@ html {
 
 
 @media(max-width: 1200px) {
-    .maraude-wrapper {
-        flex-direction: column;
-        align-items: center;
-    }
 
     .maraude {
         margin: 3rem 0;

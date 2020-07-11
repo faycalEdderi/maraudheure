@@ -1,16 +1,14 @@
 {% extends 'theme.html' %}
 {% load static %}
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/core.css' %}" />
-     
+
+ 
     <link rel="stylesheet" href="{% static 'css/maraudeDetail.css' %}">
     <link rel="stylesheet" href="{% static 'css/button.css' %}" />
+   
  
 {% endblock %}
 {% block content %}
-
-
-
 
              <!-- Content -->
 <section class="maraude-detail-wrapper">
@@ -27,13 +25,15 @@
         </form>
     <div class="detail-img">
         <div class="detail">
-        {% if maraude.association.image %}
-            <img class="detail-image"  src="{{ maraude.association.image.url }}"
-                alt="photo de profil" >
-            {% else %}
-            <img class="detail-image"  src="{% static "images/avatar.png"%}" alt="photo de profil par défaut">
-        {% endif %}
-            
+            <div class="image">
+                {% if maraude.association.image %}
+                    <img class="detail-image"  src="{{ maraude.association.image.url }}"
+                        alt="photo de profil" >
+                    {% else %}
+                    <img class="detail-image"  src="{% static "images/avatar.png"%}" alt="photo de profil par défaut">
+                {% endif %}
+            </div>
+                    
             <div class="detail-text">
                 <div class="name_maraude">
                     <h1 class="detail-fullname"> {{ maraude.association }}</h1>
@@ -53,15 +53,21 @@
                     <h1 class ="detail-paragraph-date"><span class="underline">Horaire</span> : {{ maraude.heure_debut }} - {{ maraude.heure_fin }} </h1>
                     
                     <h1 class ="detail-paragraph-date"><span class="underline">Benevoles</span> :
+                    <div class="scroller">
                     {% for benevole in maraude.benevole.all %}
-                    <p class ="profil-paragraph-date"><a href="{% url "benevole_public_profil" benevole.id %}">{{ benevole.first_name|capfirst }} {{ benevole.last_name|capfirst  }} </a></p>
-                {% endfor %}
+                        <p class ="profil-paragraph-date">
+                            
+                                <a href="{% url "benevole_public_profil" benevole.id %}">{{ benevole.first_name|capfirst }} {{ benevole.last_name|capfirst  }} </a>
+                            
+                        </p>
+                    {% endfor %}
+                </div>
                 </div>
             </div>
         </div>
     </div>
     <form action="{% url 'delete_maraude'  maraude.id %}">
-        <input type="submit" value="Supprimer cette maraude" class="btn-maraude-remove-detail"/>
+        <input type="submit" value="Supprimer cette maraude" class="btn-maraude-edit-detail"/>
     </form>
     </div>
 </section>

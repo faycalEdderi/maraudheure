@@ -1,4 +1,14 @@
 /* Content */
+.scroller {
+    width: 20rem;
+    font-size: 1.4rem;
+    height: 80px;
+    overflow-y: scroll;
+    scrollbar-color: var(--white-color) var(--secondary-color);
+    scrollbar-width: thin;
+    border: 2px solid grey;
+}
+
 .maraude-detail-wrapper {
     /*parent de video-container*/
     position: relative;
