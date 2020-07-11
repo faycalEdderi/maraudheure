@@ -1,5 +1,5 @@
 .form-btn-creation {
-    width: 50%;
+    width: 100%;
     padding: 1rem;
     font-size: 1.6rem;
     letter-spacing: 0.1rem;
@@ -35,7 +35,7 @@
 }
 
 .detail-btn-benevole {
-    width: 20%;
+    width: 100%;
     padding: 1rem;
     font-size: 1.6rem;
     letter-spacing: 0.1rem;
@@ -50,7 +50,7 @@
 }
 
 .detail-btn-association {
-    width: 30%;
+    width: 100%;
     padding: 1rem;
     font-size: 1.6rem;
     letter-spacing: 0.1rem;
@@ -65,7 +65,7 @@
 }
 
 .btn-list-maraude {
-    width: 40%;
+    width: 100%;
     padding: 1rem;
     font-size: 1.6rem;
     letter-spacing: 0.1rem;
@@ -80,7 +80,7 @@
 }
 
 .btn-profil-edit {
-    width: 40%;
+    width: 100%;
     padding: 1rem;
     font-size: 1.6rem;
     letter-spacing: 0.1rem;
@@ -110,7 +110,7 @@
 }
 
 .btn-maraude-remove-detail {
-    width: 25%;
+    width:100%;
     padding: 1rem;
     font-size: 1.6rem;
     letter-spacing: 0.1rem;
@@ -128,67 +128,27 @@
 @media(max-width: 1000px){
    
 
-    .detail-btn-association {
-        width: 60%;
-    }
+   
 }
 
 @media(max-width: 870px){
-    .detail-btn-benevole {
-        width: 60%;
-    }
-
-    .detail-btn-association {
-        width: 60%;
-    }
-
-    .btn-maraude-remove-detail {
-        width: 40%;
-    }
+   
 }
 
 @media(max-width: 650px){
-    .btn-list-maraude {
-        width: 60%;
-    }
-
-   
-
-    .btn-maraude-remove-detail {
-        width: 50%;
-    }
+    
 }
 
 @media(max-width: 510px){
-    .btn-maraude-remove-detail {
-        width: 60%;
-    }
+   
 }
 
 @media(max-width: 450px){
-    .btn-list-maraude {
-        width: 70%;
-    }
-
    
-
-    .btn-maraude-remove-detail {
-        width: 70%;
-    }
 }
 
 @media(max-width: 415px){
-    .form-btn-creation {
-        width: 75%;
-    }
-
-    .btn-list-maraude {
-        width: 80%;
-    }
-
-    .btn-maraude-remove-detail {
-        width: 80%;
-    }
+   
 }
 
 @media(max-width: 360px){
@@ -196,7 +156,5 @@
         width: 70%;
     }
 
-    .btn-list-maraude {
-        width: 90%;
-    }
+    
 }
