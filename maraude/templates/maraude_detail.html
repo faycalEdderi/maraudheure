@@ -29,8 +29,8 @@
                     <div class="name_maraude">
                         <h1 class="detail-fullname"><a href="{% url 'assoc_public_profil' maraude.association.id %}">{{maraude.association}}</a></h1>
                     </div>
-                    <h1 class ="detail-paragraph-date"><span class="underline">Adresse</span> :{{maraude.adresse}}</h1>
-                    <h1 class ="detail-paragraph-date"><span class="underline">Arrondissement</span> :{{maraude.arrondissement}}</h1>
+                    <h1 class ="detail-paragraph-date"><span class="underline">Adresse</span> : {{maraude.adresse}}</h1>
+                    <h1 class ="detail-paragraph-date"><span class="underline">Arrondissement</span> : {{maraude.arrondissement}}</h1>
                       
                     <p class="detail-paragraph">
                         {{maraude.description}}
@@ -40,7 +40,7 @@
                         <h1 class ="detail-paragraph-date"><span class="underline">Heure</span> : {{maraude.heure_debut}}h - {{maraude.heure_fin}}h</h1>
                         
                         {% if is_inscrit %}
-                         <p>Vous etes inscrit à cette maraude </p>
+                         <p>Vous êtes inscrit à cette maraude </p>
                           <form action="{% url 'desinscription_maraude' maraude.id %}">
                                 <input type="submit" value="Se désincrire" class="detail-btn-benevole" />
                         </form>

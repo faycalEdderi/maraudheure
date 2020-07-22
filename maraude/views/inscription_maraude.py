@@ -30,14 +30,14 @@ def desinscription_maraude(request, pk=None):
             maraude.benevole.remove(benevole)
         
             maraude.save()
-            messages.add_message(request, messages.INFO, 'Vous etes désinscrit de la maraude')
+            messages.add_message(request, messages.INFO, 'Vous êtes désinscrit de la maraude')
             return redirect('home')
         else:
             messages.error(request, "Une erreur s'est produite : votre compte n'a pas été supprimé")
     
             return redirect('desinscription_maraude')
     except:
-        messages.error(request, "Une erreur s'est produite : Vous n'etes pas autorisé à acceder à cette page")
+        messages.error(request, "Une erreur s'est produite : Vous n'êtes pas autorisé à acceder à cette page")
         return redirect('home')
     
 
