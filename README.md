@@ -1,4 +1,4 @@
-# maraudheure
+# Maraud'heure
 Projet de fin d'année réalisé dans le cadre de ma Licence responsable de projet informatique a l'école H3 Hitéma
 
 Ce site est developpé en Python via le framework Django
